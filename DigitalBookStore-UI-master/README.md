@@ -1,27 +1,88 @@
-# DigitalBookStoreUI
+# 📚 Digital Book Store - UI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+A modern and responsive Angular 16 frontend application for a Digital Book Store.
+Users can browse books, manage their cart, and complete purchases with JWT-based authentication.
 
-## Development server
+🔗 **Repository:** https://github.com/jyothiprakash893/DigitalBookStore-UI
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## 🛠️ Tech Stack
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+| Technology | Version |
+|------------|---------|
+| Angular | 16.2.x |
+| TypeScript | 5.1.x |
+| Bootstrap | 5.3.x |
+| FontAwesome | 6.7.x |
+| JWT Decode | 4.0.x |
+| RxJS | 7.8.x |
+| SASS | Latest |
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## ⚙️ Prerequisites
 
-## Running unit tests
+Make sure you have the following installed:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- ✅ Node.js v16 or v18 → [Download](https://nodejs.org/)
+- ✅ npm v8+
+- ✅ Angular CLI v16
 
-## Running end-to-end tests
+```bash
+npm install -g @angular/cli@16
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+## 🚀 Getting Started
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### 1. Clone the repository
+```bash
+git clone https://github.com/jyothiprakash893/DigitalBookStore-UI.git
+cd DigitalBookStore-UI
+```
+
+### 2. Install dependencies
+```bash
+npm install
+```
+
+### 3. Run the development server
+```bash
+npm start
+```
+
+Open your browser and visit → **http://localhost:4200**
+
+> ⚠️ Make sure your **backend server is running on http://localhost:8082** before starting the frontend.
+
+---
+
+## 📜 Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm start` | Run dev server with proxy |
+| `npm run build` | Build for production |
+| `npm run watch` | Build and watch for changes |
+| `npm test` | Run unit tests |
+| `npm run compodoc` | Generate documentation |
+
+---
+
+## 📦 Production Build
+
+```bash
+npm run build
+```
+
+- Output folder: `dist/digital-book-store-ui/`
+- Files are minified, optimized and cache-busted
+- Ready to deploy on any static hosting
+
+---
+
+## 🔗 API Proxy Configuration
+
+During development, all `/api/*` requests are automatically proxied to the backend:

@@ -1,0 +1,1369 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>digital-book-store-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">digital-book-store-ui documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  NavbarComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/user-customer/Home/navbar/navbar.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-navbar</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./navbar.component.sass</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./navbar.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cartItemCount" >cartItemCount</a>
+                            </li>
+                            <li>
+                                <a href="#cartSubscription" >cartSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#isProfileMenuOpen" >isProfileMenuOpen</a>
+                            </li>
+                            <li>
+                                <a href="#loggedInUserEmail" >loggedInUserEmail</a>
+                            </li>
+                            <li>
+                                <a href="#loggedInUserName" >loggedInUserName</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getInitials" >getInitials</a>
+                            </li>
+                            <li>
+                                <a href="#getLoggedInUserEmail" >getLoggedInUserEmail</a>
+                            </li>
+                            <li>
+                                <a href="#getLoggedInUserName" >getLoggedInUserName</a>
+                            </li>
+                            <li>
+                                <a href="#goToProfile" >goToProfile</a>
+                            </li>
+                            <li>
+                                <a href="#isLoggedIn" >isLoggedIn</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadCartCountOnInit" >loadCartCountOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#logout" >logout</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#toggleProfileMenu" >toggleProfileMenu</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(userService: <a href="../injectables/UserService.html" target="_self">UserService</a>, router: Router, orderService: <a href="../injectables/OrderService.html" target="_self">OrderService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/user-customer/Home/navbar/navbar.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>orderService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/OrderService.html" target="_self" >OrderService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getInitials"></a>
+                    <span class="name">
+                        <span ><b>getInitials</b></span>
+                        <a href="#getInitials"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getInitials()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="60"
+                                    class="link-to-prism">src/user-customer/Home/navbar/navbar.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getLoggedInUserEmail"></a>
+                    <span class="name">
+                        <span ><b>getLoggedInUserEmail</b></span>
+                        <a href="#getLoggedInUserEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getLoggedInUserEmail()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">src/user-customer/Home/navbar/navbar.component.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>string | null</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getLoggedInUserName"></a>
+                    <span class="name">
+                        <span ><b>getLoggedInUserName</b></span>
+                        <a href="#getLoggedInUserName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getLoggedInUserName()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="72"
+                                    class="link-to-prism">src/user-customer/Home/navbar/navbar.component.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>string | null</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToProfile"></a>
+                    <span class="name">
+                        <span ><b>goToProfile</b></span>
+                        <a href="#goToProfile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToProfile()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="55"
+                                    class="link-to-prism">src/user-customer/Home/navbar/navbar.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isLoggedIn"></a>
+                    <span class="name">
+                        <span ><b>isLoggedIn</b></span>
+                        <a href="#isLoggedIn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isLoggedIn()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="42"
+                                    class="link-to-prism">src/user-customer/Home/navbar/navbar.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadCartCountOnInit"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadCartCountOnInit</b></span>
+                        <a href="#loadCartCountOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadCartCountOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="80"
+                                    class="link-to-prism">src/user-customer/Home/navbar/navbar.component.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                        <span ><b>logout</b></span>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>logout()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="50"
+                                    class="link-to-prism">src/user-customer/Home/navbar/navbar.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">src/user-customer/Home/navbar/navbar.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="23"
+                                    class="link-to-prism">src/user-customer/Home/navbar/navbar.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleProfileMenu"></a>
+                    <span class="name">
+                        <span ><b>toggleProfileMenu</b></span>
+                        <a href="#toggleProfileMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleProfileMenu()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="46"
+                                    class="link-to-prism">src/user-customer/Home/navbar/navbar.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cartItemCount"></a>
+                    <span class="name">
+                        <span ><b>cartItemCount</b></span>
+                        <a href="#cartItemCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/user-customer/Home/navbar/navbar.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cartSubscription"></a>
+                    <span class="name">
+                        <span ><b>cartSubscription</b></span>
+                        <a href="#cartSubscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/user-customer/Home/navbar/navbar.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isProfileMenuOpen"></a>
+                    <span class="name">
+                        <span ><b>isProfileMenuOpen</b></span>
+                        <a href="#isProfileMenuOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/user-customer/Home/navbar/navbar.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loggedInUserEmail"></a>
+                    <span class="name">
+                        <span ><b>loggedInUserEmail</b></span>
+                        <a href="#loggedInUserEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/user-customer/Home/navbar/navbar.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loggedInUserName"></a>
+                    <span class="name">
+                        <span ><b>loggedInUserName</b></span>
+                        <a href="#loggedInUserName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/user-customer/Home/navbar/navbar.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { Subscription } from &#x27;rxjs&#x27;;
+import { OrderService } from &#x27;src/user-customer/order/order-management/services/order.service&#x27;;
+import { UserService } from &#x27;src/user-customer/user/service/user.service&#x27;;
+
+@Component({
+    selector: &#x27;app-navbar&#x27;,
+    templateUrl: &#x27;./navbar.component.html&#x27;,
+    styleUrls: [&#x27;./navbar.component.sass&#x27;],
+    standalone: false
+})
+export class NavbarComponent implements OnInit {
+  cartItemCount: number &#x3D; 0;
+  cartSubscription: Subscription | undefined;
+
+    isProfileMenuOpen &#x3D; false;
+    loggedInUserName: string | null &#x3D; null;
+    loggedInUserEmail: string | null &#x3D; null;
+
+    constructor(private userService: UserService, private router: Router, private orderService: OrderService) {}
+
+    ngOnInit(): void {
+        if (this.isLoggedIn()) {
+            this.loggedInUserName &#x3D; sessionStorage.getItem(&#x27;name&#x27;);  
+            this.loggedInUserEmail &#x3D; sessionStorage.getItem(&#x27;email&#x27;);
+        }
+        this.loadCartCountOnInit();
+        this.cartSubscription &#x3D; this.orderService.cartItemsCount$.subscribe(count &#x3D;&gt; {
+          this.cartItemCount &#x3D; count;
+          console.log(&#x27;Navbar Cart Count Updated:&#x27;, this.cartItemCount); // Add this log
+        });
+    }
+
+    ngOnDestroy(): void {
+      if (this.cartSubscription) {
+        this.cartSubscription.unsubscribe();
+      }
+    }
+  
+
+    isLoggedIn() {
+        return this.userService.isUserLoggedIn();
+    }
+
+    toggleProfileMenu() {
+        this.isProfileMenuOpen &#x3D; !this.isProfileMenuOpen;
+    }
+
+    logout() {
+        this.userService.logOut();
+        this.isProfileMenuOpen &#x3D; false;  
+    }
+
+    goToProfile() {
+        this.router.navigate([&#x27;/profile&#x27;]);  
+        this.isProfileMenuOpen &#x3D; false;  
+    }
+
+    getInitials(): string {
+        if (this.loggedInUserName) {
+            const names &#x3D; this.loggedInUserName.split(&#x27; &#x27;);
+            let initials &#x3D; &#x27;&#x27;;
+            for (let i &#x3D; 0; i &lt; Math.min(2, names.length); i++) {
+                initials +&#x3D; names[i].charAt(0).toUpperCase();
+            }
+            return initials;
+        }
+        return &#x27;&#x27;;
+    }
+
+    getLoggedInUserName(): string | null {
+        return this.loggedInUserName;
+    }
+
+    getLoggedInUserEmail(): string | null {
+        return this.loggedInUserEmail;
+    }
+
+    private loadCartCountOnInit(): void {
+      this.orderService.getCartItems().subscribe(
+        items &#x3D;&gt; {
+          this.cartItemCount &#x3D; items.reduce((sum, item) &#x3D;&gt; sum + item.quantity, 0);
+          this.orderService[&#x27;cartItemsCount&#x27;].next(this.cartItemCount); // Directly update BehaviorSubject
+          console.log(&#x27;Navbar Initial Cart Count:&#x27;, this.cartItemCount); // Add this log
+        },
+        error &#x3D;&gt; {
+          console.error(&#x27;Error loading initial cart items in Navbar:&#x27;, error);
+        }
+      );
+    }
+  
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;b-container&quot;&gt;
+    &lt;header&gt;
+        &lt;nav&gt;
+            &lt;div&gt;
+                &lt;a routerLink&#x3D;&quot;&quot;&gt;&lt;img src&#x3D;&quot;assets/image.png&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;logo-image&quot;&gt;&lt;/a&gt;
+                &lt;a routerLink&#x3D;&quot;&quot;&gt;DBS&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;a routerLink&#x3D;&quot;home&quot;&gt;Home&lt;/a&gt;
+            &lt;a target&#x3D;&quot;_self&quot; href&#x3D;&quot;#categoryBooksSection&quot;&gt;Category&lt;/a&gt;
+            &lt;a routerLink&#x3D;&quot;&quot;&gt;New Arrivals&lt;/a&gt;
+            &lt;a routerLink&#x3D;&quot;&quot;&gt;Best Selling Books&lt;/a&gt;
+            &lt;a routerLink&#x3D;&quot;&quot;&gt;Deal of The Day&lt;/a&gt;
+            &lt;a href&#x3D;&quot;#footer1&quot;&gt;Contact Us&lt;/a&gt;
+            &lt;a routerLink&#x3D;&quot;/order/cart&quot; class&#x3D;&quot;cart-link&quot;&gt;
+              &lt;i class&#x3D;&quot;fa-solid fa-cart-shopping&quot;&gt;&lt;/i&gt;
+              &lt;span *ngIf&#x3D;&quot;cartItemCount &gt; 0&quot; class&#x3D;&quot;cart-badge&quot;&gt;{{ cartItemCount }}&lt;/span&gt;
+            &lt;/a&gt;
+                &lt;a routerLink&#x3D;&quot;/order/list&quot;&gt; My Orders &lt;/a&gt;
+        &lt;/nav&gt;
+        &lt;div class&#x3D;&quot;user-actions&quot;&gt;
+            &lt;button class&#x3D;&quot;signinbtn&quot; *ngIf&#x3D;&quot;!isLoggedIn()&quot; routerLink&#x3D;&quot;/login&quot;&gt;Sign In&lt;/button&gt;
+
+            &lt;div *ngIf&#x3D;&quot;isLoggedIn()&quot; class&#x3D;&quot;profile-dropdown&quot;&gt;
+              &lt;!-- &lt;button (click)&#x3D;&quot;toggleProfileMenu()&quot;&gt;profile&lt;/button&gt; --&gt;
+                &lt;div class&#x3D;&quot;profile-icon&quot; (click)&#x3D;&quot;toggleProfileMenu()&quot;&gt;
+                    &lt;i class&#x3D;&quot;fa-solid fa-user-circle&quot;&gt;&lt;/i&gt; &lt;/div&gt;
+                &lt;div *ngIf&#x3D;&quot;isProfileMenuOpen&quot; class&#x3D;&quot;dropdown-menu&quot;&gt;
+                    &lt;div class&#x3D;&quot;user-info&quot;&gt;
+                        &lt;div class&#x3D;&quot;profile-circle&quot;&gt;
+                            &lt;span&gt;{{ getInitials() }}&lt;/span&gt; &lt;/div&gt;
+                        &lt;p&gt;Hi, {{ getLoggedInUserName() }}!&lt;/p&gt;
+                        &lt;!-- &lt;p&gt;{{ getLoggedInUserEmail() }}&lt;/p&gt; --&gt;
+                    &lt;/div&gt;
+                    &lt;button (click)&#x3D;&quot;goToProfile()&quot;&gt;Go to Profile&lt;/button&gt;
+                    &lt;button (click)&#x3D;&quot;logout()&quot;&gt;Sign Out&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/header&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./navbar.component.sass</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.b-container
+
+  font-family: sans-serif
+
+  margin: 0
+
+  padding: 0
+ 
+  header
+
+    display: flex
+
+    justify-content: space-between
+
+    align-items: center
+
+    padding: 10px 20px
+
+    background-color: #f0f0f0
+ 
+    nav
+
+      display: flex
+
+      align-items: center
+ 
+      div
+
+        display: flex
+
+        align-items: center
+
+        margin-right: 20px
+ 
+        .logo-image
+
+          height: 30px
+
+          margin-right: 5px
+ 
+        a
+
+          text-decoration: none
+
+          color: #333
+
+          font-weight: bold
+
+          margin-left: -15px
+ 
+      a
+
+        margin-right: 20px
+
+        text-decoration: none
+
+        color: #333
+
+        transition: color 0.3s ease
+ 
+        &amp;:hover
+
+          color: #007bff
+
+        &amp;.cart-link
+          position: relative
+          display: inline-flex
+          align-items: center
+
+          .cart-badge
+            position: absolute
+            top: -8px
+            right: -8px
+            background-color: #ff6b6b // Example color
+            color: white
+            font-size: 0.7rem
+            padding: 2px 5px
+            border-radius: 50%
+            z-index: 1
+
+  .user-actions
+
+    display: flex
+
+    align-items: center
+
+    .signinbtn
+
+        margin-left: 10px
+
+        padding: 8px 15px
+
+        border: none
+
+        background-color: #DCF763
+
+        color: black
+
+        cursor: pointer
+
+        border-radius: 10px
+
+        transition: background-color 0.3s ease
+ 
+        &amp;:hover
+
+          background
+ 
+  .profile-dropdown
+
+    position: relative
+
+    margin-left: 15px
+ 
+    .profile-icon
+
+      cursor: pointer
+
+      font-size: 1.5em // Adjust size as needed
+
+      border-radius: 50%
+
+      background-color: #f0f0f0 // Example background
+
+      color: #333
+
+      width: 30px
+
+      height: 30px
+
+      display: flex
+
+      justify-content: center
+
+      align-items: center
+ 
+      i
+
+        line-height: 0
+ 
+    .dropdown-menu
+
+      position: absolute
+
+      top: 100%
+
+      right: 0
+
+      background-color: white
+
+      border: 1px solid #ccc
+
+      border-radius: 5px
+
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1)
+
+      z-index: 10
+
+      min-width:200px
+
+      padding: 10px
+
+      display: flex
+
+      flex-direction: column
+
+      align-items: flex-start
+ 
+      .user-info
+
+        display: flex
+
+        flex-direction: column
+
+        align-items: center
+
+        margin-bottom: 10px
+
+        padding-bottom: 10px
+
+        border-bottom: 1px solid #eee
+ 
+        .profile-circle
+
+          width: 40px
+
+          height: 40px
+
+          border-radius: 50%
+
+          background-color: orange  
+
+          color: white
+
+          display: flex
+
+          justify-content: center
+
+          align-items: center
+
+          font-size: 1.2em
+
+          margin-bottom: 5px
+
+ 
+        p
+
+          margin: 2px 0
+
+          font-size: 0.9em
+ 
+      button
+
+        width: 100%
+
+        padding: 8px 10px
+
+        border: none
+
+        background-color: transparent
+
+        text-align: left
+
+        cursor: pointer
+
+        font-size: 0.95em
+ 
+        &amp;:hover
+
+          background-color: #f0f0f0
+
+ </code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="b-container">    <header>        <nav>            <div>                <a routerLink=""><img src="assets/image.png" alt="" class="logo-image"></a>                <a routerLink="">DBS</a>            </div>            <a routerLink="home">Home</a>            <a target="_self" href="#categoryBooksSection">Category</a>            <a routerLink="">New Arrivals</a>            <a routerLink="">Best Selling Books</a>            <a routerLink="">Deal of The Day</a>            <a href="#footer1">Contact Us</a>            <a routerLink="/order/cart" class="cart-link">              <i class="fa-solid fa-cart-shopping"></i>              <span *ngIf="cartItemCount > 0" class="cart-badge">{{ cartItemCount }}</span>            </a>                <a routerLink="/order/list"> My Orders </a>        </nav>        <div class="user-actions">            <button class="signinbtn" *ngIf="!isLoggedIn()" routerLink="/login">Sign In</button>            <div *ngIf="isLoggedIn()" class="profile-dropdown">              <!-- <button (click)="toggleProfileMenu()">profile</button> -->                <div class="profile-icon" (click)="toggleProfileMenu()">                    <i class="fa-solid fa-user-circle"></i> </div>                <div *ngIf="isProfileMenuOpen" class="dropdown-menu">                    <div class="user-info">                        <div class="profile-circle">                            <span>{{ getInitials() }}</span> </div>                        <p>Hi, {{ getLoggedInUserName() }}!</p>                        <!-- <p>{{ getLoggedInUserEmail() }}</p> -->                    </div>                    <button (click)="goToProfile()">Go to Profile</button>                    <button (click)="logout()">Sign Out</button>                </div>            </div>        </div>    </header></div></div>'
+    var COMPONENTS = [{'name': 'AddbookComponent', 'selector': 'app-addbook'},{'name': 'AddToCartComponent', 'selector': 'app-add-to-cart'},{'name': 'AddUpdateReviewComponent', 'selector': 'app-add-update-review'},{'name': 'AdminDashboardComponent', 'selector': 'app-admin-dashboard'},{'name': 'AdminHomeComponent', 'selector': 'app-admin-home'},{'name': 'AdminReturnProcessComponent', 'selector': 'app-admin-return-process'},{'name': 'AllorderstatusComponent', 'selector': 'app-allorderstatus'},{'name': 'AllReviewsComponent', 'selector': 'app-all-reviews'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AverageRatingComponent', 'selector': 'app-average-rating'},{'name': 'BookBannersComponent', 'selector': 'app-book-banners'},{'name': 'BookCarouselComponent', 'selector': 'app-book-carousel'},{'name': 'BookDealComponent', 'selector': 'app-book-deal'},{'name': 'BookdetailsComponent', 'selector': 'app-bookdetails'},{'name': 'BookHeroComponent', 'selector': 'app-book-hero'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategorybooksComponent', 'selector': 'app-categorybooks'},{'name': 'CategorybookslistComponent', 'selector': 'app-categorybookslist'},{'name': 'DashboardInventoryComponent', 'selector': 'app-dashboard-inventory'},{'name': 'DealOfTheDayComponent', 'selector': 'app-deal-of-the-day'},{'name': 'DeletebookComponent', 'selector': 'app-deletebook'},{'name': 'DeleteBookInventoryComponent', 'selector': 'app-delete-book-inventory'},{'name': 'DisplayInventoryComponent', 'selector': 'app-display-inventory'},{'name': 'EditorspickComponent', 'selector': 'app-editorspick'},{'name': 'FilterComponent', 'selector': 'app-filter'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LeftSidebarComponent', 'selector': 'app-left-sidebar'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'NavbarAdminComponent', 'selector': 'app-navbar-admin'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'OrderDetailsComponent', 'selector': 'app-order-details'},{'name': 'OrderListComponent', 'selector': 'app-order-list'},{'name': 'OrderManagementComponent', 'selector': 'app-order-management'},{'name': 'OrderTrackingComponent', 'selector': 'app-order-tracking'},{'name': 'PaymentComponent', 'selector': 'app-payment'},{'name': 'PlaceOrderComponent', 'selector': 'app-place-order'},{'name': 'RecentOrdersComponent', 'selector': 'app-recent-orders'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewComponent', 'selector': 'app-review'},{'name': 'ReviewsByBookIdComponent', 'selector': 'app-reviews-by-book-id'},{'name': 'ReviewsByUserIdComponent', 'selector': 'app-reviews-by-user-id'},{'name': 'SearchtitleComponent', 'selector': 'app-searchtitle'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'StarsComponent', 'selector': 'app-stars'},{'name': 'UpdatebookComponent', 'selector': 'app-updatebook'},{'name': 'UpdateQuantityComponent', 'selector': 'app-update-quantity'},{'name': 'UpdateTrackingComponent', 'selector': 'app-update-tracking'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'ViewbookidComponent', 'selector': 'app-viewbookid'},{'name': 'ViewByBookIDComponent', 'selector': 'app-view-by-book-id'},{'name': 'ViewEditReviewComponent', 'selector': 'app-view-edit-review'},{'name': 'WelcomeAdminComponent', 'selector': 'app-welcome-admin'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'NavbarComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'NavbarComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

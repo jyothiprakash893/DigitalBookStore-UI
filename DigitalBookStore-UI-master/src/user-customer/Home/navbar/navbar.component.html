@@ -1,0 +1,42 @@
+<div class="b-container">
+    <header>
+        <nav>
+            <div>
+                <a routerLink=""><img src="assets/image.png" alt="" class="logo-image"></a>
+                <a routerLink="">DBS</a>
+            </div>
+            <a routerLink="home">Home</a>
+            <a routerLink="/search" [queryParams]="{'searchQuery':''}">Books</a>
+            <a routerLink="home" (click)="scroll('categoryBooksSection')">Category</a>
+            <a routerLink="home" (click)="scroll('dealOfTheDay')">Deal of The Day</a>
+            <a routerLink="home" (click)="scroll('editorspick')">Editor's Picks</a>
+            <a routerLink="home" (click)="scroll('footer1')">Contact Us</a>
+            <a routerLink="/order/cart" class="cart-link">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span *ngIf="cartItemCount > 0" class="cart-badge">{{ cartItemCount }}</span>
+            </a>
+            <a routerLink="/order/list"> My Orders </a>
+        </nav>
+        <div class="user-actions">
+            <button class="signinbtn" *ngIf="!isLoggedIn()" routerLink="/login">Sign In</button>
+
+            <div *ngIf="isLoggedIn()" class="profile-dropdown">
+                <!-- <button (click)="toggleProfileMenu()">profile</button> -->
+                <div class="profile-icon" (click)="toggleProfileMenu()">
+                    <i class="fa-solid fa-user-circle"></i>
+                </div>
+                <div *ngIf="isProfileMenuOpen" class="dropdown-menu">
+                    <div class="user-info">
+                        <div class="profile-circle">
+                            <span>{{ getInitials() }}</span>
+                        </div>
+                        <p>Hi, {{ getLoggedInUserName() }}!</p>
+                        <!-- <p>{{ getLoggedInUserEmail() }}</p> -->
+                    </div>
+                    <button (click)="goToProfile()">Go to Profile</button>
+                    <button (click)="logout()">Sign Out</button>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>

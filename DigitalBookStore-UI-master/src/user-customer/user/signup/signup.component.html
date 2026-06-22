@@ -1,0 +1,93 @@
+
+  <div class="background-container">
+    <div class="hcont">
+      <div class="container">
+        <form [formGroup]="signupForm" (ngSubmit)="signup()">
+          <h2>Sign Up</h2>
+  
+          <div>
+            Name:
+            <input type="text" formControlName="name" required #nameField>
+            <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" style="color: red;">
+              <div *ngIf="name?.errors?.['required']">Name is required.</div>
+            </div>
+          </div>
+  
+          <div>
+            Email:
+            <input type="email" formControlName="email" required #emailField>
+            <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" style="color: red;">
+              <div *ngIf="email?.errors?.['required']">Email is required.</div>
+              <div *ngIf="email?.errors?.['email']">Invalid email format.</div>
+            </div>
+          </div>
+  
+          <div>
+            Password:
+            <input type="password" formControlName="password" required #passwordField>
+            <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" style="color: red;">
+              <div *ngIf="password?.errors?.['required']">Password is required.</div>
+              <div *ngIf="password?.errors?.['minlength']">Password must be at least 8 characters long.</div>
+              <div *ngIf="password?.errors?.['passwordStrength']">
+                Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.
+              </div>
+            </div>
+          </div>
+  
+          <div>
+            Confirm Password:
+            <input type="password" formControlName="confirmPassword" required #confirmPasswordField>
+            <div *ngIf="confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)" style="color: red;">
+              <div *ngIf="confirmPassword?.errors?.['required']">Confirm Password is required.</div>
+            </div>
+            <div *ngIf="signupForm.errors?.['passwordsDoNotMatch'] && (confirmPassword?.dirty || confirmPassword?.touched)" style="color: red;">
+              Passwords do not match.
+            </div>
+          </div>
+  
+          <button type="submit" [disabled]="signupForm.invalid">
+            Sign Up
+          </button>
+  
+          <div *ngIf="registrationErrorMessage" style="color: red;">
+            {{ registrationErrorMessage }}
+          </div>
+  
+          <p>Already have an account? <a routerLink="/login">Login</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+    .hcont{
+      position: absolute;
+      right:50px;
+      width: 500px;
+      height:350px;
+      top:60px;
+    }
+  
+    .hcont p{
+      position: relative;
+      bottom:-30px;
+      left: 30px;
+    }
+    .hcont button{
+      position: relative;
+      bottom:-10px;
+  
+    }
+    .background-container {
+      background-image: url('assets/loginB.jpg');
+      background-size: cover;
+      background-position: center;
+      height:90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+    }
+  
+  
+  </style>

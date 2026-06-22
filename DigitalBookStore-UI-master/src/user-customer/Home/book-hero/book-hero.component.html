@@ -1,0 +1,29 @@
+<!-- <div class="hero">
+    <div class="hero-content">
+      <img src="assets/women1.png" alt="Woman Reading" class="hero-image">
+      <div class="book-details">
+        <img src="assets/book.png" alt="Book Cover" class="book-cover">
+        <div class="book-text">
+          <h1>Clive<br>Cussler</h1>
+          <p>And Boyd Morrison</p>
+          <button class="btn1">More Info</button>
+          <button class="btn2" >Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="hero">
+    <div class="hero-content">
+      <img src="assets/women1.png" alt="Woman Reading" class="hero-image">
+      <div class="book-details" [routerLink]="['/book-details', bookModel.bookID]"  style="cursor: pointer;">
+        <img class="book-cover" [src]="bookModel.coverImage ? 'data:image/jpeg;base64,' + bookModel.base64img : ''" alt="{{ bookModel.title }}">
+        <div class="book-text">
+          <h1>{{ bookModel.title }}</h1>
+          <p>By {{ bookModel.authorName }}</p>
+          <button class="btn1">More Info</button>
+          <button class="btn2">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </div>

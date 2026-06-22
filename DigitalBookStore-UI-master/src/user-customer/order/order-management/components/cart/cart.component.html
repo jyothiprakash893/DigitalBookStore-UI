@@ -1,0 +1,50 @@
+<div class="shopping-cart-container">
+  <header class="cart-header">
+    <h1 class="cart-title">Your Shopping Cart</h1>
+  </header>
+
+  <div *ngIf="cartItems.length > 0; else emptyCart" class="cart-items-section">
+    <ul class="cart-items-list">
+      <li *ngFor="let item of cartItems" class="cart-item">
+        <div class="item-details">
+          <h3 class="item-title">{{ getBookTitle(item.bookId) }}</h3>
+          <p class="item-id">ID: <span class="item-value">{{ item.bookId }}</span></p>
+          <div class="item-quantity">
+            <label for="quantity-{{ item.bookId }}">Quantity:</label>
+            <div class="quantity-controls">
+              <button class="quantity-button minus" (click)="decreaseQuantity(item)">-</button>
+              <input type="number" id="quantity-{{ item.bookId }}" [value]="item.quantity" min="1" class="quantity-input" readonly>
+              <button class="quantity-button plus" (click)="increaseQuantity(item)">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="item-actions">
+          <button class="remove-button" (click)="clearCartItem(item.bookId)" title="Remove Item">
+            <i class="bi bi-trash"></i> Remove
+          </button>
+        </div>
+      </li>
+    </ul>
+
+    <footer class="cart-footer">
+      <div class="checkout-area">
+        <button routerLink="/order/place" class="checkout-button">
+          <i class="bi bi-arrow-right-circle-fill"></i> Proceed to Checkout
+        </button>
+      </div>
+    </footer>
+  </div>
+
+  <ng-template #emptyCart>
+    <div class="empty-cart-message">
+      <i class="bi bi-cart-x-fill"></i> Your cart is empty.
+    </div>
+  </ng-template>
+
+  <div *ngIf="errorMessage" class="error-message">
+    <i class="bi bi-exclamation-triangle-fill"></i> {{ errorMessage }}
+  </div>
+  <div *ngIf="successMessage" class="success-message">
+    <i class="bi bi-check-circle-fill"></i> {{ successMessage }}
+  </div>
+</div>

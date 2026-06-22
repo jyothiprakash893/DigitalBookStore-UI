@@ -1,0 +1,10 @@
+<div class="d-flex flex-row m-3">
+    <div class="w-75">
+        <app-view-edit-review [editing]="!userReview" [bookId]="bookId" [review]="userReview" [canModify]="true" class="mb-3" 
+        (reviewEmitter)="receiveReview($event)" />
+        <app-view-edit-review *ngFor="let review of reviews" [bookId]="bookId" [review]="review"
+            [canModify]="reviewService.userId === review.userId || loginService.isAdmin()" class="mb-3" />
+        <h4 *ngIf="reviews === undefined"><br>Loading Reviews...</h4>
+        <h4 *ngIf="userReview === undefined && reviews !== undefined && reviews.length == 0"><br>No Reviews Found!</h4>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="container" [hidden]="submitted">
+  <h2>Register Book</h2>
+  <form [formGroup]="formData" #registerForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-ctn">
+      <div class="form-l">
+        <h5><label for="bookID" class="form-label">Book Id</label></h5>
+        <input type="text" name="bookID" formControlName="bookID" required class="form-control">
+        <div *ngIf="formData.controls['bookID'].invalid && formData.controls['bookID'].touched" class="text-danger">
+          <span *ngIf="formData.controls['bookID'].errors?.['required']">Book Id cannot be blank</span>
+          <span *ngIf="formData.controls['bookID'].errors?.['minlength']">Book Id is invalid!!!</span>
+        </div>
+
+        <h5><label for="title" class="form-label">Title</label></h5>
+        <input type="text" name="title" formControlName="title" required class="form-control">
+        <div *ngIf="formData.controls['title'].invalid && formData.controls['title'].touched" class="text-danger">
+          <span *ngIf="formData.controls['title'].errors?.['required']">Title cannot be blank</span>
+          <span *ngIf="formData.controls['title'].errors?.['pattern']">Title is invalid!!!</span>
+        </div>
+
+        <h5><label for="price" class="form-label">Price</label></h5>
+        <input type="text" name="price" formControlName="price" required class="form-control">
+        <div *ngIf="formData.controls['price'].invalid && formData.controls['price'].touched" class="text-danger">
+          <span *ngIf="formData.controls['price'].errors?.['required']">Price cannot be blank</span>
+          <span *ngIf="formData.controls['price'].errors?.['minlength']">Price is invalid!!!</span>
+        </div>
+
+        <h5><label for="authorName" class="form-label">Author Name</label></h5>
+        <input type="text" name="authorName" formControlName="authorName" class="form-control">
+        <div *ngIf="formData.controls['authorName'].invalid && formData.controls['authorName'].touched" class="text-danger">
+          <span *ngIf="formData.controls['authorName'].errors?.['required']">Author Name cannot be blank</span>
+        </div>
+
+        <h5><label for="categoryName" class="form-label">Category Name</label></h5>
+        <input type="text" name="categoryName" formControlName="categoryName" class="form-control">
+        <div *ngIf="formData.controls['categoryName'].invalid && formData.controls['categoryName'].touched" class="text-danger">
+          <span *ngIf="formData.controls['categoryName'].errors?.['required']">Category Name cannot be blank</span>
+        </div>
+      </div>
+      <div class="form-r">
+        <h5><label for="base64img" class="form-label">Cover Image</label></h5>
+        <!-- <img style="border: 2px dotted black; cursor: pointer;" (click)="imageUpload.click()" [src]="imageSrc" alt="Cover Image"> -->
+        <input type="file" accept="*image" name="base64img" formControlName="base64img" (change)="onFileChange($event)" class="form-control">
+        <div *ngIf="formData.controls['base64img'].invalid && formData.controls['base64img'].touched" class="text-danger">
+          <span *ngIf="formData.controls['base64img'].errors?.['required']">Cover Image cannot be blank</span>
+        </div>
+        <h5><label for="description" class="form-label">Description</label></h5>
+        <textarea rows=5 name="description" formControlName="description" class="form-control"></textarea>
+        <div *ngIf="formData.controls['description'].invalid && formData.controls['description'].touched" class="text-danger">
+          <span *ngIf="formData.controls['description'].errors?.['required']">Description cannot be blank</span>
+        </div>
+      </div>
+    </div>
+    <div class="button-group">
+      <button type="Submit" class="btn btn-primary" [disabled]="registerForm.invalid">Register</button>
+      <button type="Reset" class="btn btn-secondary ms-2" routerLink="/books">Go back</button>
+    </div>
+  </form>
+</div>
+<div class="alert alert-success" *ngIf="message">
+  {{message}}
+</div>

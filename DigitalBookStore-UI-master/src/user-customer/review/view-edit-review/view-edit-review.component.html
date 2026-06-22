@@ -1,0 +1,8 @@
+<app-add-update-review [userView]="userView" *ngIf="editing else viewReview" [review]="review" [bookId]="bookId"
+    (editing)="receiveEditStatus($event)" (message)="receiveMessage($event)" (reviewEmitter)="receiveReview($event)" />
+<ng-template #viewReview>
+    <app-review [userView]="userView" [review]="review" [canModify]="canModify" (editing)="receiveEditStatus($event)" />
+    <div *ngIf="message" class="alert alert-success m-2">
+        {{message}}
+    </div>
+</ng-template>

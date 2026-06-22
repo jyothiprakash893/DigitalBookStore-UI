@@ -1,0 +1,69 @@
+<div class="card m-2">
+    <div class="card-body">
+        <div style="display: flex; justify-content: space-between;">
+            <div>
+                <h6 class="card-title" *ngIf="userView; else bookView">{{review.bookTitle}}</h6>
+                <ng-template #bookView>
+                    <h6>{{review.userName}} <div style="display: inline-block;" *ngIf="adminView"> -
+                            {{review.bookTitle}}</div>
+                    </h6>
+                </ng-template>
+            </div>
+            <div *ngIf="canModify" style="cursor: pointer; margin-left: 10px; display: flex;">
+                <h6 *ngIf="!adminView && !restoreView" class="me-3" (click)='editReview()'>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </h6>
+                <h6 class="me-3" *ngIf="!restoreView" (click)="openModal()"><i class="fa-solid fa-trash"></i></h6>
+                <h6 class="me-3" *ngIf="restoreView" (click)="openRestoreModal()"><i class="fa-solid fa-trash-arrow-up"></i></h6>
+            </div>
+        </div>
+        <app-stars [rating]="review.rating" />
+        <p class="card-text">{{review.comment}}</p>
+    </div>
+    <p class="alert alert-danger m-2" *ngIf="error">{{error}}</p>
+</div>
+
+<div class="modal" [ngStyle]="{'display': restoreDisplay, 'background': 'rgba(0,0,0, .75)', 'position' : 'fixed'}">
+    <div class="modal-dialog"
+        style="display:flex; justify-content: center; align-items: center; margin-top: 10%; width:45%">
+        <div class="modal-content" [ngClass]="{'ms-5' : adminView}">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">Restore Review?</h1>
+                <button type="button" class="btn-close p-3" (click)="closeRestoreModal()"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to restore this Review?
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="closeRestoreModal()" class="btn btn-secondary">No</button>
+                <button type="button" (click)='restoreReview()' class="btn btn-danger">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" [ngStyle]="{'display': display, 'background': 'rgba(0,0,0, .75)', 'position' : 'fixed'}">
+    <div class="modal-dialog"
+        style="display:flex; justify-content: center; align-items: center; margin-top: 10%; width:50%">
+        <div class="modal-content" [ngClass]="{'ms-5' : adminView}">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">Delete Review?</h1>
+                <button type="button" class="btn-close p-3" (click)="closeModal()"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this Review?
+                <br>
+                <br>
+                <select *ngIf="adminView" [(ngModel)]="reasonForDelete" class="form-control">
+                    <option *ngFor="let reason of reasonsForDelete" [value]="reason">{{reason}}</option>
+                </select>
+                <p *ngIf="reasonValidation && reasonForDelete === reasonsForDelete[0]" style='color: red;'>Reason is
+                    Required</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="closeModal()" class="btn btn-secondary">No</button>
+                <button type="button" (click)='deleteReview()' class="btn btn-danger">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>

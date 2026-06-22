@@ -1,0 +1,32 @@
+<section class="editors-pick-section">
+    <h2>Editor's Picks</h2>
+  
+    <div *ngIf="isLoading" class="loading-indicator">
+      Loading Editor's Picks...
+    </div>
+  
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  
+    <div *ngIf="!isLoading && !errorMessage && editorsPicks.length > 0" class="editors-pick-grid">
+      <div *ngFor="let book of editorsPicks" class="book-card" [routerLink]="['/book-details', book.bookID]">
+        <div class="cover-image">
+            <img
+            [src]="book.coverImage ? 'data:image/jpeg;base64,' + book.base64img : ''"
+            alt="{{ book.title }}"
+            
+            class="img-fluid rounded shadow-sm"
+          />
+          </div>
+        <div class="book-info">
+          <h3>{{ book.title }}</h3>
+          <p class="author">By {{ book.authorName }}</p>
+        </div>
+      </div>
+    </div>
+  
+    <div *ngIf="!isLoading && !errorMessage && editorsPicks.length === 0" class="no-picks">
+      No Editor's Picks available at the moment.
+    </div>
+  </section>

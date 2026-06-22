@@ -1,0 +1,49 @@
+<div class="update-tracking-container">
+    <header class="update-tracking-header">
+      <h1 class="update-tracking-title"><i class="bi bi-truck-fill me-2"></i> Update Tracking</h1>
+    </header>
+  
+    <div *ngIf="order; else loading">
+      <section class="order-info">
+        <h2 class="section-title"><i class="bi bi-info-circle-fill me-2"></i> Order Information</h2>
+        <div class="info-item">
+          <span class="label">Order ID:</span>
+          <span class="value">{{ order.orderId }}</span>
+        </div>
+        </section>
+  
+      <form [formGroup]="updateTrackingForm" (ngSubmit)="updateTracking()" class="tracking-form">
+        <h2 class="section-title"><i class="bi bi-pencil-square-fill me-2"></i> Tracking Details</h2>
+        <div class="form-group">
+          <label for="shippingCarrier" class="form-label"><i class="bi bi-airplane-fill me-1"></i> Shipping Carrier:</label>
+          <input type="text" id="shippingCarrier" formControlName="shippingCarrier" class="form-control">
+          <div *ngIf="shippingCarrierControl?.invalid && (shippingCarrierControl?.dirty || shippingCarrierControl?.touched)" class="error-feedback">
+            <div *ngIf="shippingCarrierControl?.errors?.['required']">Shipping carrier is required.</div>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="estimatedDeliveryDate" class="form-label"><i class="bi bi-calendar-date-fill me-1"></i> Estimated Delivery Date:</label>
+          <input type="date" id="estimatedDeliveryDate" formControlName="estimatedDeliveryDate" class="form-control">
+          <div *ngIf="estimatedDeliveryDateControl?.invalid && (estimatedDeliveryDateControl?.dirty || estimatedDeliveryDateControl?.touched)" class="error-feedback">
+            <div *ngIf="estimatedDeliveryDateControl?.errors?.['required']">Estimated delivery date is required.</div>
+          </div>
+        </div>
+  
+        <button type="submit" class="btn btn-primary update-button" [disabled]="updateTrackingForm.invalid">
+          <i class="bi bi-save-fill me-2"></i> Update Tracking
+        </button>
+  
+        <div *ngIf="errorMessage" class="alert alert-danger mt-3" role="alert">
+          <i class="bi bi-exclamation-triangle-fill me-2"></i> {{ errorMessage }}
+        </div>
+        <div *ngIf="successMessage" class="alert alert-success mt-3" role="alert">
+          <i class="bi bi-check-circle-fill me-2"></i> {{ successMessage }}
+        </div>
+      </form>
+    </div>
+  
+    <ng-template #loading>
+      <p class="loading-message"><i class="bi bi-hourglass-split me-2"></i> Loading order details...</p>
+    </ng-template>
+  </div>

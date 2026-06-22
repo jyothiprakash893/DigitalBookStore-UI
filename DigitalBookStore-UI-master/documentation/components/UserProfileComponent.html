@@ -1,0 +1,2973 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>digital-book-store-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">digital-book-store-ui documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  UserProfileComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/user-customer/user/user-profile/user-profile.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-user-profile</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./user-profile.component.sass</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./user-profile.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#activeTab" >activeTab</a>
+                            </li>
+                            <li>
+                                <a href="#closeAccountMessage" >closeAccountMessage</a>
+                            </li>
+                            <li>
+                                <a href="#isEditingDetails" >isEditingDetails</a>
+                            </li>
+                            <li>
+                                <a href="#isSidebarExpanded" >isSidebarExpanded</a>
+                            </li>
+                            <li>
+                                <a href="#passwordErrorMessage" >passwordErrorMessage</a>
+                            </li>
+                            <li>
+                                <a href="#passwordForm" >passwordForm</a>
+                            </li>
+                            <li>
+                                <a href="#passwordSuccessMessage" >passwordSuccessMessage</a>
+                            </li>
+                            <li>
+                                <a href="#profileForm" >profileForm</a>
+                            </li>
+                            <li>
+                                <a href="#profileImagePreview" >profileImagePreview</a>
+                            </li>
+                            <li>
+                                <a href="#selectedFile" >selectedFile</a>
+                            </li>
+                            <li>
+                                <a href="#showBalance" >showBalance</a>
+                            </li>
+                            <li>
+                                <a href="#showSimulatePaymentPopup" >showSimulatePaymentPopup</a>
+                            </li>
+                            <li>
+                                <a href="#simulatePaymentError" >simulatePaymentError</a>
+                            </li>
+                            <li>
+                                <a href="#simulatePaymentErrorMessage" >simulatePaymentErrorMessage</a>
+                            </li>
+                            <li>
+                                <a href="#simulatePaymentForm" >simulatePaymentForm</a>
+                            </li>
+                            <li>
+                                <a href="#simulatePaymentSuccess" >simulatePaymentSuccess</a>
+                            </li>
+                            <li>
+                                <a href="#topUpAmount" >topUpAmount</a>
+                            </li>
+                            <li>
+                                <a href="#updateErrorMessage" >updateErrorMessage</a>
+                            </li>
+                            <li>
+                                <a href="#updateSuccessMessage" >updateSuccessMessage</a>
+                            </li>
+                            <li>
+                                <a href="#userDetails" >userDetails</a>
+                            </li>
+                            <li>
+                                <a href="#userId" >userId</a>
+                            </li>
+                            <li>
+                                <a href="#userReviews" >userReviews</a>
+                            </li>
+                            <li>
+                                <a href="#walletBalance" >walletBalance</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#changePassword" >changePassword</a>
+                            </li>
+                            <li>
+                                <a href="#closeSimulatePaymentPopup" >closeSimulatePaymentPopup</a>
+                            </li>
+                            <li>
+                                <a href="#confirmCloseAccount" >confirmCloseAccount</a>
+                            </li>
+                            <li>
+                                <a href="#handleFileInput" >handleFileInput</a>
+                            </li>
+                            <li>
+                                <a href="#loadUserProfile" >loadUserProfile</a>
+                            </li>
+                            <li>
+                                <a href="#loadUserReviews" >loadUserReviews</a>
+                            </li>
+                            <li>
+                                <a href="#loadWalletBalance" >loadWalletBalance</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#passwordMatchValidator" >passwordMatchValidator</a>
+                            </li>
+                            <li>
+                                <a href="#populateSimulateAmount" >populateSimulateAmount</a>
+                            </li>
+                            <li>
+                                <a href="#setActiveTab" >setActiveTab</a>
+                            </li>
+                            <li>
+                                <a href="#setTopUpAmount" >setTopUpAmount</a>
+                            </li>
+                            <li>
+                                <a href="#simulateAddFunds" >simulateAddFunds</a>
+                            </li>
+                            <li>
+                                <a href="#toggleSidebar" >toggleSidebar</a>
+                            </li>
+                            <li>
+                                <a href="#updateProfile" >updateProfile</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: FormBuilder, router: Router, userService: <a href="../injectables/UserService.html" target="_self">UserService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="189" class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:189</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changePassword"></a>
+                    <span class="name">
+                        <span ><b>changePassword</b></span>
+                        <a href="#changePassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changePassword()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="365"
+                                    class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:365</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeSimulatePaymentPopup"></a>
+                    <span class="name">
+                        <span ><b>closeSimulatePaymentPopup</b></span>
+                        <a href="#closeSimulatePaymentPopup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeSimulatePaymentPopup()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="471"
+                                    class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:471</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmCloseAccount"></a>
+                    <span class="name">
+                        <span ><b>confirmCloseAccount</b></span>
+                        <a href="#confirmCloseAccount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>confirmCloseAccount()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="488"
+                                    class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:488</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleFileInput"></a>
+                    <span class="name">
+                        <span ><b>handleFileInput</b></span>
+                        <a href="#handleFileInput"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleFileInput(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="277"
+                                    class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:277</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadUserProfile"></a>
+                    <span class="name">
+                        <span ><b>loadUserProfile</b></span>
+                        <a href="#loadUserProfile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadUserProfile()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="248"
+                                    class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:248</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadUserReviews"></a>
+                    <span class="name">
+                        <span ><b>loadUserReviews</b></span>
+                        <a href="#loadUserReviews"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadUserReviews()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="481"
+                                    class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:481</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadWalletBalance"></a>
+                    <span class="name">
+                        <span ><b>loadWalletBalance</b></span>
+                        <a href="#loadWalletBalance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadWalletBalance()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="410"
+                                    class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:410</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="216"
+                                    class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:216</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passwordMatchValidator"></a>
+                    <span class="name">
+                        <span ><b>passwordMatchValidator</b></span>
+                        <a href="#passwordMatchValidator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>passwordMatchValidator(formGroup: FormGroup)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="391"
+                                    class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:391</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>formGroup</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{ mismatch: boolean; }</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="populateSimulateAmount"></a>
+                    <span class="name">
+                        <span ><b>populateSimulateAmount</b></span>
+                        <a href="#populateSimulateAmount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>populateSimulateAmount()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="427"
+                                    class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:427</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setActiveTab"></a>
+                    <span class="name">
+                        <span ><b>setActiveTab</b></span>
+                        <a href="#setActiveTab"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setActiveTab(tab: "details" | "wallet" | "orders-reviews" | "support" | "close-account")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="231"
+                                    class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:231</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tab</td>
+                                            <td>
+                                                        <code>&quot;details&quot; | &quot;wallet&quot; | &quot;orders-reviews&quot; | &quot;support&quot; | &quot;close-account&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setTopUpAmount"></a>
+                    <span class="name">
+                        <span ><b>setTopUpAmount</b></span>
+                        <a href="#setTopUpAmount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setTopUpAmount(amount: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="423"
+                                    class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:423</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>amount</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="simulateAddFunds"></a>
+                    <span class="name">
+                        <span ><b>simulateAddFunds</b></span>
+                        <a href="#simulateAddFunds"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>simulateAddFunds()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="437"
+                                    class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:437</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleSidebar"></a>
+                    <span class="name">
+                        <span ><b>toggleSidebar</b></span>
+                        <a href="#toggleSidebar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleSidebar()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="227"
+                                    class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:227</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateProfile"></a>
+                    <span class="name">
+                        <span ><b>updateProfile</b></span>
+                        <a href="#updateProfile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateProfile()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="290"
+                                    class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:290</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activeTab"></a>
+                    <span class="name">
+                        <span ><b>activeTab</b></span>
+                        <a href="#activeTab"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;details&quot; | &quot;wallet&quot; | &quot;orders-reviews&quot; | &quot;support&quot; | &quot;close-account&quot;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;details&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="165" class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:165</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeAccountMessage"></a>
+                    <span class="name">
+                        <span ><b>closeAccountMessage</b></span>
+                        <a href="#closeAccountMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="189" class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:189</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isEditingDetails"></a>
+                    <span class="name">
+                        <span ><b>isEditingDetails</b></span>
+                        <a href="#isEditingDetails"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="171" class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:171</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSidebarExpanded"></a>
+                    <span class="name">
+                        <span ><b>isSidebarExpanded</b></span>
+                        <a href="#isSidebarExpanded"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="170" class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:170</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passwordErrorMessage"></a>
+                    <span class="name">
+                        <span ><b>passwordErrorMessage</b></span>
+                        <a href="#passwordErrorMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="188" class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:188</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passwordForm"></a>
+                    <span class="name">
+                        <span ><b>passwordForm</b></span>
+                        <a href="#passwordForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="180" class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:180</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passwordSuccessMessage"></a>
+                    <span class="name">
+                        <span ><b>passwordSuccessMessage</b></span>
+                        <a href="#passwordSuccessMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="187" class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:187</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="profileForm"></a>
+                    <span class="name">
+                        <span ><b>profileForm</b></span>
+                        <a href="#profileForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="179" class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:179</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="profileImagePreview"></a>
+                    <span class="name">
+                        <span ><b>profileImagePreview</b></span>
+                        <a href="#profileImagePreview"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | ArrayBuffer | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="183" class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:183</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedFile"></a>
+                    <span class="name">
+                        <span ><b>selectedFile</b></span>
+                        <a href="#selectedFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>File | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="182" class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:182</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showBalance"></a>
+                    <span class="name">
+                        <span ><b>showBalance</b></span>
+                        <a href="#showBalance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="172" class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:172</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showSimulatePaymentPopup"></a>
+                    <span class="name">
+                        <span ><b>showSimulatePaymentPopup</b></span>
+                        <a href="#showSimulatePaymentPopup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="173" class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:173</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="simulatePaymentError"></a>
+                    <span class="name">
+                        <span ><b>simulatePaymentError</b></span>
+                        <a href="#simulatePaymentError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="175" class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:175</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="simulatePaymentErrorMessage"></a>
+                    <span class="name">
+                        <span ><b>simulatePaymentErrorMessage</b></span>
+                        <a href="#simulatePaymentErrorMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="176" class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:176</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="simulatePaymentForm"></a>
+                    <span class="name">
+                        <span ><b>simulatePaymentForm</b></span>
+                        <a href="#simulatePaymentForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="181" class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:181</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="simulatePaymentSuccess"></a>
+                    <span class="name">
+                        <span ><b>simulatePaymentSuccess</b></span>
+                        <a href="#simulatePaymentSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="174" class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:174</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="topUpAmount"></a>
+                    <span class="name">
+                        <span ><b>topUpAmount</b></span>
+                        <a href="#topUpAmount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="177" class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:177</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateErrorMessage"></a>
+                    <span class="name">
+                        <span ><b>updateErrorMessage</b></span>
+                        <a href="#updateErrorMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="186" class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:186</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateSuccessMessage"></a>
+                    <span class="name">
+                        <span ><b>updateSuccessMessage</b></span>
+                        <a href="#updateSuccessMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="185" class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:185</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userDetails"></a>
+                    <span class="name">
+                        <span ><b>userDetails</b></span>
+                        <a href="#userDetails"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/UserDetails.html" target="_self" >UserDetails | null</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="167" class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:167</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userId"></a>
+                    <span class="name">
+                        <span ><b>userId</b></span>
+                        <a href="#userId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="166" class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:166</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userReviews"></a>
+                    <span class="name">
+                        <span ><b>userReviews</b></span>
+                        <a href="#userReviews"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Review.html" target="_self" >Review[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="169" class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:169</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="walletBalance"></a>
+                    <span class="name">
+                        <span ><b>walletBalance</b></span>
+                        <a href="#walletBalance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="168" class="link-to-prism">src/user-customer/user/user-profile/user-profile.component.ts:168</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { UserService } from &#x27;../service/user.service&#x27;;
+import { catchError, of } from &#x27;rxjs&#x27;;
+
+interface Review {
+  bookTitle: string;
+  rating: number;
+  comment: string;
+}
+
+interface UserDetails {
+  id: number;
+  userId: number;
+  name: string;
+  phoneNumber: string;
+  profileImage: string | null; // Base64 encoded image
+  statusCode?: number;
+  message?: string;
+  error?: string;
+}
+
+@Component({
+  selector: &#x27;app-user-profile&#x27;,
+  templateUrl: &#x27;./user-profile.component.html&#x27;,
+  styleUrls: [&#x27;./user-profile.component.sass&#x27;],
+  standalone: false
+})
+export class UserProfileComponent implements OnInit {
+  activeTab: &#x27;details&#x27; | &#x27;wallet&#x27; | &#x27;orders-reviews&#x27; | &#x27;support&#x27; | &#x27;close-account&#x27; &#x3D; &#x27;details&#x27;;
+  userId: number | null &#x3D; null;
+  userDetails: UserDetails | null &#x3D; null; // To hold fetched user details
+  walletBalance: number &#x3D; 0;
+  userReviews: Review[] &#x3D; [];
+  isSidebarExpanded: boolean &#x3D; false;
+  isEditingDetails: boolean &#x3D; false;
+  showBalance: boolean &#x3D; false;
+  showSimulatePaymentPopup: boolean &#x3D; false;
+  simulatePaymentSuccess: boolean &#x3D; false;
+  simulatePaymentError: boolean &#x3D; false;
+  simulatePaymentErrorMessage: string &#x3D; &#x27;&#x27;;
+  topUpAmount: number | null &#x3D; null;
+
+  profileForm: FormGroup;
+  passwordForm: FormGroup;
+  simulatePaymentForm: FormGroup;
+  selectedFile: File | null &#x3D; null; // To hold the selected image file
+  profileImagePreview: string | ArrayBuffer | null &#x3D; null; // For image preview
+
+  updateSuccessMessage: string &#x3D; &#x27;&#x27;;
+  updateErrorMessage: string &#x3D; &#x27;&#x27;;
+  passwordSuccessMessage: string &#x3D; &#x27;&#x27;;
+  passwordErrorMessage: string &#x3D; &#x27;&#x27;;
+  closeAccountMessage: string &#x3D; &#x27;&#x27;;
+
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private userService: UserService
+  ) {
+    this.profileForm &#x3D; this.fb.group({
+      name: [&#x27;&#x27;, Validators.required],
+      phoneNumber: [&#x27;&#x27;, [Validators.required, Validators.pattern(&#x27;^[0-9-+\\s()]*$&#x27;)]], // Basic phone number validation
+      profileImage: [null] // We&#x27;ll handle this separately
+    });
+    this.passwordForm &#x3D; this.fb.group({
+      currentPassword: [&#x27;&#x27;, Validators.required],
+      newPassword: [&#x27;&#x27;, [Validators.required, Validators.minLength(6)]],
+      confirmPassword: [&#x27;&#x27;, Validators.required]
+    }, { validators: this.passwordMatchValidator });
+    this.simulatePaymentForm &#x3D; this.fb.group({
+      paymentMethod: [&#x27;upi&#x27;],
+      upiId: [&#x27;&#x27;, Validators.required],
+      cardNumber: [&#x27;&#x27;, [Validators.minLength(16), Validators.maxLength(16)]],
+      expiry: [&#x27;&#x27;, [Validators.pattern(&#x27;^(0[1-9]|1[0-2])\\/?([0-9]{2})$&#x27;)]],
+      cvv: [&#x27;&#x27;, [Validators.minLength(3), Validators.maxLength(4)]],
+      simulateAmount: [0, Validators.required]
+    });
+  }
+
+  ngOnInit(): void {
+    this.userId &#x3D; parseInt(sessionStorage.getItem(&#x27;userId&#x27;) || &#x27;0&#x27;, 10);
+    if (this.userId) {
+      this.loadUserProfile();
+      this.loadWalletBalance();
+      this.loadUserReviews();
+    } else {
+      this.router.navigate([&#x27;/login&#x27;]);
+    }
+  }
+
+  toggleSidebar() {
+    this.isSidebarExpanded &#x3D; !this.isSidebarExpanded;
+  }
+
+  setActiveTab(tab: &#x27;details&#x27; | &#x27;wallet&#x27; | &#x27;orders-reviews&#x27; | &#x27;support&#x27; | &#x27;close-account&#x27;) {
+    this.activeTab &#x3D; tab;
+    this.updateSuccessMessage &#x3D; &#x27;&#x27;;
+    this.updateErrorMessage &#x3D; &#x27;&#x27;;
+    this.passwordSuccessMessage &#x3D; &#x27;&#x27;;
+    this.passwordErrorMessage &#x3D; &#x27;&#x27;;
+    this.closeAccountMessage &#x3D; &#x27;&#x27;;
+    this.simulatePaymentSuccess &#x3D; false;
+    this.simulatePaymentError &#x3D; false;
+    this.simulatePaymentErrorMessage &#x3D; &#x27;&#x27;;
+    this.isEditingDetails &#x3D; false;
+    this.showSimulatePaymentPopup &#x3D; false;
+    this.topUpAmount &#x3D; null;
+    this.profileImagePreview &#x3D; null;  
+    this.selectedFile &#x3D; null;
+  }
+
+  loadUserProfile() {
+    this.userService.getUserDetails(this.userId!).pipe(
+      catchError(error &#x3D;&gt; {
+        console.error(&#x27;Error loading user details:&#x27;, error);
+        return of(null);
+      })
+    ).subscribe(userDetails &#x3D;&gt; {
+      this.userDetails &#x3D; userDetails;
+      if (userDetails) {
+        this.profileForm.patchValue({
+          name: userDetails.name,
+          phoneNumber: userDetails.phoneNumber,
+          // profileImage: userDetails.profileImage // We don&#x27;t patch the image in the form
+        });
+        // Check if userDetails.profileImage exists and is a string before proceeding
+        if (userDetails.profileImage &amp;&amp; typeof userDetails.profileImage &#x3D;&#x3D;&#x3D; &#x27;string&#x27; &amp;&amp; !userDetails.profileImage.startsWith(&#x27;data:&#x27;)) {
+          // Assuming the backend returns the image in a common format like JPEG
+          this.userDetails!.profileImage &#x3D; userDetails?.profileImage ? &#x60;data:image/jpeg;base64,${userDetails.profileImage}&#x60; : null;
+          // You might need to adjust &#x27;image/jpeg&#x27; based on your actual backend image format
+        } else if (userDetails.profileImage &amp;&amp; typeof userDetails.profileImage !&#x3D;&#x3D; &#x27;string&#x27;) {
+          console.warn(&#x27;Profile image data is not a string:&#x27;, userDetails.profileImage);
+          if (this.userDetails) {
+            this.userDetails.profileImage &#x3D; null; // Or handle it as needed
+          }
+        }
+      }
+    });
+  }
+
+  handleFileInput(event: any) {
+    this.selectedFile &#x3D; event.target.files[0];
+    if (this.selectedFile) {
+      const reader &#x3D; new FileReader();
+      reader.onload &#x3D; (e) &#x3D;&gt; {
+        this.profileImagePreview &#x3D; e.target?.result ?? null;
+      };
+      reader.readAsDataURL(this.selectedFile);
+    } else {
+      this.profileImagePreview &#x3D; this.userDetails?.profileImage || null; 
+    }
+  }
+
+  updateProfile() {
+    if (this.profileForm.valid &amp;&amp; this.userId) {
+      const formData &#x3D; new FormData();
+      formData.append(&#x27;name&#x27;, this.profileForm.value.name);
+      formData.append(&#x27;phoneNumber&#x27;, this.profileForm.value.phoneNumber);
+      if (this.selectedFile) {
+        formData.append(&#x27;profileImage&#x27;, this.selectedFile, this.selectedFile.name);
+      }
+
+      this.userService.updateUserDetails(this.userId, formData).pipe( // Use the new service method
+        catchError(error &#x3D;&gt; {
+          console.error(&#x27;Error updating profile:&#x27;, error);
+          this.updateErrorMessage &#x3D; error?.message || &#x27;Failed to update profile.&#x27;;
+          return of(null);
+        })
+      ).subscribe(response &#x3D;&gt; {
+        if (response?.statusCode &#x3D;&#x3D;&#x3D; 200) {
+          this.updateSuccessMessage &#x3D; response.message || &#x27;Profile updated successfully!&#x27;;
+          this.userDetails &#x3D; response; // Update the displayed details
+          sessionStorage.setItem(&#x27;name&#x27;, response.name || &#x27;&#x27;);
+          this.isEditingDetails &#x3D; false;
+          this.selectedFile &#x3D; null;
+          this.profileImagePreview &#x3D; null;
+          // After successful update, ensure the image URL is correctly formatted
+          if (this.userDetails?.profileImage &amp;&amp; typeof this.userDetails.profileImage &#x3D;&#x3D;&#x3D; &#x27;string&#x27; &amp;&amp; !this.userDetails.profileImage.startsWith(&#x27;data:&#x27;)) {
+            this.userDetails.profileImage &#x3D; &#x60;data:image/jpeg;base64,${this.userDetails.profileImage}&#x60;;
+            // Adjust &#x27;image/jpeg&#x27; if necessary
+          } else if (this.userDetails?.profileImage &amp;&amp; typeof this.userDetails.profileImage !&#x3D;&#x3D; &#x27;string&#x27;) {
+            console.warn(&#x27;Updated profile image data is not a string:&#x27;, this.userDetails.profileImage);
+            this.userDetails.profileImage &#x3D; null; // Or handle it as needed
+          }
+        } else {
+          this.updateErrorMessage &#x3D; response?.message || &#x27;Failed to update profile.&#x27;;
+        }
+      });
+    }
+  }
+
+    // changePassword() {
+    //     if (this.passwordForm.valid) {
+    //         this.userService.changePassword(this.userId!, this.passwordForm.value).pipe(
+    //             catchError(error &#x3D;&gt; {
+    //                 console.error(&#x27;Error changing password:&#x27;, error);
+    //                 this.passwordErrorMessage &#x3D; error?.message || &#x27;Failed to change password.&#x27;;
+    //                 return of(null);
+    //             })
+    //         ).subscribe(response &#x3D;&gt; {
+    //             if (response?.statusCode &#x3D;&#x3D;&#x3D; 200) {
+    //                 this.passwordSuccessMessage &#x3D; response.message || &#x27;Password changed successfully!&#x27;;
+    //                 this.passwordForm.reset();
+    //             } else {
+    //                 this.passwordErrorMessage &#x3D; response?.message || &#x27;Failed to change password.&#x27;;
+    //             }
+    //         });
+    //     }
+    // }
+
+    // passwordMatchValidator(formGroup: FormGroup) {
+    //     const newPasswordControl &#x3D; formGroup.controls[&#x27;newPassword&#x27;];
+    //     const confirmPasswordControl &#x3D; formGroup.controls[&#x27;confirmPassword&#x27;];
+
+    //     if (!newPasswordControl || !confirmPasswordControl) {
+    //         return null;
+    //     }
+
+    //     if (confirmPasswordControl.value &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
+    //         return null;
+    //     }
+
+    //     if (newPasswordControl.value !&#x3D;&#x3D; confirmPasswordControl.value) {
+    //         return { mismatch: true };
+    //     }
+
+    //     return null;
+    // }
+    changePassword() {
+      if (this.passwordForm.valid &amp;&amp; this.userId !&#x3D;&#x3D; null) {
+        const passwords &#x3D; {
+          oldPassword: this.passwordForm.value.currentPassword,
+          newPassword: this.passwordForm.value.newPassword
+        };
+  
+        this.userService.changePassword(this.userId, passwords).pipe(
+          catchError(error &#x3D;&gt; {
+            console.error(&#x27;Error changing password:&#x27;, error);
+            this.passwordErrorMessage &#x3D; error?.error?.message || &#x27;Failed to change password.&#x27;; // Access error message from the error object
+            return of(null);
+          })
+        ).subscribe(response &#x3D;&gt; {
+          if (response?.statusCode &#x3D;&#x3D;&#x3D; 200) {
+            this.passwordSuccessMessage &#x3D; response.message || &#x27;Password changed successfully!&#x27;;
+            this.passwordForm.reset();
+          } else {
+            this.passwordErrorMessage &#x3D; response?.message || &#x27;Failed to change password.&#x27;;
+          }
+        });
+      } else {
+        // Form is invalid or userId is missing, error messages should already be displayed
+      }
+    }
+  
+    passwordMatchValidator(formGroup: FormGroup) {
+      const newPasswordControl &#x3D; formGroup.controls[&#x27;newPassword&#x27;];
+      const confirmPasswordControl &#x3D; formGroup.controls[&#x27;confirmPassword&#x27;];
+  
+      if (!newPasswordControl || !confirmPasswordControl) {
+        return null;
+      }
+  
+      if (confirmPasswordControl.value &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
+        return null;
+      }
+  
+      if (newPasswordControl.value !&#x3D;&#x3D; confirmPasswordControl.value) {
+        return { mismatch: true };
+      }
+  
+      return null;
+    }
+
+    loadWalletBalance() {
+        if (this.userId) {
+            this.userService.getUserCredit(this.userId).pipe(
+                catchError(error &#x3D;&gt; {
+                    console.error(&#x27;Error loading wallet balance:&#x27;, error);
+                    return of({ credits: 0 });
+                })
+            ).subscribe(creditInfo &#x3D;&gt; {
+                this.walletBalance &#x3D; creditInfo?.credits || 0;
+            });
+        }
+    }
+
+    setTopUpAmount(amount: number) {
+        this.topUpAmount &#x3D; amount;
+    }
+
+    populateSimulateAmount() {
+        this.simulatePaymentForm.patchValue({ simulateAmount: this.topUpAmount });
+        // Reset UPI/Credit Card specific fields when the popup opens
+        this.simulatePaymentForm.patchValue({ upiId: &#x27;&#x27; });
+        this.simulatePaymentForm.patchValue({ cardNumber: &#x27;&#x27; });
+        this.simulatePaymentForm.patchValue({ expiry: &#x27;&#x27; });
+        this.simulatePaymentForm.patchValue({ cvv: &#x27;&#x27; });
+        this.simulatePaymentForm.markAsUntouched(); // Reset touched state for validation
+    }
+
+    simulateAddFunds() {
+        if (this.simulatePaymentForm.valid &amp;&amp; this.userId) {
+            const amount &#x3D; this.simulatePaymentForm.value.simulateAmount;
+            this.userService.addCredits(this.userId, amount).pipe(
+                catchError(error &#x3D;&gt; {
+                    console.error(&#x27;Error adding funds:&#x27;, error);
+                    this.simulatePaymentError &#x3D; true;
+                    this.simulatePaymentSuccess &#x3D; false;
+                    this.simulatePaymentErrorMessage &#x3D; error?.error?.message || &#x27;Failed to add funds.&#x27;;
+                    return of(null);
+                })
+            ).subscribe(response &#x3D;&gt; {
+                if (response?.statusCode &#x3D;&#x3D;&#x3D; 200 || response?.statusCode &#x3D;&#x3D;&#x3D; 201) {
+                    this.simulatePaymentSuccess &#x3D; true;
+                    this.simulatePaymentError &#x3D; false;
+                    this.loadWalletBalance();
+                    setTimeout(() &#x3D;&gt; {
+                        this.simulatePaymentSuccess &#x3D; false;
+                        this.showSimulatePaymentPopup &#x3D; false;
+                        this.topUpAmount &#x3D; null;
+                    }, 3000);
+                } else {
+                    this.simulatePaymentError &#x3D; true;
+                    this.simulatePaymentSuccess &#x3D; false;
+                    this.simulatePaymentErrorMessage &#x3D; response?.message || &#x27;Failed to add funds.&#x27;;
+                }
+            });
+        } else {
+            this.simulatePaymentError &#x3D; true;
+            this.simulatePaymentSuccess &#x3D; false;
+            this.simulatePaymentErrorMessage &#x3D; &#x27;Please enter a valid amount and payment details.&#x27;;
+        }
+    }
+
+    closeSimulatePaymentPopup() {
+        this.showSimulatePaymentPopup &#x3D; false;
+        this.simulatePaymentSuccess &#x3D; false;
+        this.simulatePaymentError &#x3D; false;
+        this.simulatePaymentErrorMessage &#x3D; &#x27;&#x27;;
+        this.simulatePaymentForm.reset();
+        this.simulatePaymentForm.patchValue({ paymentMethod: &#x27;upi&#x27;, simulateAmount: 0 });
+        this.topUpAmount &#x3D; null;
+    }
+
+    loadUserReviews() {
+        this.userReviews &#x3D; [
+            { bookTitle: &#x27;The Great Gatsby&#x27;, rating: 4, comment: &#x27;A classic!&#x27; },
+            { bookTitle: &#x27;To Kill a Mockingbird&#x27;, rating: 5, comment: &#x27;A powerful story.&#x27; }
+        ];
+    }
+
+    confirmCloseAccount() {
+        if (confirm(&#x27;Are you sure you want to close your account? This action is irreversible.&#x27;)) {
+            this.userService.closeAccount(this.userId!).pipe(
+                catchError(error &#x3D;&gt; {
+                    console.error(&#x27;Error closing account:&#x27;, error);
+                    this.closeAccountMessage &#x3D; error?.message || &#x27;Failed to close account.&#x27;;
+                    return of(null);
+                })
+            ).subscribe(response &#x3D;&gt; {
+                if (response?.statusCode &#x3D;&#x3D;&#x3D; 200) {
+                    this.closeAccountMessage &#x3D; response.message || &#x27;Account closed successfully.&#x27;;
+                    setTimeout(() &#x3D;&gt; this.router.navigate([&#x27;/&#x27;]), 3000);
+                } else {
+                    this.closeAccountMessage &#x3D; response?.message || &#x27;Failed to close account.&#x27;;
+                }
+            });
+        }
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;user-profile-container&quot;&gt;
+    &lt;aside class&#x3D;&quot;sidebar&quot; [class.expanded]&#x3D;&quot;isSidebarExpanded&quot;&gt;
+        &lt;div class&#x3D;&quot;menu-toggle&quot; (click)&#x3D;&quot;toggleSidebar()&quot;&gt;
+            &lt;i class&#x3D;&quot;fa-solid fa-bars&quot;&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;nav&gt;
+            &lt;a href&#x3D;&quot;javascript:void(0)&quot; (click)&#x3D;&quot;setActiveTab(&#x27;details&#x27;)&quot; [class.active]&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;details&#x27;&quot;&gt;
+                &lt;i class&#x3D;&quot;fa-solid fa-user&quot;&gt;&lt;/i&gt;
+                &lt;span *ngIf&#x3D;&quot;isSidebarExpanded&quot;&gt;Profile&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;a href&#x3D;&quot;javascript:void(0)&quot; (click)&#x3D;&quot;setActiveTab(&#x27;wallet&#x27;)&quot; [class.active]&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;wallet&#x27;&quot;&gt;
+                &lt;i class&#x3D;&quot;fa-solid fa-wallet&quot;&gt;&lt;/i&gt;
+                &lt;span *ngIf&#x3D;&quot;isSidebarExpanded&quot;&gt;Wallet&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;a href&#x3D;&quot;javascript:void(0)&quot; (click)&#x3D;&quot;setActiveTab(&#x27;orders-reviews&#x27;)&quot; [class.active]&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;orders-reviews&#x27;&quot;&gt;
+                &lt;i class&#x3D;&quot;fa-solid fa-list-alt&quot;&gt;&lt;/i&gt;
+                &lt;span *ngIf&#x3D;&quot;isSidebarExpanded&quot;&gt;My Orders &amp; Reviews&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;a href&#x3D;&quot;javascript:void(0)&quot; (click)&#x3D;&quot;setActiveTab(&#x27;support&#x27;)&quot; [class.active]&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;support&#x27;&quot;&gt;
+                &lt;i class&#x3D;&quot;fa-solid fa-question-circle&quot;&gt;&lt;/i&gt;
+                &lt;span *ngIf&#x3D;&quot;isSidebarExpanded&quot;&gt;Support &amp; Help&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;a href&#x3D;&quot;javascript:void(0)&quot; (click)&#x3D;&quot;setActiveTab(&#x27;close-account&#x27;)&quot; [class.active]&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;close-account&#x27;&quot;&gt;
+                &lt;i class&#x3D;&quot;fa-solid fa-trash-alt&quot;&gt;&lt;/i&gt;
+                &lt;span *ngIf&#x3D;&quot;isSidebarExpanded&quot;&gt;Delete Account&lt;/span&gt;
+            &lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;/aside&gt;
+    &lt;main class&#x3D;&quot;content&quot;&gt;
+        &lt;header&gt;
+            &lt;!-- &lt;h2&gt;User Profile&lt;/h2&gt; --&gt;
+        &lt;/header&gt;
+        &lt;div class&#x3D;&quot;pdetails&quot; *ngIf&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;details&#x27; &amp;&amp; userDetails&quot;&gt;
+            &lt;!-- &lt;h3 class&#x3D;&quot;pd&quot;&gt;Personal Details&lt;/h3&gt; --&gt;
+            &lt;div *ngIf&#x3D;&quot;!isEditingDetails; else editDetailsSection&quot;&gt;
+              &lt;div *ngIf&#x3D;&quot;userDetails.profileImage&quot;&gt;
+                &lt;img [src]&#x3D;&quot;userDetails.profileImage&quot; alt&#x3D;&quot;Profile Picture&quot; style&#x3D;&quot;max-width: 100px; max-height: 100px;&quot;&gt;
+              &lt;/div&gt;
+              &lt;div *ngIf&#x3D;&quot;!userDetails.profileImage&quot;&gt;
+                &lt;p&gt;No profile picture available.&lt;/p&gt;
+              &lt;/div&gt;
+              &lt;p&gt;&lt;strong&gt;Full Name:&lt;/strong&gt; {{ userDetails.name }}&lt;/p&gt;
+              &lt;p&gt;&lt;strong&gt;Phone Number:&lt;/strong&gt; {{ userDetails.phoneNumber }}&lt;/p&gt;
+              &lt;button (click)&#x3D;&quot;isEditingDetails &#x3D; true&quot;&gt;Edit Details&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;ng-template #editDetailsSection&gt;
+              &lt;form [formGroup]&#x3D;&quot;profileForm&quot; (ngSubmit)&#x3D;&quot;updateProfile()&quot;&gt;
+                &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                  &lt;label for&#x3D;&quot;name&quot;&gt;Full Name:&lt;/label&gt;
+                  &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;name&quot; formControlName&#x3D;&quot;name&quot;&gt;
+                  &lt;div *ngIf&#x3D;&quot;profileForm.controls[&#x27;name&#x27;].invalid &amp;&amp; (profileForm.controls[&#x27;name&#x27;].dirty || profileForm.controls[&#x27;name&#x27;].touched)&quot; class&#x3D;&quot;error-message&quot;&gt;
+                    Name is required.
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                  &lt;label for&#x3D;&quot;phoneNumber&quot;&gt;Phone Number:&lt;/label&gt;
+                  &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;phoneNumber&quot; formControlName&#x3D;&quot;phoneNumber&quot;&gt;
+                  &lt;div *ngIf&#x3D;&quot;profileForm.controls[&#x27;phoneNumber&#x27;].invalid &amp;&amp; (profileForm.controls[&#x27;phoneNumber&#x27;].dirty || profileForm.controls[&#x27;phoneNumber&#x27;].touched)&quot; class&#x3D;&quot;error-message&quot;&gt;
+                    &lt;div *ngIf&#x3D;&quot;profileForm.controls[&#x27;phoneNumber&#x27;].errors?.[&#x27;required&#x27;]&quot;&gt;Phone number is required.&lt;/div&gt;
+                    &lt;div *ngIf&#x3D;&quot;profileForm.controls[&#x27;phoneNumber&#x27;].errors?.[&#x27;pattern&#x27;]&quot;&gt;Invalid phone number format.&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                  &lt;label for&#x3D;&quot;profileImage&quot;&gt;Profile Image:&lt;/label&gt;
+                  &lt;input type&#x3D;&quot;file&quot; id&#x3D;&quot;profileImage&quot; (change)&#x3D;&quot;handleFileInput($event)&quot; accept&#x3D;&quot;image/*&quot;&gt;
+                  &lt;div *ngIf&#x3D;&quot;profileImagePreview&quot;&gt;
+                    &lt;img [src]&#x3D;&quot;profileImagePreview&quot; alt&#x3D;&quot;Profile Image Preview&quot; style&#x3D;&quot;max-width: 100px; max-height: 100px; margin-top: 10px;&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;div *ngIf&#x3D;&quot;userDetails.profileImage &amp;&amp; !profileImagePreview&quot;&gt;
+                    &lt;p&gt;Current Image:&lt;/p&gt;
+                    &lt;img [src]&#x3D;&quot;userDetails.profileImage&quot; alt&#x3D;&quot;Current Profile Picture&quot; style&#x3D;&quot;max-width: 100px; max-height: 100px; margin-top: 10px;&quot;&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;form-actions&quot;&gt;
+                  &lt;button type&#x3D;&quot;submit&quot; [disabled]&#x3D;&quot;profileForm.invalid&quot;&gt;Update Details&lt;/button&gt;
+                  &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;isEditingDetails &#x3D; false&quot;&gt;Cancel&lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div *ngIf&#x3D;&quot;updateSuccessMessage&quot; class&#x3D;&quot;success-message&quot;&gt;{{ updateSuccessMessage }}&lt;/div&gt;
+                &lt;div *ngIf&#x3D;&quot;updateErrorMessage&quot; class&#x3D;&quot;error-message&quot;&gt;{{ updateErrorMessage }}&lt;/div&gt;
+              &lt;/form&gt;
+          
+              &lt;h3&gt;Change Password&lt;/h3&gt;
+             
+                &lt;form [formGroup]&#x3D;&quot;passwordForm&quot; (ngSubmit)&#x3D;&quot;changePassword()&quot;&gt;
+                    &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                        &lt;label for&#x3D;&quot;currentPassword&quot;&gt;Current Password:&lt;/label&gt;
+                        &lt;input type&#x3D;&quot;password&quot; id&#x3D;&quot;currentPassword&quot; formControlName&#x3D;&quot;currentPassword&quot; required&gt;
+                        &lt;div *ngIf&#x3D;&quot;passwordForm.controls[&#x27;currentPassword&#x27;].invalid &amp;&amp; (passwordForm.controls[&#x27;currentPassword&#x27;].dirty || passwordForm.controls[&#x27;currentPassword&#x27;].touched)&quot; class&#x3D;&quot;error-message&quot;&gt;
+                            Current password is required.
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                        &lt;label for&#x3D;&quot;newPassword&quot;&gt;New Password:&lt;/label&gt;
+                        &lt;input type&#x3D;&quot;password&quot; id&#x3D;&quot;newPassword&quot; formControlName&#x3D;&quot;newPassword&quot; required minlength&#x3D;&quot;6&quot;&gt;
+                        &lt;div *ngIf&#x3D;&quot;passwordForm.controls[&#x27;newPassword&#x27;].invalid &amp;&amp; (passwordForm.controls[&#x27;newPassword&#x27;].dirty || passwordForm.controls[&#x27;newPassword&#x27;].touched)&quot; class&#x3D;&quot;error-message&quot;&gt;
+                            &lt;div *ngIf&#x3D;&quot;passwordForm.controls[&#x27;newPassword&#x27;].errors?.[&#x27;required&#x27;]&quot;&gt;New password is required.&lt;/div&gt;
+                            &lt;div *ngIf&#x3D;&quot;passwordForm.controls[&#x27;newPassword&#x27;].errors?.[&#x27;minlength&#x27;]&quot;&gt;New password must be at least 6 characters.&lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                        &lt;label for&#x3D;&quot;confirmPassword&quot;&gt;Confirm New Password:&lt;/label&gt;
+                        &lt;input type&#x3D;&quot;password&quot; id&#x3D;&quot;confirmPassword&quot; formControlName&#x3D;&quot;confirmPassword&quot; required&gt;
+                        &lt;div *ngIf&#x3D;&quot;passwordForm.controls[&#x27;confirmPassword&#x27;].invalid &amp;&amp; (passwordForm.controls[&#x27;confirmPassword&#x27;].dirty || passwordForm.controls[&#x27;confirmPassword&#x27;].touched)&quot; class&#x3D;&quot;error-message&quot;&gt;
+                            Confirm password is required.
+                        &lt;/div&gt;
+                        &lt;div *ngIf&#x3D;&quot;passwordForm.errors?.[&#x27;mismatch&#x27;]&quot; class&#x3D;&quot;error-message&quot;&gt;Passwords do not match.&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;form-actions&quot;&gt;
+                        &lt;button type&#x3D;&quot;submit&quot; [disabled]&#x3D;&quot;passwordForm.invalid || passwordForm.errors?.[&#x27;mismatch&#x27;]&quot;&gt;Change Password&lt;/button&gt;
+                    &lt;/div&gt;
+                    &lt;div *ngIf&#x3D;&quot;passwordSuccessMessage&quot; class&#x3D;&quot;success-message&quot;&gt;{{ passwordSuccessMessage }}&lt;/div&gt;
+                    &lt;div *ngIf&#x3D;&quot;passwordErrorMessage&quot; class&#x3D;&quot;error-message&quot;&gt;{{ passwordErrorMessage }}&lt;/div&gt;
+                &lt;/form&gt;
+            &lt;/ng-template&gt;
+        &lt;/div&gt;
+ 
+
+        &lt;div *ngIf&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;wallet&#x27;&quot;&gt;
+            &lt;h3&gt;Wallet&lt;/h3&gt;
+            &lt;p&gt;Current Balance:
+                &lt;span *ngIf&#x3D;&quot;!showBalance&quot;&gt;
+                    &lt;i class&#x3D;&quot;fa-solid fa-eye&quot; (click)&#x3D;&quot;showBalance &#x3D; true&quot; style&#x3D;&quot;cursor: pointer;&quot;&gt;&lt;/i&gt;
+                    &lt;span style&#x3D;&quot;visibility: hidden;&quot;&gt;{{ walletBalance | currency:&#x27;INR&#x27; }}&lt;/span&gt;
+                &lt;/span&gt;
+                &lt;span *ngIf&#x3D;&quot;showBalance&quot;&gt;{{ walletBalance | currency:&#x27;INR&#x27; }}&lt;/span&gt;
+            &lt;/p&gt;
+
+            &lt;h4&gt;Top up Wallet&lt;/h4&gt;
+            &lt;div class&#x3D;&quot;add-funds-section&quot;&gt;
+                &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                    &lt;label for&#x3D;&quot;topUpAmount&quot;&gt;Amount to Add (INR):&lt;/label&gt;
+                    &lt;input type&#x3D;&quot;number&quot; id&#x3D;&quot;topUpAmount&quot; [(ngModel)]&#x3D;&quot;topUpAmount&quot; min&#x3D;&quot;1&quot; required&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;suggested-amounts&quot;&gt;
+                    &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;setTopUpAmount(1000)&quot;&gt;₹ 1000&lt;/button&gt;
+                    &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;setTopUpAmount(2000)&quot;&gt;₹ 2000&lt;/button&gt;
+                    &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;setTopUpAmount(5000)&quot;&gt;₹ 5000&lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;button [disabled]&#x3D;&quot;!topUpAmount || topUpAmount &lt; 1&quot; (click)&#x3D;&quot;showSimulatePaymentPopup &#x3D; true; populateSimulateAmount()&quot;&gt;Add Funds&lt;/button&gt;
+            &lt;/div&gt;
+
+            &lt;div *ngIf&#x3D;&quot;showSimulatePaymentPopup&quot; class&#x3D;&quot;modal&quot;&gt;
+                &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+                    &lt;span class&#x3D;&quot;close-button&quot; (click)&#x3D;&quot;closeSimulatePaymentPopup()&quot;&gt;&amp;times;&lt;/span&gt;
+                    &lt;h4&gt;Simulate Payment&lt;/h4&gt;
+                    &lt;form [formGroup]&#x3D;&quot;simulatePaymentForm&quot; (ngSubmit)&#x3D;&quot;simulateAddFunds()&quot;&gt;
+                        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                            &lt;label for&#x3D;&quot;paymentMethod&quot;&gt;Payment Method:&lt;/label&gt;
+                            &lt;select id&#x3D;&quot;paymentMethod&quot; formControlName&#x3D;&quot;paymentMethod&quot;&gt;
+                                &lt;option value&#x3D;&quot;upi&quot;&gt;UPI&lt;/option&gt;
+                                &lt;!-- &lt;option value&#x3D;&quot;creditcard&quot;&gt;Credit Card&lt;/option&gt; --&gt;
+                            &lt;/select&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;form-group&quot; *ngIf&#x3D;&quot;simulatePaymentForm.value.paymentMethod &#x3D;&#x3D;&#x3D; &#x27;upi&#x27;&quot;&gt;
+                            &lt;label for&#x3D;&quot;upiId&quot;&gt;UPI ID:&lt;/label&gt;
+                            &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;upiId&quot; formControlName&#x3D;&quot;upiId&quot; required&gt;
+                            &lt;div *ngIf&#x3D;&quot;simulatePaymentForm.controls[&#x27;upiId&#x27;].invalid &amp;&amp; (simulatePaymentForm.controls[&#x27;upiId&#x27;].dirty || simulatePaymentForm.controls[&#x27;upiId&#x27;].touched)&quot; class&#x3D;&quot;error-message&quot;&gt;
+                                Please enter your UPI ID.
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;form-group&quot; *ngIf&#x3D;&quot;simulatePaymentForm.value.paymentMethod &#x3D;&#x3D;&#x3D; &#x27;creditcard&#x27;&quot;&gt;
+                            &lt;label for&#x3D;&quot;cardNumber&quot;&gt;Card Number:&lt;/label&gt;
+                            &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;cardNumber&quot; formControlName&#x3D;&quot;cardNumber&quot; [maxLength]&#x3D;&quot;16&quot; required&gt;
+                            &lt;div *ngIf&#x3D;&quot;simulatePaymentForm.controls[&#x27;cardNumber&#x27;].invalid &amp;&amp; (simulatePaymentForm.controls[&#x27;cardNumber&#x27;].dirty || simulatePaymentForm.controls[&#x27;cardNumber&#x27;].touched)&quot; class&#x3D;&quot;error-message&quot;&gt;
+                                Please enter a valid 16-digit card number.
+                            &lt;/div&gt;
+                            &lt;label for&#x3D;&quot;expiry&quot;&gt;Expiry (MM/YY):&lt;/label&gt;
+                            &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;expiry&quot; formControlName&#x3D;&quot;expiry&quot; placeholder&#x3D;&quot;MM/YY&quot; required&gt;
+                            &lt;div *ngIf&#x3D;&quot;simulatePaymentForm.controls[&#x27;expiry&#x27;].invalid &amp;&amp; (simulatePaymentForm.controls[&#x27;expiry&#x27;].dirty || simulatePaymentForm.controls[&#x27;expiry&#x27;].touched)&quot; class&#x3D;&quot;error-message&quot;&gt;
+                                Please enter expiry in MM/YY format.
+                            &lt;/div&gt;
+                            &lt;label for&#x3D;&quot;cvv&quot;&gt;CVV:&lt;/label&gt;
+                            &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;cvv&quot; formControlName&#x3D;&quot;cvv&quot; [maxLength]&#x3D;&quot;4&quot; required&gt;
+                            &lt;div *ngIf&#x3D;&quot;simulatePaymentForm.controls[&#x27;cvv&#x27;].invalid &amp;&amp; (simulatePaymentForm.controls[&#x27;cvv&#x27;].dirty || simulatePaymentForm.controls[&#x27;cvv&#x27;].touched)&quot; class&#x3D;&quot;error-message&quot;&gt;
+                                Please enter a valid CVV.
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                            &lt;label for&#x3D;&quot;simulateAmount&quot;&gt;Amount to Add (INR):&lt;/label&gt;
+                            &lt;input type&#x3D;&quot;number&quot; id&#x3D;&quot;simulateAmount&quot; formControlName&#x3D;&quot;simulateAmount&quot; [value]&#x3D;&quot;topUpAmount&quot; readonly&gt;
+                        &lt;/div&gt;
+                        &lt;button type&#x3D;&quot;submit&quot; [disabled]&#x3D;&quot;simulatePaymentForm.invalid&quot;&gt;Simulate Payment&lt;/button&gt;
+                        &lt;div *ngIf&#x3D;&quot;simulatePaymentError&quot; class&#x3D;&quot;success-popup&quot;&gt;
+                            &lt;i class&#x3D;&quot;fa-solid fa-check-circle&quot;&gt;&lt;/i&gt; Payment Successful!
+                        &lt;/div&gt;
+                        &lt;div *ngIf&#x3D;&quot;simulatePaymentSuccess&quot; class&#x3D;&quot;error-message&quot;&gt;{{ simulatePaymentErrorMessage }}&lt;/div&gt;
+                    &lt;/form&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div *ngIf&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;orders-reviews&#x27;&quot;&gt;
+            &lt;h3&gt;My Orders &amp; Reviews&lt;/h3&gt;
+            &lt;div *ngIf&#x3D;&quot;userReviews.length &#x3D;&#x3D;&#x3D; 0&quot;&gt;No orders or reviews yet.&lt;/div&gt;
+            &lt;app-reviews-by-user-id /&gt;
+            &lt;!-- &lt;div *ngFor&#x3D;&quot;let review of userReviews&quot; class&#x3D;&quot;review-item&quot;&gt;
+                &lt;p&gt;Book: {{ review.bookTitle }}&lt;/p&gt;
+                &lt;p&gt;Rating: {{ review.rating }}/5&lt;/p&gt;
+                &lt;p&gt;Comment: {{ review.comment }}&lt;/p&gt;
+            &lt;/div&gt; --&gt;
+            &lt;/div&gt;
+
+        &lt;div *ngIf&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;support&#x27;&quot;&gt;
+            &lt;h3&gt;Support &amp; Help&lt;/h3&gt;
+            &lt;p&gt;Contact our support team via email at &lt;a href&#x3D;&quot;mailto:support@dbsbooks.com&quot;&gt;support@dbsbooks.com&lt;/a&gt; or call us at +91 XXXXXXXXXX.&lt;/p&gt;
+            &lt;p&gt;&lt;a routerLink&#x3D;&quot;/faq&quot;&gt;Frequently Asked Questions&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div *ngIf&#x3D;&quot;activeTab &#x3D;&#x3D;&#x3D; &#x27;close-account&#x27;&quot;&gt;
+            &lt;h3&gt;Close Account&lt;/h3&gt;
+            &lt;p&gt;Warning: Closing your account is permanent and all your data will be lost.&lt;/p&gt;
+            &lt;button class&#x3D;&quot;warning-button&quot; (click)&#x3D;&quot;confirmCloseAccount()&quot;&gt;Close My Account&lt;/button&gt;
+            &lt;div *ngIf&#x3D;&quot;closeAccountMessage&quot; class&#x3D;&quot;error-message&quot;&gt;{{ closeAccountMessage }}&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/main&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.pdetails {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* position: relative;
+    left:10px;
+    top:60px;
+    width:650px; */
+}
+
+ 
+
+ 
+&lt;/style&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./user-profile.component.sass</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">$primary-color: #007bff
+$secondary-color: #6c757d
+$success-color: #28a745
+$warning-color: #ffc107
+$danger-color: #dc3545
+$light-grey: #f4f6f8
+$dark-grey: #f0f0f0
+$text-primary: #333
+$text-secondary: #555
+$text-light: black
+$border-color: #ddd
+$active-color: #00c853
+$box-shadow-light: 0 2px 5px rgba(0, 0, 0, 0.05)
+$box-shadow-medium: 0 2px 10px rgba(0, 0, 0, 0.1)
+$box-shadow-strong: 0 4px 15px rgba(0, 0, 0, 0.2)
+$border-radius: 6px
+$transition-duration: 0.2s
+$transition-easing: ease-in-out
+
+&#x3D;transition($property: all, $duration: $transition-duration, $easing: $transition-easing)
+  transition: $property $duration $easing
+
+&#x3D;box-shadow($shadow: $box-shadow-light)
+  box-shadow: $shadow
+
+&#x3D;border-radius($radius: $border-radius)
+  border-radius: $radius
+
+&#x3D;flex-center
+  display: flex
+  align-items: center
+
+&#x3D;flex-column
+  display: flex
+  flex-direction: column
+
+&#x3D;truncate
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+
+.user-profile-container
+  display: flex
+  min-height: 100vh
+  background-color: $light-grey
+
+  .sidebar
+    width: 80px
+    background-color: $dark-grey
+    color: $text-light
+    padding: 20px 0
+    @include flex-column
+    align-items: center
+    @include transition(width)
+    @include box-shadow(2px 0 5px rgba(0, 0, 0, 0.1))
+ 
+
+    &amp;.expanded
+      width: 250px
+      align-items: flex-start
+      padding-left: 25px
+
+    .menu-toggle
+      color: $text-light
+      font-size: 1.5em
+      cursor: pointer
+      margin-bottom: 30px
+      @include flex-center
+      justify-content: center
+      width: 100%
+
+      i
+        margin-right: 0
+
+      &amp;.expanded i
+        margin-right: 15px
+
+    nav
+      @include flex-column
+      width: 100%
+
+      a
+        @include flex-center
+        color: $text-light
+        text-decoration: none
+        padding: 12px 15px
+        margin-bottom: 8px
+        border-left: 5px solid transparent
+        @include transition((background-color, border-left-color))
+
+        i
+          font-size: 1.2em
+          margin-right: 1em
+
+        span
+          @include truncate
+
+        &amp;.active
+          background-color: rgba(255, 255, 255, 0.15)
+          border-left-color: $active-color
+          color: $text-light
+          font-weight: 500
+
+        &amp;:hover
+          background-color: rgba(255, 255, 255, 0.1)
+
+  .content
+    flex-grow: 1
+    padding: 30px
+    max-width: 960px
+    margin: 0 auto
+
+    header
+      h2
+        text-align: left
+        margin-bottom: 30px
+        color: $text-primary
+        font-size: 2.2em
+        font-weight: 500
+
+    h3
+      margin-bottom: 20px
+      color: $text-secondary
+      font-size: 1.6em
+      font-weight: 400
+
+    /* Profile Section Styling */
+    .profile-section
+      background-color: #fff
+      padding: 30px
+      @include border-radius(8px)
+      @include box-shadow($box-shadow-medium)
+      margin-bottom: 30px
+      display: flex
+      align-items: center
+
+    .profile-image-container
+      width: 120px
+      height: 120px
+      @include border-radius(50%)
+      overflow: hidden
+      margin-right: 25px
+      @include box-shadow(0 0 8px rgba(0, 0, 0, 0.2))
+      border: 5px solid #e0f7fa
+
+      img
+        width: 100%
+        height: 100%
+        object-fit: cover
+
+    .profile-info
+      flex-grow: 1
+
+      h4
+        color: $text-primary
+        font-size: 1.8em
+        margin-bottom: 8px
+        font-weight: 500
+
+      p
+        color: $text-secondary
+        margin-bottom: 5px
+
+    .profile-actions
+      margin-top: 20px
+
+    /* Rest of the styles */
+    .add-funds-section
+      margin-bottom: 30px
+      background-color: #fff
+      padding: 25px
+      @include border-radius(8px)
+      @include box-shadow($box-shadow-light)
+
+      .form-group
+        margin-bottom: 15px
+
+      label
+        display: block
+        margin-bottom: 8px
+        font-weight: 500
+        color: $text-secondary
+
+      input[type&#x3D;&quot;number&quot;]
+        width: 100%
+        padding: 12px
+        border: 1px solid $border-color
+        @include border-radius
+        box-sizing: border-box
+        font-size: 1em
+
+      .suggested-amounts
+        margin-bottom: 15px
+
+        button
+          padding: 10px 20px
+          margin-right: 8px
+          border: 1px solid $active-color
+          background-color: #fff
+          color: $active-color
+          @include border-radius
+          cursor: pointer
+          @include transition((background-color, color))
+
+          &amp;:hover
+            background-color: $active-color
+            color: #fff
+
+      button
+        padding: 12px 25px
+        background-color: $primary-color
+        color: white
+        border: none
+        @include border-radius
+        cursor: pointer
+        font-size: 1.1em
+        @include transition(background-color)
+
+        &amp;:disabled
+          background-color: #ccc
+          cursor: not-allowed
+
+    .form-group
+      margin-bottom: 20px
+
+      label
+        display: block
+        margin-bottom: 8px
+        font-weight: 500
+        color: $text-secondary
+
+      input[type&#x3D;&quot;text&quot;],
+      input[type&#x3D;&quot;email&quot;],
+      input[type&#x3D;&quot;password&quot;],
+      input[type&#x3D;&quot;number&quot;],
+      select
+        width: 100%
+        padding: 12px
+        border: 1px solid $border-color
+        @include border-radius
+        box-sizing: border-box
+        font-size: 1em
+
+      .error-message
+        color: $danger-color
+        font-size: 0.9em
+        margin-top: 5px
+
+    .form-actions
+      margin-top: 25px
+      display: flex
+      gap: 15px
+
+      button[type&#x3D;&quot;submit&quot;],
+      button[type&#x3D;&quot;button&quot;]
+        padding: 12px 25px
+        background-color: $primary-color
+        color: white
+        border: none
+        @include border-radius
+        cursor: pointer
+        font-size: 1.1em
+        @include transition(background-color)
+
+        &amp;:hover
+          background-color: darken($primary-color, 10%)
+
+        &amp;:disabled
+          background-color: #ccc
+          cursor: not-allowed
+
+        &amp;:last-child
+          background-color: $secondary-color
+          &amp;:hover
+            background-color: darken($secondary-color, 10%)
+
+    hr
+      border-top: 1px solid #eee
+      margin: 30px 0
+
+    h4
+      margin-top: 25px
+      margin-bottom: 12px
+      color: $text-secondary
+      font-size: 1.4em
+      font-weight: 400
+
+    button
+      padding: 12px 25px
+      background-color: $primary-color
+      color: white
+      border: none
+      @include border-radius
+      cursor: pointer
+      font-size: 1.1em
+      margin-bottom: 15px
+      @include transition(background-color)
+
+      &amp;:disabled
+        background-color: #ccc
+        cursor: not-allowed
+
+    .modal
+      position: fixed
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      background-color: rgba(0, 0, 0, 0.5)
+      display: flex
+      justify-content: center
+      align-items: center
+      z-index: 1000
+
+      .modal-content
+        background-color: #fff
+        padding: 30px
+        @include border-radius(8px)
+        max-width: 480px
+        width: 90%
+        position: relative
+        @include box-shadow($box-shadow-strong)
+
+        .close-button
+          position: absolute
+          top: 15px
+          right: 15px
+          font-size: 1.8em
+          font-weight: bold
+          color: #777
+          cursor: pointer
+          @include transition(color)
+
+          &amp;:hover
+            color: $text-primary
+
+        h4
+          text-align: center
+          margin-bottom: 20px
+          color: $text-primary
+          font-size: 1.6em
+          font-weight: 500
+
+        .form-group
+          margin-bottom: 20px
+
+          label
+            display: block
+            margin-bottom: 8px
+            font-weight: 500
+            color: $text-secondary
+
+          input[type&#x3D;&quot;text&quot;],
+          input[type&#x3D;&quot;number&quot;],
+          select
+            width: 100%
+            padding: 12px
+            border: 1px solid $border-color
+            @include border-radius
+            box-sizing: border-box
+            font-size: 1em
+
+          .error-message
+            color: $danger-color
+            font-size: 0.9em
+            margin-top: 5px
+
+        button[type&#x3D;&quot;submit&quot;]
+          padding: 12px 25px
+          background-color: $success-color
+          color: white
+          border: none
+          @include border-radius
+          cursor: pointer
+          font-size: 1.1em
+          @include transition(background-color)
+
+          &amp;:hover
+            background-color: darken($success-color, 10%)
+
+          &amp;:disabled
+            background-color: #ccc
+            cursor: not-allowed
+
+        .success-popup
+          color: $success-color
+          margin-top: 20px
+          text-align: center
+          font-weight: bold
+
+          i
+            font-size: 2.5em
+            margin-bottom: 8px
+            display: block
+
+        .error-message
+          color: $danger-color
+          margin-top: 12px
+          text-align: center
+
+    .success-message
+      color: $success-color
+      margin-top: 15px
+      font-weight: bold
+
+    .error-message
+      color: $danger-color
+      margin-top: 15px
+      font-weight: bold
+
+    .review-item
+      border: 1px solid #eee
+      padding: 20px
+      margin-bottom: 15px
+      @include border-radius
+      background-color: #fff
+      @include box-shadow($box-shadow-light)
+
+      p
+        margin-bottom: 8px
+        color: #666
+
+    .warning-button
+      background-color: $danger-color
+      color: white
+      padding: 12px 25px
+      border: none
+      @include border-radius
+      cursor: pointer
+      font-size: 1.1em
+      @include transition(background-color)
+
+      &amp;:hover
+        background-color: darken($danger-color, 10%)</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="user-profile-container">    <aside class="sidebar" [class.expanded]="isSidebarExpanded">        <div class="menu-toggle" (click)="toggleSidebar()">            <i class="fa-solid fa-bars"></i>        </div>        <nav>            <a href="javascript:void(0)" (click)="setActiveTab(\'details\')" [class.active]="activeTab === \'details\'">                <i class="fa-solid fa-user"></i>                <span *ngIf="isSidebarExpanded">Profile</span>            </a>            <a href="javascript:void(0)" (click)="setActiveTab(\'wallet\')" [class.active]="activeTab === \'wallet\'">                <i class="fa-solid fa-wallet"></i>                <span *ngIf="isSidebarExpanded">Wallet</span>            </a>            <a href="javascript:void(0)" (click)="setActiveTab(\'orders-reviews\')" [class.active]="activeTab === \'orders-reviews\'">                <i class="fa-solid fa-list-alt"></i>                <span *ngIf="isSidebarExpanded">My Orders & Reviews</span>            </a>            <a href="javascript:void(0)" (click)="setActiveTab(\'support\')" [class.active]="activeTab === \'support\'">                <i class="fa-solid fa-question-circle"></i>                <span *ngIf="isSidebarExpanded">Support & Help</span>            </a>            <a href="javascript:void(0)" (click)="setActiveTab(\'close-account\')" [class.active]="activeTab === \'close-account\'">                <i class="fa-solid fa-trash-alt"></i>                <span *ngIf="isSidebarExpanded">Delete Account</span>            </a>        </nav>    </aside>    <main class="content">        <header>            <!-- <h2>User Profile</h2> -->        </header>        <div class="pdetails" *ngIf="activeTab === \'details\' && userDetails">            <!-- <h3 class="pd">Personal Details</h3> -->            <div *ngIf="!isEditingDetails; else editDetailsSection">              <div *ngIf="userDetails.profileImage">                <img [src]="userDetails.profileImage" alt="Profile Picture" style="max-width: 100px; max-height: 100px;">              </div>              <div *ngIf="!userDetails.profileImage">                <p>No profile picture available.</p>              </div>              <p><strong>Full Name:</strong> {{ userDetails.name }}</p>              <p><strong>Phone Number:</strong> {{ userDetails.phoneNumber }}</p>              <button (click)="isEditingDetails = true">Edit Details</button>            </div>            <ng-template #editDetailsSection>              <form [formGroup]="profileForm" (ngSubmit)="updateProfile()">                <div class="form-group">                  <label for="name">Full Name:</label>                  <input type="text" id="name" formControlName="name">                  <div *ngIf="profileForm.controls[\'name\'].invalid && (profileForm.controls[\'name\'].dirty || profileForm.controls[\'name\'].touched)" class="error-message">                    Name is required.                  </div>                </div>                <div class="form-group">                  <label for="phoneNumber">Phone Number:</label>                  <input type="text" id="phoneNumber" formControlName="phoneNumber">                  <div *ngIf="profileForm.controls[\'phoneNumber\'].invalid && (profileForm.controls[\'phoneNumber\'].dirty || profileForm.controls[\'phoneNumber\'].touched)" class="error-message">                    <div *ngIf="profileForm.controls[\'phoneNumber\'].errors?.[\'required\']">Phone number is required.</div>                    <div *ngIf="profileForm.controls[\'phoneNumber\'].errors?.[\'pattern\']">Invalid phone number format.</div>                  </div>                </div>                <div class="form-group">                  <label for="profileImage">Profile Image:</label>                  <input type="file" id="profileImage" (change)="handleFileInput($event)" accept="image/*">                  <div *ngIf="profileImagePreview">                    <img [src]="profileImagePreview" alt="Profile Image Preview" style="max-width: 100px; max-height: 100px; margin-top: 10px;">                  </div>                  <div *ngIf="userDetails.profileImage && !profileImagePreview">                    <p>Current Image:</p>                    <img [src]="userDetails.profileImage" alt="Current Profile Picture" style="max-width: 100px; max-height: 100px; margin-top: 10px;">                  </div>                </div>                <div class="form-actions">                  <button type="submit" [disabled]="profileForm.invalid">Update Details</button>                  <button type="button" (click)="isEditingDetails = false">Cancel</button>                </div>                <div *ngIf="updateSuccessMessage" class="success-message">{{ updateSuccessMessage }}</div>                <div *ngIf="updateErrorMessage" class="error-message">{{ updateErrorMessage }}</div>              </form>                        <h3>Change Password</h3>                             <form [formGroup]="passwordForm" (ngSubmit)="changePassword()">                    <div class="form-group">                        <label for="currentPassword">Current Password:</label>                        <input type="password" id="currentPassword" formControlName="currentPassword" required>                        <div *ngIf="passwordForm.controls[\'currentPassword\'].invalid && (passwordForm.controls[\'currentPassword\'].dirty || passwordForm.controls[\'currentPassword\'].touched)" class="error-message">                            Current password is required.                        </div>                    </div>                    <div class="form-group">                        <label for="newPassword">New Password:</label>                        <input type="password" id="newPassword" formControlName="newPassword" required minlength="6">                        <div *ngIf="passwordForm.controls[\'newPassword\'].invalid && (passwordForm.controls[\'newPassword\'].dirty || passwordForm.controls[\'newPassword\'].touched)" class="error-message">                            <div *ngIf="passwordForm.controls[\'newPassword\'].errors?.[\'required\']">New password is required.</div>                            <div *ngIf="passwordForm.controls[\'newPassword\'].errors?.[\'minlength\']">New password must be at least 6 characters.</div>                        </div>                    </div>                    <div class="form-group">                        <label for="confirmPassword">Confirm New Password:</label>                        <input type="password" id="confirmPassword" formControlName="confirmPassword" required>                        <div *ngIf="passwordForm.controls[\'confirmPassword\'].invalid && (passwordForm.controls[\'confirmPassword\'].dirty || passwordForm.controls[\'confirmPassword\'].touched)" class="error-message">                            Confirm password is required.                        </div>                        <div *ngIf="passwordForm.errors?.[\'mismatch\']" class="error-message">Passwords do not match.</div>                    </div>                    <div class="form-actions">                        <button type="submit" [disabled]="passwordForm.invalid || passwordForm.errors?.[\'mismatch\']">Change Password</button>                    </div>                    <div *ngIf="passwordSuccessMessage" class="success-message">{{ passwordSuccessMessage }}</div>                    <div *ngIf="passwordErrorMessage" class="error-message">{{ passwordErrorMessage }}</div>                </form>            </ng-template>        </div>         <div *ngIf="activeTab === \'wallet\'">            <h3>Wallet</h3>            <p>Current Balance:                <span *ngIf="!showBalance">                    <i class="fa-solid fa-eye" (click)="showBalance = true" style="cursor: pointer;"></i>                    <span style="visibility: hidden;">{{ walletBalance | currency:\'INR\' }}</span>                </span>                <span *ngIf="showBalance">{{ walletBalance | currency:\'INR\' }}</span>            </p>            <h4>Top up Wallet</h4>            <div class="add-funds-section">                <div class="form-group">                    <label for="topUpAmount">Amount to Add (INR):</label>                    <input type="number" id="topUpAmount" [(ngModel)]="topUpAmount" min="1" required>                </div>                <div class="suggested-amounts">                    <button type="button" (click)="setTopUpAmount(1000)">₹ 1000</button>                    <button type="button" (click)="setTopUpAmount(2000)">₹ 2000</button>                    <button type="button" (click)="setTopUpAmount(5000)">₹ 5000</button>                    </div>                <button [disabled]="!topUpAmount || topUpAmount < 1" (click)="showSimulatePaymentPopup = true; populateSimulateAmount()">Add Funds</button>            </div>            <div *ngIf="showSimulatePaymentPopup" class="modal">                <div class="modal-content">                    <span class="close-button" (click)="closeSimulatePaymentPopup()">&times;</span>                    <h4>Simulate Payment</h4>                    <form [formGroup]="simulatePaymentForm" (ngSubmit)="simulateAddFunds()">                        <div class="form-group">                            <label for="paymentMethod">Payment Method:</label>                            <select id="paymentMethod" formControlName="paymentMethod">                                <option value="upi">UPI</option>                                <!-- <option value="creditcard">Credit Card</option> -->                            </select>                        </div>                        <div class="form-group" *ngIf="simulatePaymentForm.value.paymentMethod === \'upi\'">                            <label for="upiId">UPI ID:</label>                            <input type="text" id="upiId" formControlName="upiId" required>                            <div *ngIf="simulatePaymentForm.controls[\'upiId\'].invalid && (simulatePaymentForm.controls[\'upiId\'].dirty || simulatePaymentForm.controls[\'upiId\'].touched)" class="error-message">                                Please enter your UPI ID.                            </div>                        </div>                        <div class="form-group" *ngIf="simulatePaymentForm.value.paymentMethod === \'creditcard\'">                            <label for="cardNumber">Card Number:</label>                            <input type="text" id="cardNumber" formControlName="cardNumber" [maxLength]="16" required>                            <div *ngIf="simulatePaymentForm.controls[\'cardNumber\'].invalid && (simulatePaymentForm.controls[\'cardNumber\'].dirty || simulatePaymentForm.controls[\'cardNumber\'].touched)" class="error-message">                                Please enter a valid 16-digit card number.                            </div>                            <label for="expiry">Expiry (MM/YY):</label>                            <input type="text" id="expiry" formControlName="expiry" placeholder="MM/YY" required>                            <div *ngIf="simulatePaymentForm.controls[\'expiry\'].invalid && (simulatePaymentForm.controls[\'expiry\'].dirty || simulatePaymentForm.controls[\'expiry\'].touched)" class="error-message">                                Please enter expiry in MM/YY format.                            </div>                            <label for="cvv">CVV:</label>                            <input type="text" id="cvv" formControlName="cvv" [maxLength]="4" required>                            <div *ngIf="simulatePaymentForm.controls[\'cvv\'].invalid && (simulatePaymentForm.controls[\'cvv\'].dirty || simulatePaymentForm.controls[\'cvv\'].touched)" class="error-message">                                Please enter a valid CVV.                            </div>                        </div>                        <div class="form-group">                            <label for="simulateAmount">Amount to Add (INR):</label>                            <input type="number" id="simulateAmount" formControlName="simulateAmount" [value]="topUpAmount" readonly>                        </div>                        <button type="submit" [disabled]="simulatePaymentForm.invalid">Simulate Payment</button>                        <div *ngIf="simulatePaymentError" class="success-popup">                            <i class="fa-solid fa-check-circle"></i> Payment Successful!                        </div>                        <div *ngIf="simulatePaymentSuccess" class="error-message">{{ simulatePaymentErrorMessage }}</div>                    </form>                </div>            </div>        </div>        <div *ngIf="activeTab === \'orders-reviews\'">            <h3>My Orders & Reviews</h3>            <div *ngIf="userReviews.length === 0">No orders or reviews yet.</div>            <app-reviews-by-user-id />            <!-- <div *ngFor="let review of userReviews" class="review-item">                <p>Book: {{ review.bookTitle }}</p>                <p>Rating: {{ review.rating }}/5</p>                <p>Comment: {{ review.comment }}</p>            </div> -->            </div>        <div *ngIf="activeTab === \'support\'">            <h3>Support & Help</h3>            <p>Contact our support team via email at <a href="mailto:support@dbsbooks.com">support@dbsbooks.com</a> or call us at +91 XXXXXXXXXX.</p>            <p><a routerLink="/faq">Frequently Asked Questions</a></p>        </div>        <div *ngIf="activeTab === \'close-account\'">            <h3>Close Account</h3>            <p>Warning: Closing your account is permanent and all your data will be lost.</p>            <button class="warning-button" (click)="confirmCloseAccount()">Close My Account</button>            <div *ngIf="closeAccountMessage" class="error-message">{{ closeAccountMessage }}</div>        </div>    </main></div><style>.pdetails {    display: flex;    align-items: center;    padding: 20px;    background-color: #f9f9f9;    border: 1px solid #ddd;    border-radius: 8px;    margin-top: 20px;    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);    /* position: relative;    left:10px;    top:60px;    width:650px; */}  </style></div>'
+    var COMPONENTS = [{'name': 'AddbookComponent', 'selector': 'app-addbook'},{'name': 'AddToCartComponent', 'selector': 'app-add-to-cart'},{'name': 'AddUpdateReviewComponent', 'selector': 'app-add-update-review'},{'name': 'AdminDashboardComponent', 'selector': 'app-admin-dashboard'},{'name': 'AdminHomeComponent', 'selector': 'app-admin-home'},{'name': 'AdminReturnProcessComponent', 'selector': 'app-admin-return-process'},{'name': 'AllorderstatusComponent', 'selector': 'app-allorderstatus'},{'name': 'AllReviewsComponent', 'selector': 'app-all-reviews'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AverageRatingComponent', 'selector': 'app-average-rating'},{'name': 'BookBannersComponent', 'selector': 'app-book-banners'},{'name': 'BookCarouselComponent', 'selector': 'app-book-carousel'},{'name': 'BookDealComponent', 'selector': 'app-book-deal'},{'name': 'BookdetailsComponent', 'selector': 'app-bookdetails'},{'name': 'BookHeroComponent', 'selector': 'app-book-hero'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategorybooksComponent', 'selector': 'app-categorybooks'},{'name': 'CategorybookslistComponent', 'selector': 'app-categorybookslist'},{'name': 'DashboardInventoryComponent', 'selector': 'app-dashboard-inventory'},{'name': 'DealOfTheDayComponent', 'selector': 'app-deal-of-the-day'},{'name': 'DeletebookComponent', 'selector': 'app-deletebook'},{'name': 'DeleteBookInventoryComponent', 'selector': 'app-delete-book-inventory'},{'name': 'DisplayInventoryComponent', 'selector': 'app-display-inventory'},{'name': 'EditorspickComponent', 'selector': 'app-editorspick'},{'name': 'FilterComponent', 'selector': 'app-filter'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LeftSidebarComponent', 'selector': 'app-left-sidebar'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'NavbarAdminComponent', 'selector': 'app-navbar-admin'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'OrderDetailsComponent', 'selector': 'app-order-details'},{'name': 'OrderListComponent', 'selector': 'app-order-list'},{'name': 'OrderManagementComponent', 'selector': 'app-order-management'},{'name': 'OrderTrackingComponent', 'selector': 'app-order-tracking'},{'name': 'PaymentComponent', 'selector': 'app-payment'},{'name': 'PlaceOrderComponent', 'selector': 'app-place-order'},{'name': 'RecentOrdersComponent', 'selector': 'app-recent-orders'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewComponent', 'selector': 'app-review'},{'name': 'ReviewsByBookIdComponent', 'selector': 'app-reviews-by-book-id'},{'name': 'ReviewsByUserIdComponent', 'selector': 'app-reviews-by-user-id'},{'name': 'SearchtitleComponent', 'selector': 'app-searchtitle'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'StarsComponent', 'selector': 'app-stars'},{'name': 'UpdatebookComponent', 'selector': 'app-updatebook'},{'name': 'UpdateQuantityComponent', 'selector': 'app-update-quantity'},{'name': 'UpdateTrackingComponent', 'selector': 'app-update-tracking'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'ViewbookidComponent', 'selector': 'app-viewbookid'},{'name': 'ViewByBookIDComponent', 'selector': 'app-view-by-book-id'},{'name': 'ViewEditReviewComponent', 'selector': 'app-view-edit-review'},{'name': 'WelcomeAdminComponent', 'selector': 'app-welcome-admin'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'UserProfileComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'UserProfileComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

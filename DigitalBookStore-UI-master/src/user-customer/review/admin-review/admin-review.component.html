@@ -1,0 +1,10 @@
+<ul class="nav nav-tabs" style="cursor: pointer;">
+    <li class="nav-item">
+      <p class="nav-link" [ngClass]="{'active': flag}" (click)="flag = true">Active Reviews</p>
+    </li>
+    <li class="nav-item">
+      <p class="nav-link" [ngClass]="{'active': !flag}" (click)="flag = false">Deleted Reviews</p>
+    </li>
+</ul>
+<app-all-reviews *ngIf="flag"/>
+<app-reviews-deleted *ngIf="!flag" />

@@ -1,0 +1,110 @@
+.booksearch
+  display: flex
+  flex-direction: column
+  align-items: stretch
+  gap: 20px
+  background: rgba(255, 255, 255, 0.2)
+  backdrop-filter: blur(10px)
+  border: 1px solid rgba(255, 255, 255, 0.3)
+  border-radius: 12px
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1)
+  padding: 20px
+  margin: 20px auto
+  max-width: 900px
+  max-height: 250px
+  position: relative
+  top: -50px
+
+  .box
+    height: 50px
+    width: 400px
+
+    .search-field
+      background: linear-gradient(270deg, rgba(234, 250, 239, 1) 0%, rgba(238, 238, 238, 1) 54%, rgba(242, 244, 209, 1) 77%, rgba(230, 229, 211, 1) 100%)
+      border: 2px solid rgba(67, 80, 88, 0.15)
+      border-radius: 40px
+      box-shadow: 0px 4px 36px 8px rgba(0, 0, 0, 0.06)
+      height: 42px
+      width: 600px
+      padding: 0 20px
+      display: flex
+      align-items: center
+      position: relative
+      left: 120px
+
+      .search-section
+        display: flex
+        justify-content: center
+        margin: 10px 0
+
+        form
+          display: flex
+          align-items: center
+
+          input
+            padding: 12px
+            width: 500px
+            max-width: 600px
+            border: transparent
+            background: transparent
+            color: #333
+            font-size: 16px
+            outline: none
+
+          button
+            padding: 0px 20px
+            background-color: #435058
+            color: white
+            border: none
+            border-radius: 25px
+            cursor: pointer
+            margin-left: 10px
+            height: 36px
+            position: relative
+            top: 0 \px
+            left: -25px
+
+  .book-carousel
+    overflow-x: auto
+    white-space: nowrap
+    padding: 20px 0
+
+    .book-list
+      display: inline-flex
+      position: relative
+      left: 95px
+
+      .book-item
+        margin-right: 15px
+        width: 105px
+
+        img
+          max-width: 100px
+          max-height: 90px
+          border-radius: 8px
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15)
+          
+  .categoryBooks // Consider renaming to be more specific to the component
+  margin-top: 20px
+  padding: 15px
+  background-color: #f9f9f9
+  border: 1px solid #ddd
+  border-radius: 5px
+
+  #categoryBooksSection // Consider styling the component's root directly
+    display: flex
+    flex-wrap: wrap
+    justify-content: center // Changed from space-between for better responsiveness
+
+    .category-item
+      flex: 0 1 calc(33.333% - 20px) // Adjust for gap
+      margin: 10px
+      padding: 10px
+      background-color: #fff
+      border: 1px solid #ccc
+      border-radius: 4px
+      text-align: center
+      box-sizing: border-box // Include padding and border in element's total width
+
+      &:hover
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2)

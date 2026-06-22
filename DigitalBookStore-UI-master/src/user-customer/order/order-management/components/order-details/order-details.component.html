@@ -1,0 +1,95 @@
+<div class="order-details-container">
+  <header class="order-details-header">
+    <h1 class="order-details-title">Order Details</h1>
+  </header>
+
+  <div *ngIf="order; else loading">
+    <section class="order-summary">
+      <h2 class="section-title"><i class="bi bi-receipt-fill me-2"></i> Order Summary</h2>
+      <div class="summary-item">
+        <span class="label">Order ID:</span>
+        <span class="value">{{ order.orderId }}</span>
+      </div>
+      <div class="summary-item">
+        <span class="label">Order Date:</span>
+        <span class="value">{{ order.orderDate | date: 'medium' }}</span>
+      </div>
+      <div class="summary-item">
+        <span class="label">Total Amount:</span>
+        <span class="value">{{ order.totalAmount | currency: 'INR':'symbol':'1.2-2' }}</span>
+      </div>
+      <div class="summary-item">
+        <span class="label">Status:</span>
+        <span class="value"><span class="badge" [ngClass]="{'pending': order.status === 'Pending', 'shipped': order.status === 'Shipped', 'delivered': order.status === 'Delivered', 'cancelled': order.status === 'Cancelled', 'return-requested': order.status === 'Return Requested', 'return-approved': order.status === 'Return Approved', 'return-rejected': order.status === 'Return Rejected'}">{{ order.status }}</span></span>
+      </div>
+      <div class="summary-item">
+        <span class="label">Payment Status:</span>
+        <span class="value"><span class="badge" [ngClass]="{'pending': order.paymentStatus === 'PENDING', 'paid': order.paymentStatus === 'PAID', 'failed': order.paymentStatus === 'FAILED', 'refunded': order.paymentStatus === 'REFUNDED'}">{{ order.paymentStatus }}</span></span>
+      </div>
+    </section>
+
+    <section class="order-items">
+      <h2 class="section-title"><i class="bi bi-box-seam-fill me-2"></i> Order Items</h2>
+      <ul *ngIf="books.length > 0; else noItems" class="item-list">
+        <li *ngFor="let book of books" class="item">
+          <span class="item-title">{{ book.title }}</span>
+          <!-- <span class="item-details">(ID: {{ book.bookId }})</span> -->
+          <span class="item-price">Price: {{ book.price | currency: 'INR':'symbol':'1.2-2' }}</span>
+        </li>
+      </ul>
+      <ng-template #noItems><p class="no-items">No items in this order.</p></ng-template>
+    </section>
+
+    <div *ngIf="order.trackingDetails" class="tracking-info">
+      <h2 class="section-title"><i class="bi bi-truck-fill me-2"></i> Tracking Information</h2>
+      <div class="info-item">
+        <span class="label">Tracking Number:</span>
+        <span class="value">{{ order.trackingDetails.trackingNumber }}</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Shipping Carrier:</span>
+        <span class="value">{{ order.trackingDetails.shippingCarrier }}</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Estimated Delivery:</span>
+        <span class="value">{{ order.trackingDetails.estimatedDeliveryDate | date: 'mediumDate' }}</span>
+      </div>
+    </div>
+
+    <div *ngIf="order.returnDetails" class="return-info">
+      <h2 class="section-title"><i class="bi bi-arrow-return-left me-2"></i> Return Information</h2>
+      <div class="info-item">
+        <span class="label">Return Reason:</span>
+        <span class="value">{{ order.returnDetails.returnReason }}</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Return Requested Date:</span>
+        <span class="value">{{ order.returnDetails.returnRequestedDate | date: 'mediumDate' }}</span>
+      </div>
+      <div *ngIf="order.returnDetails.returnApprovedDate" class="info-item">
+        <span class="label">Return Approved Date:</span>
+        <span class="value">{{ order.returnDetails.returnApprovedDate | date: 'mediumDate' }}</span>
+      </div>
+      <div *ngIf="order.returnDetails.returnRejectedDate" class="info-item">
+        <span class="label">Return Rejected Date:</span>
+        <span class="value">{{ order.returnDetails.returnRejectedDate | date: 'mediumDate' }}</span>
+      </div>
+    </div>
+
+    <div class="order-details-container">
+      <div class="order-actions">
+        <button *ngIf="order.status === 'Pending' || order.status === 'Shipped'" class="btn btn-danger" (click)="cancelOrder()">
+          <i class="bi bi-x-circle-fill me-2"></i> Cancel Order
+        </button>
+        <button *ngIf="order.status === 'Delivered' && (order.returnDetails === undefined || order.returnDetails?.returnRejectedDate)" class="btn btn-warning" (click)="requestReturn()">
+          <i class="bi bi-arrow-return-left-fill me-2"></i> Request Return
+        </button>
+        <button  class="btn btn-info ms-2" [routerLink]="['/order/track', order.orderId]">
+          <i class="bi bi-truck-fill me-2"></i> View Tracking
+        </button>
+        <p *ngIf="errorMessage" class="error-message"><i class="bi bi-exclamation-triangle-fill me-2"></i> {{ errorMessage }}</p>
+      </div>
+      </div>
+  </div>
+  <ng-template #loading><p class="loading-message"><i class="bi bi-hourglass-split me-2"></i> Loading order details...</p></ng-template>
+</div>

@@ -1,0 +1,10 @@
+<div class="d-flex flex-column min-vh-100">
+    
+    <app-admin-home *ngIf="userRole === 'ADMIN'"></app-admin-home>
+    <div *ngIf="userRole !== 'ADMIN'">
+        <app-navbar></app-navbar>
+        <router-outlet></router-outlet>
+    </div>
+
+    <!-- <footer class="text-center p-3 mt-auto"> &copy; Digital Book Store Management</footer> -->
+</div>

@@ -1,0 +1,146 @@
+<div class="top-el">
+  <div class="search-container">
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+      <div>
+        <input placeholder="Enter BookID" type="text" id="bookID" required [(ngModel)]="book.bookID" name="bookID">
+      </div>
+      <div>
+        <button type="submit" [disabled]="registerForm.invalid">Search</button>
+      </div>
+    </form>
+  </div>
+  <div class="add-btn">
+    <button type="button" class="btn btn-success" routerLink="/addBooks"><i class="fas fa-plus"></i> Add Book</button>
+  </div>
+</div>
+
+<div class="display-el" *ngIf="!submitted && !noRecordFound">
+  <div *ngIf="isLoading" class="spinner-grow text-primary" role="status" style="margin-top: 50px;">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger" role="alert" style="margin-top: 50px;">
+    {{ errorMessage }}
+  </div>
+
+  <table *ngIf="books.length > 0 && !isLoading && !errorMessage">
+    <thead>
+      <tr>
+        <th>Book Id</th>
+        <th>Book title</th>
+        <th>Book price</th>
+        <th>Author Name</th>
+        <th>Category Name</th>
+        <th>Book img</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books">
+        <td>{{book.bookID}}</td>
+        <td>{{book.title}}</td>
+        <td>{{book.price}}</td>
+        <td>{{book.authorName}}</td>
+        <td>{{book.categoryName}}</td>
+        <td> <img [src]="'data:image/jpeg;base64,' + book.coverImage" alt="Book Cover"
+                 style="max-width: 100px; max-height: 100px;"></td>
+        <td>
+          <button class="action-btn" (click)="update(book.bookID)"><i class="fas fa-edit"></i></button>
+          <button class="action-btn" (click)="delete(book.bookID)"><i class="fas fa-trash-alt"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="row mt-3" *ngIf="totalPages > 1 && books.length > 0 && !isLoading && !errorMessage">
+  <div class="col-md-12 d-flex justify-content-center">
+    <nav aria-label="Page navigation">
+      <ul class="pagination custom-pagination">
+        <li class="page-item" [class.disabled]="currentPage === 0">
+          <button class="page-link" (click)="goToPage(currentPage - 1)">Previous</button>
+        </li>
+        <li class="page-item" *ngFor="let page of getPageArray()" [class.active]="page === currentPage">
+          <button class="page-link" (click)="goToPage(page)">{{ page + 1 }}</button>
+        </li>
+        <li class="page-item" [class.disabled]="currentPage === totalPages - 1">
+          <button class="page-link" (click)="goToPage(currentPage + 1)">Next</button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<app-deletebook [ngStyle]="{'display':display}"></app-deletebook>
+
+<div *ngIf="noRecordFound" class="alert alert-danger" role="alert" style="margin-top: 50px;">
+  No book found with the provided ID. Please try again.
+</div>
+
+<div *ngIf="submitted && !noRecordFound">
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>Book Id</th>
+          <th>Book title</th>
+          <th>Book price</th>
+          <th>Author Name</th>
+          <th>Category Name</th>
+          <th>Book img</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{book.bookID}}</td>
+          <td>{{book.title}}</td>
+          <td>{{book.price}}</td>
+          <td>{{book.authorName}}</td>
+          <td>{{book.categoryName}}</td>
+          <td> <img [src]="'data:image/jpeg;base64,' + book.coverImage" alt="Book Cover"
+                   style="max-width: 100px; max-height: 100px;">
+          </td>
+          <td>
+            <button class="action-btn" (click)="update(book.bookID)"><i class="fas fa-edit"></i></button>
+            <button class="action-btn" (click)="delete(book.bookID)"><i class="fas fa-trash-alt"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<style>
+  .pagination {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pagination .page-item {
+    margin: 0 5px;
+  }
+
+  .pagination .page-link {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    color: #333;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+
+  .pagination .page-item.active .page-link {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+
+  .pagination .page-item.disabled .page-link {
+    color: #777;
+    cursor: not-allowed;
+  }
+</style>

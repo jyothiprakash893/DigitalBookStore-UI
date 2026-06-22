@@ -1,0 +1,12 @@
+<!-- <div class="add-to-cart-container">
+  <header class="add-to-cart-header">
+    <h2 class="add-to-cart-title"><i class="bi bi-cart-plus-fill me-2"></i> Add Book to Cart</h2>
+  </header> -->
+  
+
+    <button type="submit" class="btn btn-primary add-button" (click)="addToCart()">
+      <i class="bi bi-plus-circle-fill me-2"></i> Add to Cart
+    </button>
+    <div *ngIf="successMessage" class="alert alert-success mt-3" role="alert">
+      <i class="bi bi-check-circle-fill me-2"></i> {{ successMessage }}
+    </div>

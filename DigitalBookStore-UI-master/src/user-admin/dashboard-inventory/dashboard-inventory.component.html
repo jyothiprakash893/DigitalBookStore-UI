@@ -1,0 +1,22 @@
+<div class="low-stock-container">
+    <h3>Low Stock Books</h3>
+    <div *ngIf="lowStockBooks.length > 0">
+      <table>
+        <thead>
+          <tr>
+            <th>Inventory ID</th>
+            <th>Book ID</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let inventory of lowStockBooks">
+            <td>{{ inventory.inventoryId }}</td>
+            <td>{{ inventory.book_Id }}</td>
+            <td>{{ inventory.quantity }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="lowStockBooks.length === 0">No low stock books.</div>
+  </div>

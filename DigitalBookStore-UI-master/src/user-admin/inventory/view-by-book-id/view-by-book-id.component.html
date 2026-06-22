@@ -1,0 +1,25 @@
+<div class="search-container">
+    <input
+      type="text"
+      [ngModel]="searchBookId"
+      (ngModelChange)="searchTextChanged.emit($event)"
+      placeholder="Filter by Book ID"
+    />
+</div>
+<!-- <div class="search-container">
+    <input [(ngModel)]="book_Id" placeholder="Enter Book ID" />
+    <button (click)="searchBook()">Search</button>
+    </div>
+    <div *ngIf="inventory">
+    <h3>Book Details</h3>
+    <p>ID: {{ inventory.book_Id }}</p>
+    <p>Inventory ID: {{ inventory.inventoryId }}</p>
+    <p>Stock Quantity: {{ inventory.quantity }}</p>
+    </div>
+    <div *ngIf="inventory">
+    <button routerLink="/updateQuantity" [queryParams]="{'bookID': book_Id}">Update Quantity</button>
+    </div>
+    
+  <div *ngIf="errorMessage">
+    <p>{{ errorMessage }}</p>
+  </div> -->

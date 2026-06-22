@@ -1,0 +1,63 @@
+<div class="inventory-management-container">
+    <h2>Inventory Management</h2>
+  
+    <div *ngIf="isLoading" class="loading-indicator">
+      Loading inventory data...
+    </div>
+  
+    <div *ngIf="!isLoading">
+      <app-view-by-book-id
+        [searchBookId]="searchBookId"
+        (searchTextChanged)="filterInventories($event)"
+      ></app-view-by-book-id>
+  
+      <table>
+        <thead>
+          <tr>
+            <th>Inventory ID</th>
+            <th>Book ID</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let inventory of inventories">
+            <td>{{inventory.inventoryId}}</td>
+            <td>{{inventory.book_Id}}</td>
+            <td>{{inventory.quantity}}</td>
+            <td class="actions-cell">
+              <button class="action-button update-button" (click)="openUpdateModal(inventory)" title="Update">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="action-button delete-button" (click)="openDeleteModal(inventory.book_Id)"title="Delete">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </td>
+          </tr>
+          <tr *ngIf="filteredInventories.length === 0 && searchBookId">
+            <td colspan="4">No inventory found matching "{{ searchBookId }}"</td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <div class="pagination" *ngIf="inventories.length > 0">
+        <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 0"><i class="fa-solid fa-arrow-left"></i></button>
+        <span>Page {{currentPage + 1}} of {{totalPages}}</span>
+        <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage >= totalPages -1"><i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+  
+    <app-update-quantity
+      *ngIf="isUpdateModalVisible"
+      [inventory]="selectedInventory"
+      (closeModalEvent)="closeUpdateModal()"
+      (inventoryChangedEvent)="handleInventoryChanged()"
+    ></app-update-quantity>
+  
+    <app-delete-book-inventory
+      *ngIf="isDeleteModalVisible"
+      [bookIdToDelete]="bookIdToDelete"
+      (closeModal)="closeDeleteModal()"
+      (inventoryChangedEvent)="handleInventoryChanged()"
+    ></app-delete-book-inventory>
+  </div>

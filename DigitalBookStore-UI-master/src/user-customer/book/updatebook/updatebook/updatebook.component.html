@@ -1,0 +1,44 @@
+<div class="container">
+  <h1>Update Book</h1>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-ctn">
+      
+      <div class="form-r">
+        <div class="mb-3">
+          <label for="bookID" class="form-label">Book Id:</label>
+          <input type="text" class="form-control" id="bookID" [(ngModel)]="book.bookID" name="bookID" readonly>
+        </div>
+        <div class="mb-3">
+          <label for="title" class="form-label">Title:</label>
+          <input type="text" class="form-control" id="title" [(ngModel)]="book.title" name="title" readonly>
+        </div>
+        <div class="mb-3">
+          <label for="price" class="form-label">Price:</label>
+          <input type="text" class="form-control" id="price" required [(ngModel)]="book.price" name="price">
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description:</label>
+          <textarea class="form-control" id="description" [(ngModel)]="book.description" name="description"></textarea>
+        </div>
+      </div>
+      <div class="form-l">
+        <div class="mb-3">
+          <label for="base64img" class="form-label">Cover Image:</label><br>
+          <img *ngIf="book.coverImage" [src]="'data:image/jpeg;base64,' + book.coverImage" alt="Book Cover" class="mb-2">
+          <!-- <input type="file" class="form-control" id="base64img" [(ngModel)]="book.base64img" name="base64img" (change)="onFileChange($event)"> -->
+        </div>
+        
+      </div>
+
+      </div>
+      <div class="button-ctn">
+        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="Reset" class="btn btn-secondary ms-2" routerLink="/books">Go back</button>
+      </div>
+      
+    </form>
+  </div>
+
+  <div class="alert alert-success" *ngIf="message">
+    {{message}}
+  </div>

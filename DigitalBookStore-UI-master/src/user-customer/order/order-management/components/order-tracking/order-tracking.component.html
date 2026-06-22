@@ -1,0 +1,30 @@
+<div class="order-tracking-container modern-stepper">
+    <h2>Order Tracking</h2>
+    <div *ngIf="order">
+      <div class="order-info">
+        <p><strong>Order Number:</strong> {{ order.orderId }}</p>
+        <p><strong>Current Status:</strong> <span class="order-status {{ order.status | lowercase }}">{{ order.status }}</span></p>
+        <p><strong>Payment:</strong> <span class="payment-status {{ order.paymentStatus | lowercase }}">{{ order.paymentStatus }}</span></p>
+        <p *ngIf="order.estimatedDeliveryDate"><strong>Expected Delivery:</strong> {{ order.estimatedDeliveryDate | date: 'mediumDate' }}</p>
+      </div>
+  
+      <ul class="progress-stepper" [ngClass]="{'order-cancelled': order.status === 'Cancelled', 'order-returned': order.status === 'Returned'}">
+        <li *ngFor="let step of trackingSteps; let i = index" class="step" [class.completed]="step.completed" [class.active]="i === activeStepIndex">
+          <div class="step-circle">
+            <i *ngIf="step.completed" class="bi bi-check-lg"></i>
+            <span *ngIf="!step.completed">{{ i + 1 }}</span>
+          </div>
+          <span class="step-label">{{ step.label }}</span>
+          <div *ngIf="i < trackingSteps.length - 1" class="progress-line"></div>
+        </li>
+      </ul>
+    </div>
+  
+    <div *ngIf="loading" class="loading-indicator">
+      <i class="bi bi-hourglass-split"></i> Loading tracking information...
+    </div>
+  
+    <div *ngIf="error" class="error-indicator">
+      <i class="bi bi-exclamation-triangle-fill"></i> Error loading tracking: {{ error }}
+    </div>
+  </div>

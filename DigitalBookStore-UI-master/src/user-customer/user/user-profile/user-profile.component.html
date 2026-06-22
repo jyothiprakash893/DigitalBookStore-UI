@@ -1,0 +1,413 @@
+<div class="user-profile-container">
+    <aside class="sidebar" [class.expanded]="isSidebarExpanded">
+        <div class="menu-toggle" (click)="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <nav>
+            <a routerLink="/profile" [queryParams]="{'field': 'details'}" [class.active]="activeTab === 'details'">
+                <i class="fa-solid fa-user"></i>
+                <span *ngIf="isSidebarExpanded">Profile</span>
+            </a>
+            <a routerLink="/profile" [queryParams]="{'field': 'wallet'}" [class.active]="activeTab === 'wallet'">
+                <i class="fa-solid fa-wallet"></i>
+                <span *ngIf="isSidebarExpanded">Wallet</span>
+            </a>
+            <a routerLink="/profile" [queryParams]="{'field': 'orders-reviews'}" [class.active]="activeTab === 'orders-reviews'">
+                <i class="fa-solid fa-list-alt"></i>
+                <span *ngIf="isSidebarExpanded">My Reviews</span>
+            </a>
+            <a routerLink="/profile" [queryParams]="{'field': 'support'}" [class.active]="activeTab === 'support'">
+                <i class="fa-solid fa-question-circle"></i>
+                <span *ngIf="isSidebarExpanded">Support & Help</span>
+            </a>
+            <a routerLink="/profile" [queryParams]="{'field': 'close-account'}" [class.active]="activeTab === 'close-account'">
+                <i class="fa-solid fa-trash-alt"></i>
+                <span *ngIf="isSidebarExpanded">Delete Account</span>
+            </a>
+        </nav>
+    </aside>
+    <main class="content">
+        <header class="profile-header">
+        </header>
+      <div class="profile-details" *ngIf="activeTab === 'details' && userDetails">
+        <div *ngIf="!isEditingDetails; else editDetailsSection" class="details-view">
+          <div *ngIf="userDetails.profileImage" class="profile-image-container">
+            <img [src]="userDetails.profileImage" alt="Profile Picture" class="profile-image">
+          </div>
+          <div *ngIf="!userDetails.profileImage" class="profile-image-placeholder">
+            <p>No profile picture available.</p>
+          </div>
+          <p><strong>Full Name:</strong> {{ userDetails.name }}</p>
+          <p><strong>Phone Number:</strong> {{ userDetails.phoneNumber }}</p>
+          <button (click)="isEditingDetails = true" class="edit-button-inverted">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="edit-icon-inverted">
+              <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.082.286a.75.75 0 0 1-.69 1.036h-.75a.75.75 0 0 1-.75-.75v-.75a.75.75 0 0 1 1.036-.69l.286-.082a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z" />
+            </svg>
+          </button>
+        </div>
+        <ng-template #editDetailsSection>
+          <form [formGroup]="profileForm" (ngSubmit)="updateProfile()" class="edit-form">
+            <div class="form-group">
+              <label for="name">Full Name:</label>
+              <input type="text" id="name" formControlName="name">
+              <div *ngIf="profileForm.controls['name'].invalid && (profileForm.controls['name'].dirty || profileForm.controls['name'].touched)" class="error-message">
+                Name is required.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phoneNumber">Phone Number:</label>
+              <input type="text" id="phoneNumber" formControlName="phoneNumber">
+              <div *ngIf="profileForm.controls['phoneNumber'].invalid && (profileForm.controls['phoneNumber'].dirty || profileForm.controls['phoneNumber'].touched)" class="error-message">
+                <div *ngIf="profileForm.controls['phoneNumber'].errors?.['required']">Phone number is required.</div>
+                <div *ngIf="profileForm.controls['phoneNumber'].errors?.['pattern']">Invalid phone number format.</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="profileImage">Profile Image:</label>
+              <input type="file" id="profileImage" (change)="handleFileInput($event)" accept="image/*">
+              <div *ngIf="profileImagePreview" class="image-preview-container">
+                <img [src]="profileImagePreview" alt="Profile Image Preview" class="image-preview">
+              </div>
+              <div *ngIf="userDetails.profileImage && !profileImagePreview" class="image-preview-container">
+                <p>Current Image:</p>
+                <img [src]="userDetails.profileImage" alt="Current Profile Picture" class="image-preview">
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" [disabled]="profileForm.invalid" class="save-button">Update Details</button>
+              <button type="button" (click)="isEditingDetails = false" class="cancel-button">Cancel</button>
+            </div>
+            <div *ngIf="updateSuccessMessage" class="success-message">{{ updateSuccessMessage }}</div>
+            <div *ngIf="updateErrorMessage" class="error-message">{{ updateErrorMessage }}</div>
+          </form>
+      
+          <h3>Change Password</h3>
+      
+          <form [formGroup]="passwordForm" (ngSubmit)="changePassword()" class="password-form">
+            <div class="form-group">
+              <label for="currentPassword">Current Password:</label>
+              <input type="password" id="currentPassword" formControlName="currentPassword" required>
+              <div *ngIf="passwordForm.controls['currentPassword'].invalid && (passwordForm.controls['currentPassword'].dirty || passwordForm.controls['currentPassword'].touched)" class="error-message">
+                Current password is required.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="newPassword">New Password:</label>
+              <input type="password" id="newPassword" formControlName="newPassword" required minlength="6">
+              <div *ngIf="passwordForm.controls['newPassword'].invalid && (passwordForm.controls['newPassword'].dirty || passwordForm.controls['newPassword'].touched)" class="error-message">
+                <div *ngIf="passwordForm.controls['newPassword'].errors?.['required']">New password is required.</div>
+                <div *ngIf="passwordForm.controls['newPassword'].errors?.['minlength']">New password must be at least 6 characters.</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Confirm New Password:</label>
+              <input type="password" id="confirmPassword" formControlName="confirmPassword" required>
+              <div *ngIf="passwordForm.controls['confirmPassword'].invalid && (passwordForm.controls['confirmPassword'].dirty || passwordForm.controls['confirmPassword'].touched)" class="error-message">
+                Confirm password is required.
+              </div>
+              <div *ngIf="passwordForm.errors?.['mismatch']" class="error-message">Passwords do not match.</div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" [disabled]="passwordForm.invalid || passwordForm.errors?.['mismatch']" class="change-password-button">Change Password</button>
+            </div>
+            <div *ngIf="passwordSuccessMessage" class="success-message">{{ passwordSuccessMessage }}</div>
+            <div *ngIf="passwordErrorMessage" class="error-message">{{ passwordErrorMessage }}</div>
+          </form>
+        </ng-template>
+      </div>
+      
+ 
+
+        <div *ngIf="activeTab === 'wallet'">
+            <h3>Wallet</h3>
+            <p>Current Balance:
+                <span *ngIf="!showBalance">
+                    <i class="fa-solid fa-eye" (click)="showBalance = true" style="cursor: pointer;"></i>
+                    <span style="visibility: hidden;">{{ walletBalance | currency:'INR' }}</span>
+                </span>
+                <span *ngIf="showBalance">{{ walletBalance | currency:'INR' }}</span>
+            </p>
+
+            <h4>Top up Wallet</h4>
+            <div class="add-funds-section">
+                <div class="form-group">
+                    <label for="topUpAmount">Amount to Add (INR):</label>
+                    <input type="number" id="topUpAmount" [(ngModel)]="topUpAmount" min="1" required>
+                </div>
+                <div class="suggested-amounts">
+                    <button type="button" (click)="setTopUpAmount(1000)">₹ 1000</button>
+                    <button type="button" (click)="setTopUpAmount(2000)">₹ 2000</button>
+                    <button type="button" (click)="setTopUpAmount(5000)">₹ 5000</button>
+                    </div>
+                <button [disabled]="!topUpAmount || topUpAmount < 1" (click)="showSimulatePaymentPopup = true; populateSimulateAmount()">Add Funds</button>
+            </div>
+
+            <div *ngIf="showSimulatePaymentPopup" class="modal">
+                <div class="modal-content">
+                    <span class="close-button" (click)="closeSimulatePaymentPopup()">&times;</span>
+                    <h4>Simulate Payment</h4>
+                    <form [formGroup]="simulatePaymentForm" (ngSubmit)="simulateAddFunds()">
+                        <div class="form-group">
+                            <label for="paymentMethod">Payment Method:</label>
+                            <select id="paymentMethod" formControlName="paymentMethod">
+                                <option value="upi">UPI</option>
+                                <!-- <option value="creditcard">Credit Card</option> -->
+                            </select>
+                        </div>
+                        <div class="form-group" *ngIf="simulatePaymentForm.value.paymentMethod === 'upi'">
+                            <label for="upiId">UPI ID:</label>
+                            <input type="text" id="upiId" formControlName="upiId" required>
+                            <div *ngIf="simulatePaymentForm.controls['upiId'].invalid && (simulatePaymentForm.controls['upiId'].dirty || simulatePaymentForm.controls['upiId'].touched)" class="error-message">
+                                Please enter your UPI ID.
+                            </div>
+                        </div>
+                        <div class="form-group" *ngIf="simulatePaymentForm.value.paymentMethod === 'creditcard'">
+                            <label for="cardNumber">Card Number:</label>
+                            <input type="text" id="cardNumber" formControlName="cardNumber" [maxLength]="16" required>
+                            <div *ngIf="simulatePaymentForm.controls['cardNumber'].invalid && (simulatePaymentForm.controls['cardNumber'].dirty || simulatePaymentForm.controls['cardNumber'].touched)" class="error-message">
+                                Please enter a valid 16-digit card number.
+                            </div>
+                            <label for="expiry">Expiry (MM/YY):</label>
+                            <input type="text" id="expiry" formControlName="expiry" placeholder="MM/YY" required>
+                            <div *ngIf="simulatePaymentForm.controls['expiry'].invalid && (simulatePaymentForm.controls['expiry'].dirty || simulatePaymentForm.controls['expiry'].touched)" class="error-message">
+                                Please enter expiry in MM/YY format.
+                            </div>
+                            <label for="cvv">CVV:</label>
+                            <input type="text" id="cvv" formControlName="cvv" [maxLength]="4" required>
+                            <div *ngIf="simulatePaymentForm.controls['cvv'].invalid && (simulatePaymentForm.controls['cvv'].dirty || simulatePaymentForm.controls['cvv'].touched)" class="error-message">
+                                Please enter a valid CVV.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="simulateAmount">Amount to Add (INR):</label>
+                            <input type="number" id="simulateAmount" formControlName="simulateAmount" [value]="topUpAmount" readonly>
+                        </div>
+                        <button type="submit" [disabled]="simulatePaymentForm.invalid">Simulate Payment</button>
+                        <div *ngIf="simulatePaymentError" class="success-popup">
+                            <i class="fa-solid fa-check-circle"></i> Payment Successful!
+                        </div>
+                        <div *ngIf="simulatePaymentSuccess" class="error-message">{{ simulatePaymentErrorMessage }}</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="activeTab === 'orders-reviews'">
+            <h3>My Reviews</h3>
+            <div *ngIf="userReviews.length === 0">No orders or reviews yet.</div>
+            <app-reviews-by-user-id />
+            </div>
+
+        <div *ngIf="activeTab === 'support'">
+            <h3>Support & Help</h3>
+            <p>Contact our support team via email at <a href="mailto:support@dbsbooks.com">support@dbsbooks.com</a> or call us at +91 XXXXXXXXXX.</p>
+            <p><a routerLink="/faq">Frequently Asked Questions</a></p>
+        </div>
+
+        <div *ngIf="activeTab === 'close-account'">
+            <h3>Close Account</h3>
+            <p>Warning: Closing your account is permanent and all your data will be lost.</p>
+            <button class="warning-button" (click)="confirmCloseAccount()">Close My Account</button>
+            <div *ngIf="closeAccountMessage" class="error-message">{{ closeAccountMessage }}</div>
+        </div>
+    </main>
+</div>
+
+<style>
+.pdetails {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* position: relative;
+    left:10px;
+    top:60px;
+    width:650px; */
+}
+
+ 
+ 
+  .profile-header {
+    /* Add your header styling here if needed */
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 1.5rem;
+  }
+
+  .profile-details {
+    font-family: sans-serif;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+
+  .details-view {
+    position: relative;
+  }
+
+  .edit-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .edit-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: #555;
+  }
+
+  .profile-image-container {
+    margin-bottom: 1rem;
+  }
+
+  .profile-image {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .profile-image-placeholder {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+    color: #777;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+    color: #333;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="file"] {
+    width: calc(100% - 12px);
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+  }
+
+  .error-message {
+    color: #d32f2f;
+    font-size: 0.9rem;
+    margin-top: 0.2rem;
+  }
+
+  .form-actions {
+    margin-top: 1.5rem;
+  }
+
+  .save-button,
+  .cancel-button,
+  .change-password-button {
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .save-button {
+    background-color: #4caf50;
+    color: white;
+    margin-right: 0.5rem;
+  }
+
+  .save-button:hover {
+    background-color: #388e3c;
+  }
+
+  .cancel-button {
+    background-color: #f44336;
+    color: white;
+  }
+
+  .cancel-button:hover {
+    background-color: #d32f2f;
+  }
+
+  .change-password-button {
+    background-color: #2196f3;
+    color: white;
+    margin-top: 1rem;
+  }
+
+  .change-password-button:hover {
+    background-color: #1976d2;
+  }
+
+  .success-message {
+    color: #4caf50;
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+
+  .image-preview-container {
+    margin-top: 0.5rem;
+  }
+
+  .image-preview {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-top: 0.5rem;
+  }
+
+  .edit-form h3,
+  .password-form h3 {
+    margin-top: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+    color: #333;
+  }
+
+  .password-form {
+    margin-top: 1.5rem;
+  }
+
+  .edit-button-inverted {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: black; /* Set background to black */
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px; /* Optional: Add some rounding if desired */
+  }
+
+  .edit-icon-inverted {
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: white; /* Set fill color to white */
+  }
+
+  .edit-button-inverted:hover {
+    opacity: 0.8; /* Optional: Add hover effect */
+  }
+</style>
+
+ 
+ 

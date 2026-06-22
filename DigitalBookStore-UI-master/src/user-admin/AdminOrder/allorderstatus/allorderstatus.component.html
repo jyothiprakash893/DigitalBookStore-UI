@@ -1,0 +1,36 @@
+<h2>All Orders</h2>
+
+<div *ngIf="loading">Loading orders...</div>
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+<table *ngIf="orders.length > 0">
+  <thead>
+    <tr>
+      <th>Order ID</th>
+      <th>Order Date</th>
+      <th>Total Amount</th>
+      <th>Status</th>
+      <th>User ID</th>
+      <th>Book IDs</th>
+      <th>Payment Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of orders">
+      <td>{{ order.orderId }}</td>
+      <td>{{ order.orderDate | date }}</td> <td>{{ order.totalAmount | currency:'INR'  }}</td> <td>
+        <select [(ngModel)]="order.status" (change)="updateOrderStatus(order.orderId, order.status)">
+          <option *ngFor="let status of orderStatuses" [value]="status">{{ status }}</option>
+        </select>
+      </td>
+      <td>{{ order.userId }}</td>
+      <td>{{ order.bookIds.join(', ') }}</td>
+      <td>{{ order.paymentStatus }}</td>
+      <td>
+        </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="orders.length === 0 && !loading && !errorMessage">No orders found.</div>

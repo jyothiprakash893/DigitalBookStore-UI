@@ -1,0 +1,55 @@
+$primary-text-color: #333
+$secondary-text-color: #666
+$border-color: #ddd
+$even-row-background: #f9f9f9
+$header-background: #f2f2f2
+$error-color: red
+$border-radius: 4px
+$dropdown-arrow-color: currentColor 
+
+h2
+  margin-bottom: 1rem
+  color: $primary-text-color
+
+.error-message
+  color: $error-color
+  margin-bottom: 1rem
+
+table
+  width: 100%
+  border-collapse: collapse
+  margin-bottom: 2rem
+
+  thead
+    background-color: $header-background
+    th
+      padding: 0.8rem
+      text-align: left
+      border-bottom: 2px solid $border-color
+
+  tbody
+    tr
+      &:nth-child(even)
+        background-color: $even-row-background
+      td
+        padding: 0.8rem
+        border-bottom: 1px solid lighten($border-color, 10%)
+
+select
+  padding: 0.5rem
+  border: 1px solid $border-color
+  border-radius: $border-radius
+  font-size: 1rem
+  appearance: none // Remove default arrow
+  background-color: white
+  // Custom arrow using background image (SVG)
+  background-image: url('data:image/svg+xml;utf8,<svg fill="#{$dropdown-arrow-color}" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>')
+  background-repeat: no-repeat
+  background-position-x: 100%
+  background-position-y: 5px
+  padding-right: 2rem // Space for the custom arrow
+
+  // Style the dropdown options
+  option
+    padding: 0.5rem
+    font-size: 1rem

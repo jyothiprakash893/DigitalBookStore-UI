@@ -1,0 +1,12 @@
+<div class="book-banners-container">
+    <div *ngFor="let banner of banners"
+         class="book-banner"
+         [style.backgroundImage]="'url(' + banner.imageUrl + ')'"
+         [style.backgroundColor]="banner.backgroundColor">
+      <div class="overlay-text">
+        <div class="discount">{{ banner.discount }}</div>
+        <div class="label">{{ banner.label }}</div>
+      </div>
+      <button class="shop-now-button">Shop Now</button>
+    </div>
+  </div>

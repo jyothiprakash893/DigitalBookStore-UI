@@ -1,0 +1,44 @@
+<div class="background-container">
+    <div class="hcont">
+    <div class="container">
+        <form>
+            <h2>Login</h2>
+            <div>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="username" [(ngModel)]="email">
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" [(ngModel)]="password">
+            </div>
+            <button type="button" (click)="checkLogin()">
+                Login
+            </button>
+            <div *ngIf="invalidLogin" class="error-message">
+                {{ invalidLoginMessage }}
+            </div>
+            <p>Don't have an account? <a routerLink="/signup">Sign Up</a>
+                <br><a routerLink="/forgotpassword">Forgot your password?</a></p>
+        </form>
+    </div>
+</div>
+</div>
+
+<style>
+    .hcont{
+        position: absolute;
+        right:50px;
+    }
+    .background-container {
+        background-image: url('assets/loginB.jpg');
+        background-size: cover;
+        background-position: center;
+        height:90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+   
+</style>

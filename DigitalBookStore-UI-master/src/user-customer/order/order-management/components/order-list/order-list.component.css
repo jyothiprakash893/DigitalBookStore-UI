@@ -1,0 +1,211 @@
+/* Container for the entire component */
+.order-list-container {
+  padding: 20px;
+}
+
+/* Header styling for centering */
+.order-list-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.order-list-title {
+  color: #333;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.order-list-title i {
+  vertical-align: middle;
+}
+
+
+
+/* Card styling */
+.card {
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+  border-bottom: 1px solid #e0e0e0;
+  border-radius: 8px 8px 0 0;
+  font-weight: bold;
+  padding: 0.75rem 1.25rem;
+  text-align: center; /* Center the header text */
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.card-text {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 0.3em 0.6em;
+  border-radius: 0.25rem;
+  color: white;
+  display: inline-block;
+}
+
+.bg-success {
+  background-color: #28a745 !important;
+}
+
+.bg-warning {
+  background-color: #ffc107 !important;
+  color: #212529 !important;
+}
+
+.bg-danger {
+  background-color: #dc3545 !important;
+}
+
+.bg-secondary {
+  background-color: #6c757d !important;
+}
+
+.btn-outline-primary {
+  border-radius: 5px;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+
+.card-footer {
+  border-top: 1px solid #e0e0e0;
+  border-radius: 0 0 8px 8px;
+  background-color: #f8f9fa;
+  font-size: 0.8rem;
+  color: #6c757d;
+  text-align: center;
+  padding: 0.75rem 1.25rem;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+/* Responsive grid adjustments for two cards in the center */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.col {
+  flex-basis: 100%; /* Default to full width for small screens */
+  max-width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 20px; /* Add some space between cards */
+}
+
+/* Medium screens and up: display two cards side-by-side */
+@media (min-width: 768px) {
+  .row-cols-md-2 > .col {
+    flex: 0 0 calc(50% - 30px); /* Two columns with some gutter */
+    max-width: calc(50% - 30px);
+  }
+
+  .row.justify-content-center {
+    /* Ensure the row itself is centered when there's an even number of cards */
+    justify-content: center;
+  }
+}
+
+/* Large screens and up: potentially display more cards (adjust as needed) */
+@media (min-width: 992px) {
+  .row-cols-lg-3 > .col {
+    flex: 0 0 calc(33.33% - 30px); /* Three columns */
+    max-width: calc(33.33% - 30px);
+  }
+}
+
+.col-12.text-center {
+  display: flex;
+  justify-content: center;
+}
+
+.alert-info {
+  max-width: 400px;
+}
+
+.card-text strong {
+  margin-right: 0.8em; 
+}
+
+.book-id-badge {
+  margin-right: 0.8em; 
+}
+
+.me-1 {
+  margin-right: 0.8em !important; /* Increase the margin, !important might be needed for override */
+}
+
+
+.bg-primary {
+  background-color: #f0f0f0 !important; 
+  /* Use your desired subtle color */
+  color: #333 !important; /* Adjust text color if needed */
+}
+
+.mt-auto {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 1rem;
+}
+
+.view-details-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  border-radius: 0.3rem;
+  border: 1px solid #6610f2; /* Soft indigo */
+  background-color: #fff;
+  color: #6610f2;
+  text-decoration: none;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  min-width: 90px;
+  box-shadow: 0 0.05rem 0.1rem rgba(102, 16, 242, 0.1);
+}
+
+.view-details-button:hover {
+  transform: translateY(-2px); /* Gentle lift on hover */
+  box-shadow: 0 0.3rem 0.6rem rgba(102, 16, 242, 0.2);
+  color: #6610f2; /* Keep text color */
+  background-color: #f8f9fa; /* Light background */
+}
+
+.view-details-button i {
+  margin-right: 0.4rem;
+  font-size: 1rem;
+}
+
+.view-details-button:active {
+  transform: translateY(0);
+  box-shadow: 0 0.1rem 0.2rem rgba(102, 16, 242, 0.3);
+}

@@ -1,0 +1,181 @@
+/* modern-stepper.component.css */
+
+.order-tracking-container.modern-stepper {
+    padding: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .order-tracking-container.modern-stepper h2 {
+    color: #343a40;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+  .order-tracking-container.modern-stepper .order-info {
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  .order-tracking-container.modern-stepper .order-info strong {
+    font-weight: 600;
+    color: #343a40;
+  }
+  
+  .order-tracking-container.modern-stepper .order-status.pending { color: #ffc107; }
+  .order-tracking-container.modern-stepper .order-status.processing { color: #007bff; }
+  .order-tracking-container.modern-stepper .order-status.shipped { color: #28a745; }
+  .order-tracking-container.modern-stepper .order-status.delivered { color: #198754; }
+  .order-tracking-container.modern-stepper .order-status.cancelled { color: #dc3545; }
+  .order-tracking-container.modern-stepper .order-status.returned { color: #6c757d; }
+  
+  .order-tracking-container.modern-stepper .payment-status.pending { color: #ffc107; }
+  .order-tracking-container.modern-stepper .payment-status.paid { color: #28a745; }
+  .order-tracking-container.modern-stepper .payment-status.failed { color: #dc3545; }
+  .order-tracking-container.modern-stepper .payment-status.refunded { color: #6c757d; }
+  
+  .order-tracking-container.modern-stepper .progress-stepper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin: 30px 0;
+    list-style: none;
+    position: relative;
+  }
+  
+  .order-tracking-container.modern-stepper .progress-stepper::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #e0e0e0;
+    z-index: 0;
+  }
+  
+  .order-tracking-container.modern-stepper .progress-stepper.order-cancelled::before,
+  .order-tracking-container.modern-stepper .progress-stepper.order-returned::before {
+    background-color: inherit !important; /* Inherit color from step circles */
+  }
+  
+  .order-tracking-container.modern-stepper .progress-stepper .step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+  }
+  
+  .order-tracking-container.modern-stepper .progress-stepper .step:first-child {
+    text-align: left;
+  }
+  
+  .order-tracking-container.modern-stepper .progress-stepper .step:last-child {
+    text-align: right;
+  }
+  
+  .order-tracking-container.modern-stepper .progress-stepper .step .step-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    color: #6c757d;
+    border: 2px solid #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    font-size: 0.8em;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .order-tracking-container.modern-stepper .progress-stepper .step.completed .step-circle {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+  }
+  
+  .order-tracking-container.modern-stepper .progress-stepper .step.active .step-circle {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+  }
+  
+  .order-tracking-container.modern-stepper .progress-stepper .step .step-circle i {
+    font-size: 1.2em;
+  }
+  
+  .order-tracking-container.modern-stepper .progress-stepper .step .step-label {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.9em;
+    color: #555;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .order-tracking-container.modern-stepper .progress-stepper .step.completed .step-label {
+    color: #28a745;
+    font-weight: 500;
+  }
+  
+  .order-tracking-container.modern-stepper .progress-stepper .step.active .step-label {
+    color: #007bff;
+    font-weight: 600;
+  }
+  
+  .order-tracking-container.modern-stepper .progress-stepper .progress-line {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    right: 50%;
+    height: 2px;
+    background-color: #28a745;
+    z-index: 0;
+    transition: background-color 0.3s ease;
+  }
+  
+  .order-tracking-container.modern-stepper .progress-stepper .step:first-child .progress-line {
+    left: 50%;
+  }
+  
+  .order-tracking-container.modern-stepper .progress-stepper .step:last-child .progress-line {
+    right: 50%;
+  }
+  
+  .order-tracking-container.modern-stepper .progress-stepper.order-cancelled .step .step-circle,
+  .order-tracking-container.modern-stepper .progress-stepper.order-cancelled::before {
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+    color: white !important;
+  }
+  
+  .order-tracking-container.modern-stepper .progress-stepper.order-cancelled .step.completed .step-label {
+    color: #dc3545;
+  }
+  
+  .order-tracking-container.modern-stepper .progress-stepper.order-returned .step .step-circle,
+  .order-tracking-container.modern-stepper .progress-stepper.order-returned::before {
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+    color: white !important;
+  }
+  
+  .order-tracking-container.modern-stepper .progress-stepper.order-returned .step.completed .step-label {
+    color: #6c757d;
+  }
+  
+  .order-tracking-container.modern-stepper .loading-indicator,
+  .order-tracking-container.modern-stepper .error-indicator {
+    padding: 15px;
+    text-align: center;
+    color: #555;
+  }
+  
+  .order-tracking-container.modern-stepper .loading-indicator i,
+  .order-tracking-container.modern-stepper .error-indicator i {
+    margin-right: 8px;
+  }

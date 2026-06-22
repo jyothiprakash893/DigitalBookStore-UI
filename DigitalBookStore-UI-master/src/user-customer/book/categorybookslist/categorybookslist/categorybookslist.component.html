@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row mb-4">
+    <div class="col">
+      <div class="input-group search-container">
+        <form (ngSubmit)="searchButton.click()" class="w-100 d-flex">
+          <input type="text" #searchInput [(ngModel)]="searchQuery" name="searchQuery" placeholder="Search book..." class="form-control" />
+          <button #searchButton routerLink="/search" [queryParams]="{'searchQuery': searchInput.value}" class="btn btn-primary">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="row card-container" *ngIf="books.length > 0">
+    <div *ngFor="let book of books" class="col-md-3 mb-4">
+      <div class="card custom-card">
+        <a [routerLink]="['/book-details', book.bookID]" class="book-cover-link">
+          <img
+            [src]="book.base64img ? 'data:image/jpeg;base64,' + book.base64img : ''"
+            class="card-img-top custom-img"
+            alt="{{ book.title }}"
+          />
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">
+            <a [routerLink]="['/book-details', book.bookID]" class="book-title-link">{{ book.title }}</a>
+          </h5>
+          <p class="card-text author-info">
+            <span class="label"><b>Author:</b></span>
+            <span class="value">{{ book.authorName }}</span>
+          </p>
+          <p class="card-text category-info">
+            <span class="label"><b>Category:</b></span>
+            <span class="value">{{ book.categoryName }}</span>
+          </p>
+          <p class="card-text price-info">
+            <span class="label"><b>Price:</b></span>
+            <span class="price">{{ formatCurrency(book.price) }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="books.length === 0">
+    <p>No books found in this category.</p>
+  </div>
+</div>

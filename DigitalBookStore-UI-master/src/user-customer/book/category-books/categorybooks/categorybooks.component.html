@@ -1,0 +1,9 @@
+<div id="test" class="category-container">
+  <div *ngFor="let categoryItem of categories" class="category-item" (click)="navigateToCategory(categoryItem)">
+    <div class="category-circle">
+      <img *ngIf="categoryItem.imageUrl" [src]="categoryItem.imageUrl" alt="{{ categoryItem.category }}">
+      <div *ngIf="!categoryItem.imageUrl" class="placeholder"></div>
+    </div>
+    <p class="category-name">{{ categoryItem.category }}</p>
+  </div>
+</div>

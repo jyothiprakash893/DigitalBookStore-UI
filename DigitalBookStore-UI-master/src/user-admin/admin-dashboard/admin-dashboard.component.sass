@@ -1,0 +1,32 @@
+.dashboard-container
+  display: flex
+  flex-direction: column // Stack top and bottom sections vertically
+
+.top-section
+  display: flex // Arrange graph and low stock side-by-side
+  width: 100%
+  flex: 2 // Example: Allocate more relative space to the top
+
+.admin-welcome-container
+  width: 50%
+  padding: 10px
+  box-sizing: border-box // Ensure padding doesn't affect width
+  he
+
+.low-stock-container
+  width: 50%
+  padding: 10px
+  box-sizing: border-box // Ensure padding doesn't affect width
+  overflow-y: auto
+
+.bottom-section
+  width: 100%
+  flex: 1 // Example: Allocate less relative space to the bottom
+  padding: 10px
+  box-sizing: border-box // Ensure padding doesn't affect width
+  overflow-y: auto // For scrolling if recent orders are long
+
+.admin-welcome-container h3,
+.low-stock-container h3,
+.bottom-section h3
+  margin-top: 0

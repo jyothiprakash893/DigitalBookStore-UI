@@ -1,0 +1,102 @@
+$navbar-height: 5rem // Set navbar height to 7rem
+$brand-color: #37474F // Dark gray/blue for brand
+$profile-name-color: #37474F // Dark gray/blue for profile name
+$icon-color: #555 // Medium gray for icons
+$dropdown-bg: #F8F8F8 // Light background for dropdown (sidebar light equivalent)
+$dropdown-item-hover-bg: #E0E0E0 // Lighter background on dropdown item hover (sidebar lighter equivalent)
+$dropdown-divider-color: #ddd // Light gray for divider
+$logout-color: #dc3545 // Red for logout text
+
+$sidebar-bg: #E0E0E0 /* Light grey for sidebar */
+$sidebar-text-color: #37474F /* Dark grey/blue for text */
+$sidebar-accent-color: #CCCCCC /* Slightly darker light grey for accent */
+
+.navbar
+  display: flex
+  justify-content: space-between
+  align-items: center
+  height: $navbar-height
+  padding: 0 1.5rem
+  background-color: darken(#e0e0e0, 5%)
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  z-index: 100
+
+  .navbar-brand
+    .brand-link
+      font-size: 1.5rem
+      color: $brand-color
+      text-decoration: none
+      font-weight: bold
+      margin-left: 4rem
+
+  .navbar-profile
+    position: relative
+    display: flex
+    align-items: center
+
+    .profile-trigger
+      display: flex
+      align-items: center
+      cursor: pointer
+
+      .profile-icon
+        margin-right: 0.5rem
+        i
+          font-size: 1.8rem
+          color: $brand-color
+
+      .profile-name
+        font-size: 1rem
+        color: $brand-color
+        margin-right: 0.3rem
+
+      i.fa-caret-down
+        font-size: 0.8rem
+        color: $brand-color
+
+    .dropdown-menu
+      position: absolute
+      top: 4rem // Position below the navbar
+      right: 0
+      background-color: $dropdown-bg
+      border: 1px solid #ccc
+      border-radius: 0.25rem
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1)
+      z-index: 1000
+      min-width: 120px // Adjust as needed
+      display: flex
+      flex-direction: column
+      overflow: hidden // Prevent border radius issues with absolute positioning
+
+      &.open // You might add an 'open' class in your JS instead of *ngIf
+        display: flex
+
+      a.dropdown-item
+        display: flex
+        align-items: center
+        padding: 0.75rem 1rem
+        text-decoration: none
+        color: $profile-name-color // Dark text for dropdown items
+        font-size: 1rem
+        transition: background-color 0.15s ease-in-out
+
+        i
+          margin-right: 0.5rem
+          font-size: 1rem
+          color: $profile-name-color
+
+        &:hover
+          background-color: $dropdown-item-hover-bg
+
+        &.logout
+          color: $logout-color
+          font-weight: bold
+
+      .dropdown-divider
+        height: 0
+        margin: 0.5rem 0
+        overflow: hidden
+        border-top: 1px solid $dropdown-divider-color

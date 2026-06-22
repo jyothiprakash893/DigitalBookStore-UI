@@ -1,0 +1,13 @@
+<div class="d-flex flex-row m-3">
+    <div class="w-100">
+        <h4 *ngIf="reviews === undefined"><br>Loading Reviews...</h4>
+        <h4 *ngIf="reviews !== undefined && reviews.length === 0"><br>No Deleted Reviews Found!</h4>
+        <div *ngFor="let review of reviews">
+            <app-review [restoreView]="true" [adminView]="true" [canModify]="true" [review]="review" class="mb-3" />
+            <div class="ms-2" style="display: flex; align-items: baseline;">
+                <h6 class="me-1">Reason:</h6>
+                <p>{{review.reason}}</p>
+            </div>
+        </div>
+    </div>
+</div>

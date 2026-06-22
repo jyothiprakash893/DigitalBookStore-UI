@@ -1,0 +1,59 @@
+<div class="admin-return-container">
+  <header class="admin-return-header">
+    <h2 class="admin-return-title"><i class="bi bi-arrow-return-left-fill me-2"></i> Process Return Request</h2>
+  </header>
+
+  <div *ngIf="order; else loading" class="admin-return-content">
+    <section class="order-info">
+      <h3 class="section-title"><i class="bi bi-info-circle-fill me-2"></i> Order Information</h3>
+      <div class="info-item">
+        <span class="label">Order ID:</span>
+        <span class="value">{{ order.orderId }}</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Current Status:</span>
+        <span class="value"><span class="badge" [ngClass]="{'pending': order.status === 'Pending', 'shipped': order.status === 'Shipped', 'delivered': order.status === 'Delivered', 'cancelled': order.status === 'Cancelled', 'return-requested': order.status === 'Return Requested', 'return-approved': order.status === 'Return Approved', 'return-rejected': order.status === 'Return Rejected'}">{{ order.status }}</span></span>
+      </div>
+    </section>
+
+    <div *ngIf="order.returnDetails" class="return-details">
+      <h3 class="section-title"><i class="bi bi-exclamation-triangle-fill me-2"></i> Return Details</h3>
+      <div class="detail-item">
+        <span class="label">Return Reason:</span>
+        <span class="value">{{ order.returnDetails.returnReason }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Requested On:</span>
+        <span class="value">{{ order.returnDetails.returnRequestedDate | date: 'mediumDate' }}</span>
+      </div>
+
+      <div class="action-buttons">
+        <button
+          class="btn btn-success"
+          (click)="processReturn('approve')"
+          [disabled]="order.status !== 'Return Requested'"
+        >
+          <i class="bi bi-check-circle-fill me-2"></i> Approve Return
+        </button>
+        <button
+          class="btn btn-danger"
+          (click)="processReturn('reject')"
+          [disabled]="order.status !== 'Return Requested'"
+        >
+          <i class="bi bi-x-circle-fill me-2"></i> Reject Return
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="successMessage" class="alert alert-success mt-3" role="alert">
+      <i class="bi bi-check-circle-fill me-2"></i> {{ successMessage }}
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3" role="alert">
+      <i class="bi bi-exclamation-triangle-fill me-2"></i> {{ errorMessage }}
+    </div>
+  </div>
+
+  <ng-template #loading>
+    <p class="loading-message"><i class="bi bi-hourglass-split me-2"></i> Loading return details...</p>
+  </ng-template>
+</div>

@@ -1,0 +1,246 @@
+/* Overall Container */
+.order-details-container {
+  max-width: 768px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header */
+.order-details-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.order-details-title {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* Section Titles */
+.section-title {
+  color: #3498db; /* Accent color */
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.section-title i {
+  margin-right: 10px;
+}
+
+/* Order Summary */
+.order-summary {
+  margin-bottom: 30px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 8px 0;
+  border-bottom: 1px dashed #eee;
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+}
+
+.summary-item .label {
+  font-weight: 500;
+  color: #555;
+}
+
+.summary-item .value {
+  color: #333;
+}
+
+.summary-item .badge {
+  padding: 0.5em 0.75em;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: white;
+}
+
+.summary-item .badge.pending {
+  background-color: #f39c12; /* Amber */
+}
+
+.summary-item .badge.shipped {
+  background-color: #3498db; /* Blue */
+}
+
+.summary-item .badge.delivered {
+  background-color: #2ecc71; /* Green */
+}
+
+.summary-item .badge.cancelled {
+  background-color: #e74c3c; /* Red */
+}
+
+.summary-item .badge.return-requested {
+  background-color: #9b59b6; /* Purple */
+}
+
+.summary-item .badge.return-approved {
+  background-color: #27ae60; /* Darker Green */
+}
+
+.summary-item .badge.return-rejected {
+  background-color: #c0392b; /* Darker Red */
+}
+
+.summary-item .badge.paid {
+  background-color: #2ecc71;
+}
+
+.summary-item .badge.pending {
+  background-color: #f39c12;
+  color: #fff;
+}
+
+.summary-item .badge.failed {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.summary-item .badge.refunded {
+  background-color: #1abc9c;
+  color: #fff;
+}
+
+/* Order Items */
+.order-items {
+  margin-bottom: 30px;
+}
+
+.item-list {
+  list-style: none;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item-title {
+  font-weight: 500;
+  color: #333;
+}
+
+.item-details {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.item-price {
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.no-items {
+  color: #777;
+  font-style: italic;
+}
+
+/* Tracking Information */
+.tracking-info {
+  margin-bottom: 30px;
+}
+
+/* Return Information */
+.return-info {
+  margin-bottom: 30px;
+}
+
+.info-item {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.info-item .label {
+  font-weight: 500;
+  color: #555;
+  width: 180px; /* Adjust width as needed */
+}
+
+.info-item .value {
+  color: #333;
+}
+
+/* Order Actions */
+.order-actions {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.order-actions button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.order-actions button.btn-danger {
+  background-color: #e74c3c;
+}
+
+.order-actions button.btn-danger:hover {
+  background-color: #c0392b;
+}
+
+.order-actions button.btn-warning {
+  background-color: #f39c12;
+}
+
+.order-actions button.btn-warning:hover {
+  background-color: #d68910;
+}
+
+.error-message {
+  color: #e74c3c;
+  margin-top: 15px;
+  font-weight: bold;
+  display: block;
+}
+
+.error-message i {
+  margin-right: 5px;
+}
+
+/* Loading State */
+.loading-message {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}

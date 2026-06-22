@@ -1,0 +1,143 @@
+$primary-cool-light: #eceff1 // Very Light Gray-Blue
+$primary-cool-medium: #b0bec5 // Medium Gray-Blue
+$primary-cool-dark: #78909c // Dark Gray-Blue
+$secondary-cool-light: #f0f4c3 // Light Yellow-Green (Subtle Accent)
+$border-cool: #cfd8dc // Light Gray-Blue Border
+$text-cool-primary: #37474f // Dark Blue-Gray Text
+$text-cool-secondary: #546e7a // Medium Blue-Gray Text
+$hover-cool: #e0e0e0 // Light Gray Hover
+$accent-cool: #546e7a // Medium Blue-Gray Accent
+$column-divider-cool: #e0e0e0 // Light Gray Column Divider
+
+.top-el
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  .add-btn
+    margin-left: 0.5rem
+    margin-top: 20px
+    button
+      height: 40px
+  .search-el
+    display: flex
+    flex-direction: row
+
+.display-el
+  display: flex
+  justify-content: center
+
+// Styles for the search input and button
+div.search-container
+  display: flex
+  justify-content: center
+  align-items: center
+  margin-top: 20px
+
+  form
+    display: flex
+
+    input
+      padding: 0.5rem
+      border: 1px solid #ccc
+      border-radius: 4px
+      width: 600px
+
+    button
+      padding: 0.5rem 1rem
+      border: none
+      background-color: #6c757d // Muted color
+      color: white
+      cursor: pointer
+      border-radius: 4px
+      margin-left:0.5rem
+      &:hover
+        background-color: #5a6268 // Darker muted color
+
+  // Styles for the book details section
+  h3
+    text-align: center
+    margin-top: 1rem
+
+  p
+    text-align: center
+    margin: 0.5rem 0
+
+  // Styles for the update button
+  button[routerLink]
+    display: block
+    margin: 1rem auto
+    padding: 0.5rem 1rem
+    border: none
+    background-color: #28a745
+    color: white
+    cursor: pointer
+    border-radius: 4px
+    text-align: center
+    &:hover
+      background-color: #218838
+
+  // Styles for the error message
+  div[ngIf="errorMessage"]
+    text-align: center
+    color: red
+    margin-top: 1rem
+
+table
+  width: 100%
+  margin: 2rem 0
+  border-collapse: collapse
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05)
+  border-radius: 0.5rem
+  overflow: hidden
+  background-color: white
+  border: 1px solid $border-cool
+
+  thead
+    background-color: $primary-cool-medium
+    color: white
+    // Removed box-shadow from thead
+
+    th
+      padding: 1.1rem 1.25rem // Slightly adjusted padding
+      text-align: left
+      font-weight: 600 // More visible header text
+      letter-spacing: 0.03em
+      &:first-child
+        border-top-left-radius: 0.5rem
+      &:last-child
+        border-top-right-radius: 0.5rem
+
+  tbody
+    tr
+      transition: background-color 0.2s ease-in-out
+      &:nth-child(even)
+        background-color: $primary-cool-light
+      &:hover
+        background-color: $hover-cool
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02)
+
+    td
+      padding: 0.8rem 1.25rem
+      color: $text-cool-primary
+      border-bottom: 1px solid $border-cool
+      border-right: 1px solid $column-divider-cool
+
+      &:first-child
+        border-left: none
+      
+      .action-btn
+        margin:0.5rem
+
+    tr:last-child td
+      border-bottom: none
+      &:first-child
+        border-bottom-left-radius: 0.5rem
+      &:last-child
+        border-bottom-right-radius: 0.5rem
+        border-right: none
+
+.pagination
+  display: flex
+  justify-content: center
+  align-items: center
+  margin: 2rem 0

@@ -1,0 +1,18 @@
+<div style="background-color: bisque; padding: 2% 5% 4% 5%;" id="dealOfTheDay">
+    <div>
+        <div class="d-flex justify-content-between align-items-center">
+            <h3>Deals Of The Day <strong style="color: orangered">{{timeRemaining | date : 'HH:mm:ss'}}</strong>
+            </h3>
+            <div style="cursor: pointer; display: flex; flex-direction: row; margin: 2%;">
+                <div (click)="prev()"><i class="fa-solid fa-arrow-left rounded-circle p-3 me-2"
+                        style="background-color: white;"></i></div>
+                <div (click)="next()"><i class="fa-solid fa-arrow-right rounded-circle p-3"
+                        style="background-color: white;"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-around">
+        <h4 *ngIf="allBooks === undefined" class="text-center"><br>Loading Your Personalized Deals!<br><br></h4>
+        <app-book-deal style="width: 40%" *ngFor="let book of books" [book]="book"/>
+    </div>
+</div>

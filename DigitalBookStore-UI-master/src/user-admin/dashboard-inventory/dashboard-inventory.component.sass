@@ -1,0 +1,82 @@
+// Subtle Muted Cool Gray & Blue Color Palette for Admin UI (Improved Action Button Hover Contrast)
+$primary-cool-light: #f5f5f5
+$primary-cool-medium: #e0e0e0
+$primary-cool-dark: #9e9e9e
+$secondary-cool-light: #e0f7fa
+$border-cool: #dcdcdc
+$text-cool-primary: #424242
+$text-cool-secondary: #757575
+$hover-cool: #f0f0f0
+$accent-cool: #607d8b
+$column-divider-cool: #eeeeee
+
+// Integration of previous colors (subtle)
+$subtle-teal: #80cbc4
+$subtle-dark-blue: #546e7a
+
+.low-stock-container
+  border: 1px solid $border-cool
+  padding: 1rem
+  flex: 1
+  border-radius: 0.5rem
+  background-color: $primary-cool-light
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05)
+
+  h3
+    color: $text-cool-primary
+    margin-bottom: 1rem
+    font-size: 1.25rem
+
+  table
+    width: 100%
+    border-collapse: collapse
+    margin-top: 0.5rem
+    background-color: white
+    border: 1px solid $border-cool
+    border-radius: 0.5rem
+    overflow: hidden
+
+    thead
+      background-color: $primary-cool-medium
+      color: $text-cool-primary
+
+      th
+        padding: 0.75rem 1rem
+        text-align: left
+        font-weight: 600
+        border-bottom: 1px solid $border-cool
+        border-right: 1px solid $column-divider-cool
+        &:first-child
+          border-left: none
+        &:last-child
+          border-right: none
+
+    tbody
+      tr
+        &:nth-child(even)
+          background-color: $hover-cool
+        &:hover
+          background-color: lighten($hover-cool, 2%)
+        td
+          padding: 0.75rem 1rem
+          text-align: left
+          border-bottom: 1px solid $border-cool
+          border-right: 1px solid $column-divider-cool
+          &:first-child
+            border-left: none
+          &:last-child
+            border-right: none
+        &:last-child
+          td
+            border-bottom: none
+
+  ul
+    list-style-type: none
+    padding: 0
+
+    li
+      margin-bottom: 0.5rem
+      color: $text-cool-primary
+
+  > div
+    color: $text-cool-secondary // Style for "No low stock books." div

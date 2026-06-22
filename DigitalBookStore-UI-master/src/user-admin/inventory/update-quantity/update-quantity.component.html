@@ -1,0 +1,29 @@
+<div class="modal-overlay">
+    <div class="modal-content">
+        <button type="button" class="close-button" (click)="closeModal()">
+            <i class="fa-solid fa-times close-icon" aria-hidden="true"></i>
+            <span class="visually-hidden">Close</span>
+          </button>
+      <h3>Update Quantity</h3>
+      <p>Inventory ID : <strong> {{ inventory?.inventoryId }}</strong></p>
+      <p>Book ID :<strong>{{ inventory?.book_Id }}</strong></p>
+      <p>Current Quantity :<strong> {{ inventory?.quantity }}</strong></p>
+  
+      <div class="quantity-update">
+        <input type="number" [(ngModel)]="updateQuantity" placeholder="Enter quantity to update" />
+        <button class="add" (click)="addQuantity()">Add</button>
+        <button class="remove" (click)="removeQuantity()">Remove</button>
+      </div>
+  
+      <div *ngIf="responseMessage" class="responseMessage">
+        <p>{{ responseMessage }}</p>
+      </div>
+  
+      <div *ngIf="errorMessage" class="errorMessage">
+        <p>{{ errorMessage }}</p>
+      </div>
+    </div>
+  </div>
+    
+
+  

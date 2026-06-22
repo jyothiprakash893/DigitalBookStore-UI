@@ -1,0 +1,210 @@
+/* Styles for the main container */
+.admin-return-container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header styling */
+.admin-return-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.admin-return-title {
+  color: #333;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.admin-return-title i {
+  vertical-align: middle;
+}
+
+/* Content area */
+.admin-return-content {
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+}
+
+/* Section titles */
+.section-title {
+  color: #555;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+.section-title i {
+  vertical-align: middle;
+}
+
+/* Order information display */
+.order-info .info-item {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.order-info .label {
+  font-weight: bold;
+  color: #777;
+  min-width: 120px;
+}
+
+.order-info .value {
+  color: #333;
+}
+
+/* Return details section */
+.return-details {
+  margin-top: 25px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #fff;
+}
+
+.return-details .detail-item {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.return-details .label {
+  font-weight: bold;
+  color: #777;
+  min-width: 140px;
+}
+
+.return-details .value {
+  color: #333;
+}
+
+/* Action buttons */
+.action-buttons {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.btn {
+  padding: 10px 20px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-success {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #1e7e34;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.btn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Success and error messages */
+.alert {
+  margin-top: 15px;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border-color: #c3e6cb;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-color: #f5c6cb;
+}
+
+.alert i {
+  vertical-align: middle;
+}
+
+/* Loading message */
+.loading-message {
+  padding: 20px;
+  text-align: center;
+  color: #777;
+  font-style: italic;
+}
+
+.loading-message i {
+  margin-right: 5px;
+}
+
+/* Badge for order status */
+.badge {
+  padding: 0.4em 0.6em;
+  border-radius: 0.25em;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: white;
+}
+
+.badge.pending {
+  background-color: #ffc107; /* Yellow */
+}
+
+.badge.shipped {
+  background-color: #007bff; /* Blue */
+}
+
+.badge.delivered {
+  background-color: #28a745; /* Green */
+}
+
+.badge.cancelled {
+  background-color: #dc3545; /* Red */
+}
+
+.badge.return-requested {
+  background-color: #f8bbd0; /* Pink */
+  color: #c2185b;
+}
+
+.badge.return-approved {
+  background-color: #a5d6a7; /* Light Green */
+  color: #388e3c;
+}
+
+.badge.return-rejected {
+  background-color: #ffcdd2; /* Light Red */
+  color: #d32f2f;
+}

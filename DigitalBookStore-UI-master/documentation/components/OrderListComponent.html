@@ -1,0 +1,1036 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>digital-book-store-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">digital-book-store-ui documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  OrderListComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/user-customer/order/order-management/components/order-list/order-list.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-order-list</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./order-list.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./order-list.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#errorMessage" >errorMessage</a>
+                            </li>
+                            <li>
+                                <a href="#orders" >orders</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getPaymentStatusBadgeClass" >getPaymentStatusBadgeClass</a>
+                            </li>
+                            <li>
+                                <a href="#getStatusBadgeClass" >getStatusBadgeClass</a>
+                            </li>
+                            <li>
+                                <a href="#loadUserOrders" >loadUserOrders</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(orderService: <a href="../injectables/OrderService.html" target="_self">OrderService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/user-customer/order/order-management/components/order-list/order-list.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>orderService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/OrderService.html" target="_self" >OrderService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPaymentStatusBadgeClass"></a>
+                    <span class="name">
+                        <span ><b>getPaymentStatusBadgeClass</b></span>
+                        <a href="#getPaymentStatusBadgeClass"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPaymentStatusBadgeClass(paymentStatus: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">src/user-customer/order/order-management/components/order-list/order-list.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>paymentStatus</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getStatusBadgeClass"></a>
+                    <span class="name">
+                        <span ><b>getStatusBadgeClass</b></span>
+                        <a href="#getStatusBadgeClass"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getStatusBadgeClass(status: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">src/user-customer/order/order-management/components/order-list/order-list.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>status</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadUserOrders"></a>
+                    <span class="name">
+                        <span ><b>loadUserOrders</b></span>
+                        <a href="#loadUserOrders"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadUserOrders()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="22"
+                                    class="link-to-prism">src/user-customer/order/order-management/components/order-list/order-list.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="18"
+                                    class="link-to-prism">src/user-customer/order/order-management/components/order-list/order-list.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorMessage"></a>
+                    <span class="name">
+                        <span ><b>errorMessage</b></span>
+                        <a href="#errorMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/user-customer/order/order-management/components/order-list/order-list.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="orders"></a>
+                    <span class="name">
+                        <span ><b>orders</b></span>
+                        <a href="#orders"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Order[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/user-customer/order/order-management/components/order-list/order-list.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { OrderService } from &#x27;../../services/order.service&#x27;;
+import { Order } from &#x27;../../../shared/interfaces/order&#x27;;
+
+@Component({
+  selector: &#x27;app-order-list&#x27;,
+  templateUrl: &#x27;./order-list.component.html&#x27;,
+  styleUrls: [&#x27;./order-list.component.css&#x27;],
+  standalone: false,
+
+})
+export class OrderListComponent implements OnInit {
+  orders: Order[] &#x3D; [];
+  errorMessage: string &#x3D; &#x27;&#x27;;
+
+  constructor(private orderService: OrderService) {}
+
+  ngOnInit(): void {
+    this.loadUserOrders();
+  }
+
+  loadUserOrders(): void {
+    this.orderService.getUserOrders().subscribe({
+      next: (orders) &#x3D;&gt; {
+        this.orders &#x3D; orders;
+        this.errorMessage &#x3D; &#x27;&#x27;;
+      },
+      error: (error) &#x3D;&gt; {
+        this.errorMessage &#x3D; &#x27;Error loading orders.&#x27;;
+        console.error(&#x27;Error loading orders:&#x27;, error);
+      },
+    });
+  }
+
+  getStatusBadgeClass(status: string): string {
+    switch (status) {
+      case &#x27;Pending&#x27;:
+        return &#x27;bg-warning text-dark&#x27;;
+      case &#x27;Shipped&#x27;:
+        return &#x27;bg-success text-white&#x27;;
+      case &#x27;Delivered&#x27;:
+        return &#x27;bg-success text-dark&#x27;;
+      case &#x27;Cancelled&#x27;:
+        return &#x27;bg-danger text-dark&#x27;;
+      case &#x27;Return Requested&#x27;:
+        return &#x27;bg-warning text-dark&#x27;;
+      case &#x27;Return Approved&#x27;:
+        return &#x27;bg-success text-dark&#x27;;
+      default:
+        return &#x27;&#x27;;
+    }
+  }
+
+  getPaymentStatusBadgeClass(paymentStatus: string): string {
+    switch (paymentStatus) {
+      case &#x27;PAID&#x27;:
+        return &#x27;bg-success text-dark&#x27;;
+      case &#x27;PENDING&#x27;:
+        return &#x27;bg-warning text-dark&#x27;;
+      case &#x27;FAILED&#x27;:
+        return &#x27;bg-danger text-dark&#x27;;
+        case &#x27;REFUNDED&#x27;:
+        return &#x27;bg-danger text-dark&#x27;;
+      default:
+        return &#x27;&#x27;;
+    }
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container mt-4 order-list-container&quot;&gt;
+  &lt;header class&#x3D;&quot;order-list-header&quot;&gt;
+    &lt;h2 class&#x3D;&quot;order-list-title mb-3&quot;&gt;&lt;i class&#x3D;&quot;bi bi-box-seam-fill me-2&quot;&gt;&lt;/i&gt; My Orders&lt;/h2&gt;
+  &lt;/header&gt;
+  &lt;div class&#x3D;&quot;row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center&quot;&gt;
+    &lt;div *ngFor&#x3D;&quot;let order of orders&quot; class&#x3D;&quot;col&quot;&gt;
+      &lt;div class&#x3D;&quot;card shadow-sm h-100&quot;&gt;
+        &lt;div class&#x3D;&quot;card-header bg-primary text-white text-center&quot;&gt;
+          Order ID: {{ order.orderId }}
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;card-body d-flex flex-column&quot;&gt;
+          &lt;p class&#x3D;&quot;card-text&quot;&gt;
+            &lt;strong class&#x3D;&quot;text-muted&quot;&gt;Order Date:&lt;/strong&gt;
+            {{ order.orderDate | date: &#x27;dd MMM yyyy, h:mm a&#x27; }}
+          &lt;/p&gt;
+          &lt;p class&#x3D;&quot;card-text&quot;&gt;&lt;strong class&#x3D;&quot;text-muted&quot;&gt;Total Amount:&lt;/strong&gt; ₹{{ order.totalAmount }}&lt;/p&gt;
+          &lt;p class&#x3D;&quot;card-text&quot;&gt;
+            &lt;strong class&#x3D;&quot;text-muted&quot;&gt;Payment Status:    &lt;/strong&gt;
+            &lt;span class&#x3D;&quot;badge&quot; [ngClass]&#x3D;&quot;getPaymentStatusBadgeClass(order.paymentStatus)&quot;&gt;
+              {{ order.paymentStatus }}
+            &lt;/span&gt;
+          &lt;/p&gt;
+          &lt;p class&#x3D;&quot;card-text&quot;&gt;
+            &lt;strong class&#x3D;&quot;text-muted&quot;&gt;Status:&lt;/strong&gt;
+            &lt;span class&#x3D;&quot;badge&quot; [ngClass]&#x3D;&quot;getStatusBadgeClass(order.status)&quot;&gt;
+              {{ order.status }}
+            &lt;/span&gt;
+          &lt;/p&gt;
+          &lt;p class&#x3D;&quot;card-text&quot;&gt;&lt;strong class&#x3D;&quot;text-muted&quot;&gt;Book IDs:&lt;/strong&gt;
+            &lt;span *ngFor&#x3D;&quot;let bookId of order.bookIds; let last &#x3D; last&quot; class&#x3D;&quot;badge bg-secondary me-1&quot;&gt;
+              {{ bookId.split(&#x27;:&#x27;)[0].trim() }}&lt;span *ngIf&#x3D;&quot;!last&quot;&gt;&lt;/span&gt;
+            &lt;/span&gt;
+          &lt;/p&gt;
+          &lt;div class&#x3D;&quot;mt-auto&quot;&gt;
+            &lt;a [routerLink]&#x3D;&quot;[&#x27;/order/details&#x27;, order.orderId]&quot; class&#x3D;&quot;view-details-button&quot;&gt;
+              &lt;i class&#x3D;&quot;bi bi-eye me-1&quot;&gt;&lt;/i&gt; View Details
+            &lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;card-footer text-muted text-center&quot;&gt;
+          Placed on {{ order.orderDate | date:&#x27;mediumDate&#x27; }}
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div *ngIf&#x3D;&quot;orders.length &#x3D;&#x3D;&#x3D; 0&quot; class&#x3D;&quot;col-12 text-center&quot;&gt;
+      &lt;div class&#x3D;&quot;alert alert-info&quot; role&#x3D;&quot;alert&quot;&gt;
+        &lt;i class&#x3D;&quot;bi bi-info-circle me-2&quot;&gt;&lt;/i&gt; You haven&#x27;t placed any orders yet.
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./order-list.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">/* Container for the entire component */
+.order-list-container {
+  padding: 20px;
+}
+
+/* Header styling for centering */
+.order-list-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.order-list-title {
+  color: #333;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.order-list-title i {
+  vertical-align: middle;
+}
+
+
+
+/* Card styling */
+.card {
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+  border-bottom: 1px solid #e0e0e0;
+  border-radius: 8px 8px 0 0;
+  font-weight: bold;
+  padding: 0.75rem 1.25rem;
+  text-align: center; /* Center the header text */
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.card-text {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 0.3em 0.6em;
+  border-radius: 0.25rem;
+  color: white;
+  display: inline-block;
+}
+
+.bg-success {
+  background-color: #28a745 !important;
+}
+
+.bg-warning {
+  background-color: #ffc107 !important;
+  color: #212529 !important;
+}
+
+.bg-danger {
+  background-color: #dc3545 !important;
+}
+
+.bg-secondary {
+  background-color: #6c757d !important;
+}
+
+.btn-outline-primary {
+  border-radius: 5px;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+
+.card-footer {
+  border-top: 1px solid #e0e0e0;
+  border-radius: 0 0 8px 8px;
+  background-color: #f8f9fa;
+  font-size: 0.8rem;
+  color: #6c757d;
+  text-align: center;
+  padding: 0.75rem 1.25rem;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+/* Responsive grid adjustments for two cards in the center */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.col {
+  flex-basis: 100%; /* Default to full width for small screens */
+  max-width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 20px; /* Add some space between cards */
+}
+
+/* Medium screens and up: display two cards side-by-side */
+@media (min-width: 768px) {
+  .row-cols-md-2 &gt; .col {
+    flex: 0 0 calc(50% - 30px); /* Two columns with some gutter */
+    max-width: calc(50% - 30px);
+  }
+
+  .row.justify-content-center {
+    /* Ensure the row itself is centered when there&#x27;s an even number of cards */
+    justify-content: center;
+  }
+}
+
+/* Large screens and up: potentially display more cards (adjust as needed) */
+@media (min-width: 992px) {
+  .row-cols-lg-3 &gt; .col {
+    flex: 0 0 calc(33.33% - 30px); /* Three columns */
+    max-width: calc(33.33% - 30px);
+  }
+}
+
+.col-12.text-center {
+  display: flex;
+  justify-content: center;
+}
+
+.alert-info {
+  max-width: 400px;
+}
+
+.card-text strong {
+  margin-right: 0.8em; 
+}
+
+.book-id-badge {
+  margin-right: 0.8em; 
+}
+
+.me-1 {
+  margin-right: 0.8em !important; /* Increase the margin, !important might be needed for override */
+}
+
+
+.bg-primary {
+  background-color: #f0f0f0 !important; 
+  /* Use your desired subtle color */
+  color: #333 !important; /* Adjust text color if needed */
+}
+
+.mt-auto {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 1rem;
+}
+
+.view-details-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  border-radius: 0.3rem;
+  border: 1px solid #6610f2; /* Soft indigo */
+  background-color: #fff;
+  color: #6610f2;
+  text-decoration: none;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  min-width: 90px;
+  box-shadow: 0 0.05rem 0.1rem rgba(102, 16, 242, 0.1);
+}
+
+.view-details-button:hover {
+  transform: translateY(-2px); /* Gentle lift on hover */
+  box-shadow: 0 0.3rem 0.6rem rgba(102, 16, 242, 0.2);
+  color: #6610f2; /* Keep text color */
+  background-color: #f8f9fa; /* Light background */
+}
+
+.view-details-button i {
+  margin-right: 0.4rem;
+  font-size: 1rem;
+}
+
+.view-details-button:active {
+  transform: translateY(0);
+  box-shadow: 0 0.1rem 0.2rem rgba(102, 16, 242, 0.3);
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container mt-4 order-list-container">  <header class="order-list-header">    <h2 class="order-list-title mb-3"><i class="bi bi-box-seam-fill me-2"></i> My Orders</h2>  </header>  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">    <div *ngFor="let order of orders" class="col">      <div class="card shadow-sm h-100">        <div class="card-header bg-primary text-white text-center">          Order ID: {{ order.orderId }}        </div>        <div class="card-body d-flex flex-column">          <p class="card-text">            <strong class="text-muted">Order Date:</strong>            {{ order.orderDate | date: \'dd MMM yyyy, h:mm a\' }}          </p>          <p class="card-text"><strong class="text-muted">Total Amount:</strong> ₹{{ order.totalAmount }}</p>          <p class="card-text">            <strong class="text-muted">Payment Status:    </strong>            <span class="badge" [ngClass]="getPaymentStatusBadgeClass(order.paymentStatus)">              {{ order.paymentStatus }}            </span>          </p>          <p class="card-text">            <strong class="text-muted">Status:</strong>            <span class="badge" [ngClass]="getStatusBadgeClass(order.status)">              {{ order.status }}            </span>          </p>          <p class="card-text"><strong class="text-muted">Book IDs:</strong>            <span *ngFor="let bookId of order.bookIds; let last = last" class="badge bg-secondary me-1">              {{ bookId.split(\':\')[0].trim() }}<span *ngIf="!last"></span>            </span>          </p>          <div class="mt-auto">            <a [routerLink]="[\'/order/details\', order.orderId]" class="view-details-button">              <i class="bi bi-eye me-1"></i> View Details            </a>          </div>        </div>        <div class="card-footer text-muted text-center">          Placed on {{ order.orderDate | date:\'mediumDate\' }}        </div>      </div>    </div>    <div *ngIf="orders.length === 0" class="col-12 text-center">      <div class="alert alert-info" role="alert">        <i class="bi bi-info-circle me-2"></i> You haven\'t placed any orders yet.      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AddbookComponent', 'selector': 'app-addbook'},{'name': 'AddToCartComponent', 'selector': 'app-add-to-cart'},{'name': 'AddUpdateReviewComponent', 'selector': 'app-add-update-review'},{'name': 'AdminDashboardComponent', 'selector': 'app-admin-dashboard'},{'name': 'AdminHomeComponent', 'selector': 'app-admin-home'},{'name': 'AdminReturnProcessComponent', 'selector': 'app-admin-return-process'},{'name': 'AllorderstatusComponent', 'selector': 'app-allorderstatus'},{'name': 'AllReviewsComponent', 'selector': 'app-all-reviews'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AverageRatingComponent', 'selector': 'app-average-rating'},{'name': 'BookBannersComponent', 'selector': 'app-book-banners'},{'name': 'BookCarouselComponent', 'selector': 'app-book-carousel'},{'name': 'BookDealComponent', 'selector': 'app-book-deal'},{'name': 'BookdetailsComponent', 'selector': 'app-bookdetails'},{'name': 'BookHeroComponent', 'selector': 'app-book-hero'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategorybooksComponent', 'selector': 'app-categorybooks'},{'name': 'CategorybookslistComponent', 'selector': 'app-categorybookslist'},{'name': 'DashboardInventoryComponent', 'selector': 'app-dashboard-inventory'},{'name': 'DealOfTheDayComponent', 'selector': 'app-deal-of-the-day'},{'name': 'DeletebookComponent', 'selector': 'app-deletebook'},{'name': 'DeleteBookInventoryComponent', 'selector': 'app-delete-book-inventory'},{'name': 'DisplayInventoryComponent', 'selector': 'app-display-inventory'},{'name': 'EditorspickComponent', 'selector': 'app-editorspick'},{'name': 'FilterComponent', 'selector': 'app-filter'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LeftSidebarComponent', 'selector': 'app-left-sidebar'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'NavbarAdminComponent', 'selector': 'app-navbar-admin'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'OrderDetailsComponent', 'selector': 'app-order-details'},{'name': 'OrderListComponent', 'selector': 'app-order-list'},{'name': 'OrderManagementComponent', 'selector': 'app-order-management'},{'name': 'OrderTrackingComponent', 'selector': 'app-order-tracking'},{'name': 'PaymentComponent', 'selector': 'app-payment'},{'name': 'PlaceOrderComponent', 'selector': 'app-place-order'},{'name': 'RecentOrdersComponent', 'selector': 'app-recent-orders'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewComponent', 'selector': 'app-review'},{'name': 'ReviewsByBookIdComponent', 'selector': 'app-reviews-by-book-id'},{'name': 'ReviewsByUserIdComponent', 'selector': 'app-reviews-by-user-id'},{'name': 'SearchtitleComponent', 'selector': 'app-searchtitle'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'StarsComponent', 'selector': 'app-stars'},{'name': 'UpdatebookComponent', 'selector': 'app-updatebook'},{'name': 'UpdateQuantityComponent', 'selector': 'app-update-quantity'},{'name': 'UpdateTrackingComponent', 'selector': 'app-update-tracking'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'ViewbookidComponent', 'selector': 'app-viewbookid'},{'name': 'ViewByBookIDComponent', 'selector': 'app-view-by-book-id'},{'name': 'ViewEditReviewComponent', 'selector': 'app-view-edit-review'},{'name': 'WelcomeAdminComponent', 'selector': 'app-welcome-admin'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'OrderListComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'OrderListComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

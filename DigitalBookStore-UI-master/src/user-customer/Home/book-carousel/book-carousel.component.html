@@ -1,0 +1,22 @@
+<div class="booksearch">
+    <div class="box">
+        <div class="search-field">
+          <div class="search-section">
+            
+<form (ngSubmit)="searchButton.click()">
+ <input type="text" #searchInput [(ngModel)]="searchQuery" name="searchQuery" placeholder="Search book..." />
+<button #searchButton routerLink="/search" [queryParams]="{'searchQuery': searchInput.value}">Search</button>
+   </form>
+  
+          </div>
+        </div>
+      </div>
+  
+
+      <div class="book-carousel">
+        <div class="book-list">
+          <div *ngFor="let book of books | slice:0:6" class="book-item">
+            <img [src]="'data:image/jpeg;base64,' + book.base64img" [alt]="book.title">
+          </div>
+        </div>
+      </div>

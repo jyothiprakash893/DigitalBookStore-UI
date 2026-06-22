@@ -1,0 +1,30 @@
+<div class="recent-orders-container">
+    <h3>Recent Orders</h3>
+    <div *ngIf="loading">Loading recent orders...</div>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  
+    <table *ngIf="recentOrders.length > 0">
+      <thead>
+        <tr>
+          <th>Order Date</th>
+          <th>Total Amount</th>
+          <th>Status</th>
+          <th>User ID</th>
+          <th>Book IDs</th>
+          <th>Payment Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of recentOrders">
+          <td>{{ order.orderDate | date }}</td>
+          <td>{{ order.totalAmount | currency }}</td>
+          <td>{{ order.status }}</td>
+          <td>{{ order.userId }}</td>
+          <td>{{ order.bookIds.join(', ') }}</td>
+          <td>{{ order.paymentStatus }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="recentOrders.length === 0 && !loading && !errorMessage">No recent orders found.</div>
+  </div>

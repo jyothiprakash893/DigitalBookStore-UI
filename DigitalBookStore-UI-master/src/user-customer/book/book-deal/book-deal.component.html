@@ -1,0 +1,19 @@
+<div class="container row mt-2"
+    style="background-color: white; height: 50vh; justify-content: center; align-items: center; border-radius: 3%;">
+    <div class="col" (click)="openBook()" style="cursor: pointer">
+        <img style="height: auto; width: 70%" [src]="book.coverImage ? 'data:image/jpeg;base64,' + book.base64img : ''"
+            alt="{{ book.title }}" />
+    </div>
+    <div class="col w-75">
+        <div (click)="openBook()" style="cursor: pointer">
+            <p>By {{book.authorName}}</p>
+            <h5>{{book.title}}</h5>
+            <h5 *ngIf="quantity > 0">{{price | currency: 'INR'}} <span class="text-decoration-line-through" style="color: gray">{{book.price
+                    |
+                    currency: "INR"}}</span></h5>
+            <h6 *ngIf="quantity > 0" style="color: red;">Only {{quantity}} left!</h6>
+            <h6 *ngIf="quantity === 0" style="color: red;">SOLD OUT!</h6>
+        </div>
+        <app-add-to-cart [bookId]="book.bookID"></app-add-to-cart>
+    </div>
+</div>

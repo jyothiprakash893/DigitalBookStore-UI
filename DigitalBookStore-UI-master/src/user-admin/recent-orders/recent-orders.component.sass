@@ -1,0 +1,91 @@
+/* Lighter Grey Theme - Subtle Alternating Rows */
+$base-grey: #808080 // Base medium grey
+$sidebar-bg: #E0E0E0 // Light grey for sidebar (using previous light grey)
+$text-color: #37474F // Dark grey/blue for text (keeping consistent)
+$icon-color: #555 // Medium gray for icons (keeping consistent)
+$hover-bg: lighten($sidebar-bg, 10%) // Slightly lighter grey for hover
+$hover-text-icon: $text-color
+$active-bg: lighten($base-grey, 20%) // Lighter medium grey for active
+$active-text-icon: $text-color
+$border-cool: rgba($base-grey, 0.15) // Light grey border
+$primary-cool-light: #F8F8F8 // Very light grey for background
+$primary-cool-medium: #D0D0D0 // Medium light grey for header
+$text-cool-primary: $text-color
+$text-cool-secondary: lighten($text-color, 40%)
+$column-divider-cool: $border-cool
+$hover-cool: lighten($primary-cool-light, 5%) // Very subtle light grey hover
+
+.recent-orders-container
+  border: 1px solid $border-cool
+  padding: 1rem
+  margin-top: 1rem
+  height: 33%
+  overflow-y: auto
+  border-radius: 0.5rem
+  background-color: $primary-cool-light
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03)
+
+  h3
+    color: $text-cool-primary
+    margin-bottom: 1rem
+    font-size: 1.25rem
+
+  .error-message
+    color: red
+    margin-top: 0.5rem
+
+  table
+    width: 100%
+    border-collapse: collapse
+    background-color: white
+    border: 1px solid $border-cool
+    border-radius: 0.5rem
+    overflow: hidden
+
+    thead
+      background-color: $primary-cool-medium
+      color: $text-cool-primary
+
+      th
+        padding: 0.75rem 1rem
+        text-align: left
+        font-weight: 600
+        border-bottom: 1px solid $border-cool
+        border-right: 1px solid $column-divider-cool
+
+        &:first-child
+          border-left: none
+
+        &:last-child
+          border-right: none
+
+    tbody
+      tr
+        &:nth-child(even)
+          background-color: $hover-cool
+
+        &:hover
+          background-color: lighten($hover-cool, 5%) /* Even lighter hover effect */
+
+        td
+          padding: 0.75rem 1rem
+          text-align: left
+          border-bottom: 1px solid $border-cool
+          border-right: $column-divider-cool
+
+          &:first-child
+            border-left: none
+
+          &:last-child
+            border-right: none
+
+        &:last-child td
+          border-bottom: none
+
+  > div
+    color: $text-cool-secondary
+    margin-top: 0.5rem
+
+  .loading
+    color: $text-cool-secondary
+    margin-top: 0.5rem

@@ -1,0 +1,97 @@
+<div class="payment-container">
+  <header class="payment-header">
+    <h1 class="payment-title">Secure Payment</h1>
+    <p class="payment-subtitle">for Order ID: <span class="order-id">{{ orderId }}</span></p>
+  </header>
+
+  <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+    <i class="bi bi-exclamation-triangle-fill me-2"></i> {{ errorMessage }}
+  </div>
+
+  <div *ngIf="paymentSuccessfulCelebration" class="payment-confirmation celebration">
+    <div class="confirmation-header">
+      <i class="bi bi-check-shield-fill"></i>
+      <h3>Payment Successful!</h3>
+    </div>
+    <p>Your order has been placed successfully.</p>
+    <p>Redirecting to order details...</p>
+    <div class="celebration-animation">🎉</div>
+    <div class="celebration-animation delay-1">🎊</div>
+    <div class="celebration-animation delay-2">🎈</div>
+  </div>
+
+  <form *ngIf="!paymentSuccessfulCelebration" [formGroup]="paymentForm" class="payment-form">
+    <section class="payment-method-section">
+      <h3 class="section-title"><i class="bi bi-credit-card-2-front-fill me-2"></i> Select Payment Method</h3>
+      <div class="form-group">
+        <label for="paymentMethod" class="form-label"><i class="bi bi-caret-down-fill me-1"></i> Payment Options:</label>
+        <select id="paymentMethod" formControlName="paymentMethod" class="form-select">
+          <option value="card">Credit/Debit Card</option>
+          <option value="credit">Credits</option>
+          <option value="cod">Cash on Delivery</option>
+        </select>
+      </div>
+    </section>
+
+    <div *ngIf="selectedPaymentMethod === 'card'" class="card-details-section">
+      <section class="form-section">
+        <h3 class="section-title"><i class="bi bi-credit-card-fill me-2"></i> Card Details</h3>
+        <div class="form-group">
+          <label for="cardNumber" class="form-label"><i class="bi bi-credit-card me-1"></i> Card Number:</label>
+          <input type="text" id="cardNumber" formControlName="cardNumber" class="form-control" placeholder="XXXX-XXXX-XXXX-XXXX">
+          <div *ngIf="cardNumberControl?.invalid && (cardNumberControl?.dirty || cardNumberControl?.touched)" class="error-feedback">
+            <div *ngIf="cardNumberControl?.errors?.['required']">Card number is required.</div>
+            <div *ngIf="cardNumberControl?.errors?.['pattern']">Invalid card number format (16 digits).</div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="expiryDate" class="form-label"><i class="bi bi-calendar-fill me-1"></i> Expiry Date (MM/YY):</label>
+            <input type="text" id="expiryDate" formControlName="expiryDate" class="form-control" placeholder="MM/YY">
+            <div *ngIf="expiryDateControl?.invalid && (expiryDateControl?.dirty || expiryDateControl?.touched)" class="error-feedback">
+              <div *ngIf="expiryDateControl?.errors?.['required']">Expiry date is required.</div>
+              <div *ngIf="expiryDateControl?.errors?.['pattern']">Invalid expiry date format (MM/YY).</div>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="cvv" class="form-label"><i class="bi bi-lock-fill me-1"></i> CVV:</label>
+            <input type="text" id="cvv" formControlName="cvv" class="form-control" placeholder="XXX or XXXX">
+            <div *ngIf="cvvControl?.invalid && (cvvControl?.dirty || cvvControl?.touched)" class="error-feedback">
+              <div *ngIf="cvvControl?.errors?.['required']">CVV is required.</div>
+              <div *ngIf="cvvControl?.errors?.['pattern']">Invalid CVV format (3 or 4 digits).</div>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-primary btn-lg pay-button" (click)="submitPayment()" [disabled]="paymentForm.invalid || paymentSuccessfulCelebration">
+          <i class="bi bi-credit-card-fill me-2"></i> Pay with Card
+        </button>
+      </section>
+    </div>
+
+    <div *ngIf="selectedPaymentMethod === 'credit'" class="credits-payment-section">
+      <section class="form-section">
+        <h3 class="section-title"><i class="bi bi-wallet-fill me-2"></i> Pay with Credits</h3>
+        <p>You can use your available credits to pay for this order.</p>
+        <button type="button" class="btn btn-success btn-lg pay-button" (click)="payWithCredits()" [disabled]="paymentSuccessfulCelebration">
+          <i class="bi bi-check-circle-fill me-2"></i> Pay with Credits
+        </button>
+      </section>
+    </div>
+
+    <div *ngIf="selectedPaymentMethod === 'cod'" class="cod-payment-section">
+      <section class="form-section">
+        <h3 class="section-title"><i class="bi bi-truck-fill me-2"></i> Cash on Delivery</h3>
+        <p>Please ensure you have the total amount ready when your order is delivered.</p>
+        <button type="button" class="btn btn-info btn-lg pay-button" (click)="cashOnDelivery()" [disabled]="paymentSuccessfulCelebration">
+          <i class="bi bi-cash-coin me-2"></i> Confirm Cash on Delivery
+        </button>
+      </section>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="paymentSuccess && !paymentSuccessfulCelebration" class="alert alert-success" role="alert">
+  <i class="bi bi-check-circle-fill me-2"></i> Payment Successful! Redirecting to order details...
+</div>

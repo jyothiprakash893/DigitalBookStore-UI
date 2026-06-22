@@ -1,0 +1,604 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>digital-book-store-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">digital-book-store-ui documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  FooterComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/user-customer/Home/footer/footer.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-footer</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./footer.component.sass</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./footer.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+
+@Component({
+  selector: &#x27;app-footer&#x27;,
+  standalone: false,
+  templateUrl: &#x27;./footer.component.html&#x27;,
+  styleUrls: [&#x27;./footer.component.sass&#x27;],
+})
+export class FooterComponent {
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;footer class&#x3D;&quot;site-footer&quot;&gt;
+    &lt;div class&#x3D;&quot;top-bar&quot;&gt;
+      &lt;div class&#x3D;&quot;top-bar-item&quot;&gt;
+        &lt;i class&#x3D;&quot;fas fa-truck&quot;&gt;&lt;/i&gt;
+        &lt;div class&#x3D;&quot;top-bar-text&quot;&gt;
+          &lt;p class&#x3D;&quot;title&quot;&gt;Free Delivery&lt;/p&gt;
+          &lt;p class&#x3D;&quot;subtitle&quot;&gt;For all orders over ₹499&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;top-bar-item&quot;&gt;
+        &lt;i class&#x3D;&quot;fas fa-headset&quot;&gt;&lt;/i&gt;
+        &lt;div class&#x3D;&quot;top-bar-text&quot;&gt;
+          &lt;p class&#x3D;&quot;title&quot;&gt;Expert customer Service&lt;/p&gt;
+          &lt;p class&#x3D;&quot;subtitle&quot;&gt;For a shopping experience&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;top-bar-item&quot;&gt;
+        &lt;i class&#x3D;&quot;fas fa-percentage&quot;&gt;&lt;/i&gt;
+        &lt;div class&#x3D;&quot;top-bar-text&quot;&gt;
+          &lt;p class&#x3D;&quot;title&quot;&gt;Amazing Value&lt;/p&gt;
+          &lt;p class&#x3D;&quot;subtitle&quot;&gt;We offer competitive prices&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;top-bar-item&quot;&gt;
+        &lt;i class&#x3D;&quot;fas fa-lock&quot;&gt;&lt;/i&gt;
+        &lt;div class&#x3D;&quot;top-bar-text&quot;&gt;
+          &lt;p class&#x3D;&quot;title&quot;&gt;Safe Payment&lt;/p&gt;
+          &lt;p class&#x3D;&quot;subtitle&quot;&gt;100% secure payment&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  
+    &lt;div class&#x3D;&quot;main-footer&quot;&gt;
+      &lt;div class&#x3D;&quot;footer-section&quot;&gt;
+        &lt;h3&gt;Help&lt;/h3&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Contact Us&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Help Topics&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Guarantee&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Shipping&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Store Pickup&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Terms&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+  
+      &lt;div class&#x3D;&quot;footer-section&quot;&gt;
+        &lt;h3&gt;Explore&lt;/h3&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;About Us&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Careers&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Store Locations&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Events&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Gift Cards&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Sitemap&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+  
+      &lt;div class&#x3D;&quot;footer-section&quot;&gt;
+        &lt;h3&gt;Quick Links&lt;/h3&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Search&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Become A Reseller&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;About Us&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Contact Us&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Terms Of Service&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+  
+      &lt;div class&#x3D;&quot;footer-section&quot;&gt;
+        &lt;h3&gt;Account&lt;/h3&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;My Account&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Used Book Alerts&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Wishlist&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Partners&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Security&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+  
+      &lt;div class&#x3D;&quot;footer-newsletter&quot;&gt;
+        &lt;h3&gt;Receive the latest offers &amp; updates via email&lt;/h3&gt;
+        &lt;div class&#x3D;&quot;newsletter-input&quot;&gt;
+          &lt;input type&#x3D;&quot;email&quot; placeholder&#x3D;&quot;Enter Email&quot;&gt;
+          &lt;button type&#x3D;&quot;submit&quot;&gt;Subscribe&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;p class&#x3D;&quot;privacy-policy&quot;&gt;By signing up, you agree to the &lt;a href&#x3D;&quot;#&quot;&gt;Privacy Policy&lt;/a&gt;&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  
+    &lt;div class&#x3D;&quot;bottom-bar&quot;&gt;
+      &lt;div class&#x3D;&quot;follow-us&quot;&gt;
+        &lt;p&gt;Follow Us&lt;/p&gt;
+        &lt;div class&#x3D;&quot;social-icons&quot;&gt;
+          &lt;a href&#x3D;&quot;#&quot; aria-label&#x3D;&quot;Facebook&quot;&gt;&lt;i class&#x3D;&quot;fab fa-facebook-f&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+          &lt;a href&#x3D;&quot;#&quot; aria-label&#x3D;&quot;Twitter&quot;&gt;&lt;i class&#x3D;&quot;fab fa-twitter&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+          &lt;a href&#x3D;&quot;#&quot; aria-label&#x3D;&quot;Instagram&quot;&gt;&lt;i class&#x3D;&quot;fab fa-instagram&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+          &lt;a href&#x3D;&quot;#&quot; aria-label&#x3D;&quot;YouTube&quot;&gt;&lt;i class&#x3D;&quot;fab fa-youtube&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;book-store-logo&quot;&gt;
+        &lt;img src&#x3D;&quot;assets/image.png&quot; alt&#x3D;&quot;Book Store Logo&quot;&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;we-accept&quot;&gt;
+        &lt;p&gt;We Accept&lt;/p&gt;
+        &lt;div class&#x3D;&quot;payment-icons&quot;&gt;
+          &lt;i class&#x3D;&quot;fab fa-cc-visa&quot;&gt;&lt;/i&gt;
+          &lt;i class&#x3D;&quot;fab fa-cc-mastercard&quot;&gt;&lt;/i&gt;
+          &lt;i class&#x3D;&quot;fab fa-cc-amex&quot;&gt;&lt;/i&gt;
+          &lt;i class&#x3D;&quot;fab fa-cc-paypal&quot;&gt;&lt;/i&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./footer.component.sass</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.site-footer
+  background-color: #f8f8f8
+  color: #333
+  font-family: sans-serif
+
+  .top-bar
+    background-color: #222
+    color: #fff
+    display: flex
+    justify-content: space-around
+    align-items: center
+    padding: 15px 20px
+    font-size: 0.8rem
+
+    .top-bar-item
+      display: flex
+      align-items: center
+
+      i
+        margin-right: 10px
+        font-size: 1.2rem
+
+      .top-bar-text
+        .title
+          font-weight: bold
+          margin-bottom: 2px
+        .subtitle
+          color: #ccc
+
+  .main-footer
+    display: flex
+    justify-content: space-around
+    padding: 30px 20px
+    border-bottom: 1px solid #ddd
+
+    .footer-section
+      h3
+        color: #555
+        margin-bottom: 15px
+        font-size: 1rem
+        font-weight: bold
+
+      ul
+        list-style: none
+        padding: 0
+        margin: 0
+
+        li
+          margin-bottom: 8px
+
+          a
+            color: #777
+            text-decoration: none
+
+            &amp;:hover
+              color: #333
+
+    .footer-newsletter
+      h3
+        color: #555
+        margin-bottom: 15px
+        font-size: 1rem
+        font-weight: bold
+
+      .newsletter-input
+        display: flex
+        margin-bottom: 10px
+
+        input[type&#x3D;&quot;email&quot;]
+          padding: 10px
+          border: 1px solid #ccc
+          border-radius: 5px 0 0 5px
+          flex-grow: 1
+          font-size: 0.9rem
+
+          &amp;:focus
+            outline: none
+            border-color: #007bff
+
+        button[type&#x3D;&quot;submit&quot;]
+          background-color: #333
+          color: #fff
+          border: none
+          padding: 10px 15px
+          border-radius: 0 5px 5px 0
+          cursor: pointer
+          font-size: 0.9rem
+
+          &amp;:hover
+            background-color: #555
+
+      .privacy-policy
+        font-size: 0.8rem
+        color: #777
+
+        a
+          color: #007bff
+          text-decoration: none
+
+          &amp;:hover
+            text-decoration: underline
+
+  .bottom-bar
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 20px
+    font-size: 0.9rem
+    color: #777
+
+    .follow-us
+      p
+        margin-bottom: 5px
+        font-weight: bold
+
+      .social-icons
+        a
+          display: inline-block
+          margin-right: 10px
+          color: #555
+          font-size: 1.1rem
+          text-decoration: none
+
+          &amp;:hover
+            color: #333
+
+    .book-store-logo
+      img
+        max-height: 30px // Adjust as needed
+
+    .we-accept
+      p
+        margin-bottom: 5px
+        font-weight: bold
+
+      .payment-icons
+        i
+          display: inline-block
+          margin-left: 10px
+          font-size: 1.5rem
+          color: #555
+
+// Responsive adjustments (optional)
+@media (max-width: 768px)
+  .site-footer
+    .main-footer
+      flex-direction: column
+      align-items: flex-start
+      padding: 20px
+
+      .footer-section
+        margin-bottom: 20px
+        width: 100%
+
+    .bottom-bar
+      flex-direction: column
+      align-items: center
+
+      .follow-us, .book-store-logo, .we-accept
+        margin-bottom: 15px
+        text-align: center</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><footer class="site-footer">    <div class="top-bar">      <div class="top-bar-item">        <i class="fas fa-truck"></i>        <div class="top-bar-text">          <p class="title">Free Delivery</p>          <p class="subtitle">For all orders over ₹499</p>        </div>      </div>      <div class="top-bar-item">        <i class="fas fa-headset"></i>        <div class="top-bar-text">          <p class="title">Expert customer Service</p>          <p class="subtitle">For a shopping experience</p>        </div>      </div>      <div class="top-bar-item">        <i class="fas fa-percentage"></i>        <div class="top-bar-text">          <p class="title">Amazing Value</p>          <p class="subtitle">We offer competitive prices</p>        </div>      </div>      <div class="top-bar-item">        <i class="fas fa-lock"></i>        <div class="top-bar-text">          <p class="title">Safe Payment</p>          <p class="subtitle">100% secure payment</p>        </div>      </div>    </div>      <div class="main-footer">      <div class="footer-section">        <h3>Help</h3>        <ul>          <li><a href="#">Contact Us</a></li>          <li><a href="#">Help Topics</a></li>          <li><a href="#">Guarantee</a></li>          <li><a href="#">Shipping</a></li>          <li><a href="#">Store Pickup</a></li>          <li><a href="#">Terms</a></li>        </ul>      </div>        <div class="footer-section">        <h3>Explore</h3>        <ul>          <li><a href="#">About Us</a></li>          <li><a href="#">Careers</a></li>          <li><a href="#">Store Locations</a></li>          <li><a href="#">Events</a></li>          <li><a href="#">Gift Cards</a></li>          <li><a href="#">Sitemap</a></li>        </ul>      </div>        <div class="footer-section">        <h3>Quick Links</h3>        <ul>          <li><a href="#">Search</a></li>          <li><a href="#">Become A Reseller</a></li>          <li><a href="#">About Us</a></li>          <li><a href="#">Contact Us</a></li>          <li><a href="#">Terms Of Service</a></li>        </ul>      </div>        <div class="footer-section">        <h3>Account</h3>        <ul>          <li><a href="#">My Account</a></li>          <li><a href="#">Used Book Alerts</a></li>          <li><a href="#">Wishlist</a></li>          <li><a href="#">Partners</a></li>          <li><a href="#">Security</a></li>        </ul>      </div>        <div class="footer-newsletter">        <h3>Receive the latest offers & updates via email</h3>        <div class="newsletter-input">          <input type="email" placeholder="Enter Email">          <button type="submit">Subscribe</button>        </div>        <p class="privacy-policy">By signing up, you agree to the <a href="#">Privacy Policy</a></p>      </div>    </div>      <div class="bottom-bar">      <div class="follow-us">        <p>Follow Us</p>        <div class="social-icons">          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>        </div>      </div>      <div class="book-store-logo">        <img src="assets/image.png" alt="Book Store Logo">      </div>      <div class="we-accept">        <p>We Accept</p>        <div class="payment-icons">          <i class="fab fa-cc-visa"></i>          <i class="fab fa-cc-mastercard"></i>          <i class="fab fa-cc-amex"></i>          <i class="fab fa-cc-paypal"></i>        </div>      </div>    </div>  </footer></div>'
+    var COMPONENTS = [{'name': 'AddbookComponent', 'selector': 'app-addbook'},{'name': 'AddToCartComponent', 'selector': 'app-add-to-cart'},{'name': 'AddUpdateReviewComponent', 'selector': 'app-add-update-review'},{'name': 'AdminDashboardComponent', 'selector': 'app-admin-dashboard'},{'name': 'AdminHomeComponent', 'selector': 'app-admin-home'},{'name': 'AdminReturnProcessComponent', 'selector': 'app-admin-return-process'},{'name': 'AllorderstatusComponent', 'selector': 'app-allorderstatus'},{'name': 'AllReviewsComponent', 'selector': 'app-all-reviews'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AverageRatingComponent', 'selector': 'app-average-rating'},{'name': 'BookBannersComponent', 'selector': 'app-book-banners'},{'name': 'BookCarouselComponent', 'selector': 'app-book-carousel'},{'name': 'BookDealComponent', 'selector': 'app-book-deal'},{'name': 'BookdetailsComponent', 'selector': 'app-bookdetails'},{'name': 'BookHeroComponent', 'selector': 'app-book-hero'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategorybooksComponent', 'selector': 'app-categorybooks'},{'name': 'CategorybookslistComponent', 'selector': 'app-categorybookslist'},{'name': 'DashboardInventoryComponent', 'selector': 'app-dashboard-inventory'},{'name': 'DealOfTheDayComponent', 'selector': 'app-deal-of-the-day'},{'name': 'DeletebookComponent', 'selector': 'app-deletebook'},{'name': 'DeleteBookInventoryComponent', 'selector': 'app-delete-book-inventory'},{'name': 'DisplayInventoryComponent', 'selector': 'app-display-inventory'},{'name': 'EditorspickComponent', 'selector': 'app-editorspick'},{'name': 'FilterComponent', 'selector': 'app-filter'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LeftSidebarComponent', 'selector': 'app-left-sidebar'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'NavbarAdminComponent', 'selector': 'app-navbar-admin'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'OrderDetailsComponent', 'selector': 'app-order-details'},{'name': 'OrderListComponent', 'selector': 'app-order-list'},{'name': 'OrderManagementComponent', 'selector': 'app-order-management'},{'name': 'OrderTrackingComponent', 'selector': 'app-order-tracking'},{'name': 'PaymentComponent', 'selector': 'app-payment'},{'name': 'PlaceOrderComponent', 'selector': 'app-place-order'},{'name': 'RecentOrdersComponent', 'selector': 'app-recent-orders'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewComponent', 'selector': 'app-review'},{'name': 'ReviewsByBookIdComponent', 'selector': 'app-reviews-by-book-id'},{'name': 'ReviewsByUserIdComponent', 'selector': 'app-reviews-by-user-id'},{'name': 'SearchtitleComponent', 'selector': 'app-searchtitle'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'StarsComponent', 'selector': 'app-stars'},{'name': 'UpdatebookComponent', 'selector': 'app-updatebook'},{'name': 'UpdateQuantityComponent', 'selector': 'app-update-quantity'},{'name': 'UpdateTrackingComponent', 'selector': 'app-update-tracking'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'ViewbookidComponent', 'selector': 'app-viewbookid'},{'name': 'ViewByBookIDComponent', 'selector': 'app-view-by-book-id'},{'name': 'ViewEditReviewComponent', 'selector': 'app-view-edit-review'},{'name': 'WelcomeAdminComponent', 'selector': 'app-welcome-admin'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'FooterComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'FooterComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

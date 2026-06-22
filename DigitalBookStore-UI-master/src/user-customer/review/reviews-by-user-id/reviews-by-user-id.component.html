@@ -1,0 +1,9 @@
+<div class="d-flex flex-row m-3">
+    <div class="w-100">
+        <h4 *ngIf="!(reviews !== undefined && reviews.length == 0)"></h4>
+        <app-view-edit-review *ngFor="let review of reviews" [review]="review" class="mb-3" [canModify]="true"
+            [userView]="true" />
+        <h4 *ngIf="reviews === undefined"><br>Loading...</h4>
+        <h4 *ngIf="reviews !== undefined && reviews.length == 0">No Reviews Found! Start Giving Reviews!</h4>
+    </div>
+</div>

@@ -1,0 +1,221 @@
+<div class="user-list-container">
+      <div class="search-bar">
+      <label for="search">Search Users:</label>
+      <input type="text" id="search" (input)="onSearchInput($event)">
+    </div>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>User ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of displayedUsers">
+          <td>{{ user.userId }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.role }}</td>
+          <td class="actions">
+            <button class="edit-button1" (click)="editUser(user)">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="button-icon edit-icon">
+                <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.082.286a.75.75 0 0 1-.69 1.036h-.75a.75.75 0 0 1-.75-.75v-.75a.75.75 0 0 1 1.036-.69l.286-.082a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z" />
+              </svg>
+              
+            </button>
+            <button class="delete-button1" (click)="deleteUser(user)">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="button-icon delete-icon">
+                <path fill-rule="evenodd" d="M16.5 4.478v.227a.75.75 0 0 1-1.5 0V4.478c-.03-.227-.248-.405-.486-.405H9.486c-.238 0-.456.179-.486.405v.227a.75.75 0 0 1-1.5 0V4.478A2.25 2.25 0 0 1 8.25 2.25h7.5A2.25 2.25 0 0 1 17.25 4.478v-.003Z" clip-rule="evenodd" />
+                <path d="M6.75 9.75a.75.75 0 0 1 .75-.75h9a.75.75 0 0 1 .75.75v7.5a.75.75 0 0 1-.75.75h-9a.75.75 0 0 1-.75-.75v-7.5ZM9.75 12a.75.75 0 0 0-.75.75v3a.75.75 0 0 0 1.5 0v-3a.75.75 0 0 0-.75-.75Zm4.5 0a.75.75 0 0 0-.75.75v3a.75.75 0 0 0 1.5 0v-3a.75.75 0 0 0-.75-.75ZM5.25 9a.75.75 0 0 1 .75-.75h12a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-12a.75.75 0 0 1-.75-.75V9Z" />
+              </svg>
+            
+            </button>
+          </td>
+        </tr>
+        <tr *ngIf="displayedUsers.length === 0 && searchTerm">
+          <td colspan="5">No users found matching your search.</td>
+        </tr>
+        <tr *ngIf="displayedUsers.length === 0 && !searchTerm && users.length > 0">
+          <td colspan="5">No users to display on this page.</td>
+        </tr>
+        <tr *ngIf="users.length === 0 && !searchTerm">
+          <td colspan="5">Loading users...</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div class="pagination" *ngIf="filteredUsers.length > pageSize">
+      <button [disabled]="currentPage === 1" (click)="goToPage(currentPage - 1)">Previous</button>
+      <span *ngFor="let pageNumber of pageNumbers" class="page-number"
+            [class.active]="currentPage === pageNumber" (click)="goToPage(pageNumber)">
+        {{ pageNumber }}
+      </span>
+      <button [disabled]="currentPage === pageNumbers.length" (click)="goToPage(currentPage + 1)">Next</button>
+    </div>
+  </div>
+
+  <style>
+    .user-list-container {
+  padding: 20px;
+
+  h2 {
+    margin-bottom: 20px;
+    color: #08080a; 
+  }
+
+  .search-bar {
+    margin-bottom: 20px;
+
+    label {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    input[type='text'] {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 300px;
+      max-width: 100%;
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    thead {
+      background-color: #f2f2f2;
+
+      th {
+        text-align: left;
+        padding: 12px;
+        font-weight: bold;
+        color: #000000;
+        border-bottom: 2px solid #000000;
+      }
+    }
+
+    tbody {
+      tr {
+        &:nth-child(even) {
+          background-color: #f9f9f9;
+        }
+
+        td {
+          padding: 12px;
+          border-bottom: 1px solid #ddd;
+
+          &.actions {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+    button {
+      padding: 8px 12px;
+      margin: 0 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+
+    .page-number {
+      padding: 8px 12px;
+      margin: 0 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &.active {
+        background-color: #909195;
+        color: white;
+        border-color: #212225;
+      }
+    }
+  }
+
+  .actions {
+    /* button {
+      padding: 8px 12px;
+      margin-left: 5px;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &.edit-button {
+        background-color: #4caf50; 
+        color: white;
+        border: 1px solid #4caf50;
+
+        &:hover {
+          background-color: darken(#4caf50, 10%);
+        }
+      }
+
+      &.delete-button {
+        background-color: #f44336; 
+        color: white;
+        border: 1px solid #f44336;
+
+        &:hover {
+          background-color: darken(#f44336, 10%);
+        }
+      }
+    } */
+  }
+}
+
+.edit-button1,
+  .delete-button1 {
+    display: inline-flex;  
+    align-items: center;  
+    gap: 0.5rem;  
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .edit-button1 {
+    background-color: #f5f5f5;
+    color: rgb(0, 0, 0);
+    margin-right: 0.5rem;
+  }
+
+  
+
+  .delete-button1 {
+    background-color: #f5f5f5;
+    color: rgb(0, 0, 0);
+  }
+
+  
+
+  .button-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: rgb(0, 0, 0); 
+  }
+
+
+  </style>

@@ -1,0 +1,56 @@
+<div class="container mt-4">
+    <form [formGroup]="formData" #addForm='ngForm' (ngSubmit)="onSubmit(addForm.value)" class="p-4 border rounded">
+        <h5>Give your Rating <span *ngIf="userView">for {{review.bookTitle}}</span>:</h5>
+        <div class="fa-2x mb-3" style="cursor: pointer;" id="rating">
+            <i #str style="color:orange" [attr.data-value]="i + 1" *ngFor="let star of starNum; index as i"
+                (click)="handleRatingClick($event, i + 1)"></i>
+        </div>
+        <p *ngIf="rating != 0">Your Rating: {{ rating }} / 5</p>
+
+        <div class="mb-3">
+            <label for="comment" class="form-label">Comment</label>
+            <textarea id="comment" formControlName="comment" class="form-control" rows="3" required
+                (keydown)="handleEnter($event)" placeholder="Enter comment"></textarea>
+            <div *ngIf="formData.controls.comment.errors?.['required'] && formData.controls.comment.touched"
+                class="text-danger">
+                Comment is required!
+            </div>
+            <div *ngIf="formData.controls.comment.errors?.['minlength'] && formData.controls.comment.touched"
+                class="text-danger">
+                Comment must be more than 3 characters!
+            </div>
+            <div *ngIf="formData.controls.comment.errors?.['maxlength'] && formData.controls.comment.touched"
+                class="text-danger">
+                Comment must be less than 2000 characters!
+            </div>
+            <div *ngIf="formData.controls.comment.errors?.['pattern'] && formData.controls.comment.touched"
+                class="text-danger">
+                Comment should not start with a digit or space!
+            </div>
+        </div>
+        <button *ngIf="!update" type="submit" class="btn btn-success" [disabled]="addForm.invalid">Add Review</button>
+        <button *ngIf="update" type="submit" class="btn btn-success" [disabled]="addForm.invalid">Update Review</button>
+        <button type="button" (click)="openModal()" class="btn btn-warning ms-2">Cancel</button>
+        <div *ngIf="!successMessage && errorMessage" class="alert alert-danger mt-4">
+            {{ errorMessage }}
+        </div>
+    </form>
+</div>
+
+<div class="modal" [ngStyle]="{'display': display, 'background': 'rgba(0,0,0, .75)'}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">Cancel?</h1>
+                <button type="button" class="btn-close p-3" (click)="closeModal()"></button>
+            </div>
+            <div class="modal-body">
+                Do you want to discard your changes?
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="closeModal()" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <button type="button" (click)="discardChanges()" class="btn btn-danger">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+<i style="color:orange" *ngFor="let star of stars;  index as i" [ngClass]="{
+    'fa-solid fa-star' : rating >= i + 1,
+    'fa-regular fa-star-half-stroke' : rating < i + 1  && rating > i,
+    'fa-regular fa-star' : true
+}"></i>

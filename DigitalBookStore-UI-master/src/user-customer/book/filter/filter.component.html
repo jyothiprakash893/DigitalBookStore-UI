@@ -1,0 +1,13 @@
+<div class="filter-sidebar">
+  <!-- <h3>Filter by</h3> -->
+  <div class="filter-inputs-row">
+    <div class="form">
+      <label class="form-label"><i class="fas fa-filter"></i></label>
+      <label for="author"><input id="author" class="form-control" [(ngModel)]="authorQuery" placeholder="Filter by author name" /></label>
+    </div>
+    <div class="form">
+      <label for="category"><input id="category" class="form-control" [(ngModel)]="categoryQuery" placeholder="Filter by category" /></label>
+    </div>
+    <button class="btn btn-secondary" (click)="applyFilter()">Apply Filter</button>
+  </div>
+</div>

@@ -1,0 +1,1549 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>digital-book-store-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">digital-book-store-ui documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  PaymentComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/user-customer/order/order-management/components/payment/payment.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-payment</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./payment.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./payment.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#errorMessage" >errorMessage</a>
+                            </li>
+                            <li>
+                                <a href="#orderId" >orderId</a>
+                            </li>
+                            <li>
+                                <a href="#paymentForm" >paymentForm</a>
+                            </li>
+                            <li>
+                                <a href="#paymentSuccess" >paymentSuccess</a>
+                            </li>
+                            <li>
+                                <a href="#paymentSuccessfulCelebration" >paymentSuccessfulCelebration</a>
+                            </li>
+                            <li>
+                                <a href="#selectedPaymentMethod" >selectedPaymentMethod</a>
+                            </li>
+                            <li>
+                                <a href="#userId" >userId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cashOnDelivery" >cashOnDelivery</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#payWithCredits" >payWithCredits</a>
+                            </li>
+                            <li>
+                                <a href="#submitPayment" >submitPayment</a>
+                            </li>
+                            <li>
+                                <a href="#updateCardValidators" >updateCardValidators</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#cardNumberControl" >cardNumberControl</a>
+                                </li>
+                                <li>
+                                    <a href="#expiryDateControl" >expiryDateControl</a>
+                                </li>
+                                <li>
+                                    <a href="#cvvControl" >cvvControl</a>
+                                </li>
+                                <li>
+                                    <a href="#paymentMethodControl" >paymentMethodControl</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: FormBuilder, orderService: <a href="../injectables/OrderService.html" target="_self">OrderService</a>, router: Router, route: ActivatedRoute)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/user-customer/order/order-management/components/payment/payment.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>orderService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/OrderService.html" target="_self" >OrderService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cashOnDelivery"></a>
+                    <span class="name">
+                        <span ><b>cashOnDelivery</b></span>
+                        <a href="#cashOnDelivery"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cashOnDelivery()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="104"
+                                    class="link-to-prism">src/user-customer/order/order-management/components/payment/payment.component.ts:104</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="36"
+                                    class="link-to-prism">src/user-customer/order/order-management/components/payment/payment.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="payWithCredits"></a>
+                    <span class="name">
+                        <span ><b>payWithCredits</b></span>
+                        <a href="#payWithCredits"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>payWithCredits()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="68"
+                                    class="link-to-prism">src/user-customer/order/order-management/components/payment/payment.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submitPayment"></a>
+                    <span class="name">
+                        <span ><b>submitPayment</b></span>
+                        <a href="#submitPayment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>submitPayment()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="130"
+                                    class="link-to-prism">src/user-customer/order/order-management/components/payment/payment.component.ts:130</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateCardValidators"></a>
+                    <span class="name">
+                        <span ><b>updateCardValidators</b></span>
+                        <a href="#updateCardValidators"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateCardValidators(isCardPayment: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="49"
+                                    class="link-to-prism">src/user-customer/order/order-management/components/payment/payment.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>isCardPayment</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorMessage"></a>
+                    <span class="name">
+                        <span ><b>errorMessage</b></span>
+                        <a href="#errorMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/user-customer/order/order-management/components/payment/payment.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="orderId"></a>
+                    <span class="name">
+                        <span ><b>orderId</b></span>
+                        <a href="#orderId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/user-customer/order/order-management/components/payment/payment.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="paymentForm"></a>
+                    <span class="name">
+                        <span ><b>paymentForm</b></span>
+                        <a href="#paymentForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/user-customer/order/order-management/components/payment/payment.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="paymentSuccess"></a>
+                    <span class="name">
+                        <span ><b>paymentSuccess</b></span>
+                        <a href="#paymentSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/user-customer/order/order-management/components/payment/payment.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="paymentSuccessfulCelebration"></a>
+                    <span class="name">
+                        <span ><b>paymentSuccessfulCelebration</b></span>
+                        <a href="#paymentSuccessfulCelebration"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/user-customer/order/order-management/components/payment/payment.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedPaymentMethod"></a>
+                    <span class="name">
+                        <span ><b>selectedPaymentMethod</b></span>
+                        <a href="#selectedPaymentMethod"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;credit&quot; | &quot;card&quot; | &quot;cod&quot;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;card&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/user-customer/order/order-management/components/payment/payment.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userId"></a>
+                    <span class="name">
+                        <span ><b>userId</b></span>
+                        <a href="#userId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>+sessionStorage.getItem(&#x27;userId&#x27;)!</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/user-customer/order/order-management/components/payment/payment.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cardNumberControl"></a>
+                        <span class="name"><b>cardNumberControl</b><a href="#cardNumberControl"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>cardNumberControl()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="164" class="link-to-prism">src/user-customer/order/order-management/components/payment/payment.component.ts:164</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="expiryDateControl"></a>
+                        <span class="name"><b>expiryDateControl</b><a href="#expiryDateControl"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>expiryDateControl()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="168" class="link-to-prism">src/user-customer/order/order-management/components/payment/payment.component.ts:168</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cvvControl"></a>
+                        <span class="name"><b>cvvControl</b><a href="#cvvControl"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>cvvControl()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="172" class="link-to-prism">src/user-customer/order/order-management/components/payment/payment.component.ts:172</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="paymentMethodControl"></a>
+                        <span class="name"><b>paymentMethodControl</b><a href="#paymentMethodControl"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>paymentMethodControl()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="176" class="link-to-prism">src/user-customer/order/order-management/components/payment/payment.component.ts:176</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { OrderService } from &#x27;../../services/order.service&#x27;;
+import { Router, ActivatedRoute } from &#x27;@angular/router&#x27;;
+
+@Component({
+  selector: &#x27;app-payment&#x27;,
+  templateUrl: &#x27;./payment.component.html&#x27;,
+  styleUrls: [&#x27;./payment.component.css&#x27;],
+  standalone: false,
+
+})
+export class PaymentComponent implements OnInit {
+  paymentForm: FormGroup;
+  orderId: number &#x3D; 0;
+  userId: number &#x3D; +sessionStorage.getItem(&#x27;userId&#x27;)!;
+  errorMessage: string &#x3D; &#x27;&#x27;;
+  paymentSuccess: boolean &#x3D; false;
+  selectedPaymentMethod: &#x27;credit&#x27; | &#x27;card&#x27; | &#x27;cod&#x27; &#x3D; &#x27;card&#x27;; // Default to card
+  paymentSuccessfulCelebration: boolean &#x3D; false;
+
+  constructor(
+    private fb: FormBuilder,
+    private orderService: OrderService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
+    this.paymentForm &#x3D; this.fb.group({
+      paymentMethod: [&#x27;card&#x27;], // Add a control for payment method selection
+      cardNumber: [&#x27;&#x27;, [Validators.required, Validators.pattern(/^\d{16}$/)]],
+      expiryDate: [&#x27;&#x27;, [Validators.required, Validators.pattern(/^(0[1-9]|1[0-2])\/\d{2}$/)]],
+      cvv: [&#x27;&#x27;, [Validators.required, Validators.pattern(/^\d{3,4}$/)]],
+    });
+  }
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params &#x3D;&gt; {
+      this.orderId &#x3D; +params[&#x27;id&#x27;];
+    });
+
+    // Listen for changes in the payment method selection
+    this.paymentForm.get(&#x27;paymentMethod&#x27;)?.valueChanges.subscribe(method &#x3D;&gt; {
+      this.selectedPaymentMethod &#x3D; method;
+      // Conditionally update validators for card details
+      this.updateCardValidators(method &#x3D;&#x3D;&#x3D; &#x27;card&#x27;);
+    });
+  }
+
+  updateCardValidators(isCardPayment: boolean): void {
+    const cardNumberControl &#x3D; this.paymentForm.get(&#x27;cardNumber&#x27;);
+    const expiryDateControl &#x3D; this.paymentForm.get(&#x27;expiryDate&#x27;);
+    const cvvControl &#x3D; this.paymentForm.get(&#x27;cvv&#x27;);
+
+    if (isCardPayment) {
+      cardNumberControl?.setValidators([Validators.required, Validators.pattern(/^\d{16}$/)]);
+      expiryDateControl?.setValidators([Validators.required, Validators.pattern(/^(0[1-9]|1[0-2])\/\d{2}$/)]);
+      cvvControl?.setValidators([Validators.required, Validators.pattern(/^\d{3,4}$/)]);
+    } else {
+      cardNumberControl?.clearValidators();
+      expiryDateControl?.clearValidators();
+      cvvControl?.clearValidators();
+    }
+    cardNumberControl?.updateValueAndValidity();
+    expiryDateControl?.updateValueAndValidity();
+    cvvControl?.updateValueAndValidity();
+  }
+
+  payWithCredits(): void {
+    if (this.orderId &amp;&amp; this.selectedPaymentMethod &#x3D;&#x3D;&#x3D; &#x27;credit&#x27;) {
+      this.orderService.payWithCredits(this.orderId, this.userId).subscribe({
+        next: (response) &#x3D;&gt; {
+          console.log(&#x27;Payment with credits successful:&#x27;, response);
+          this.paymentSuccess &#x3D; true;
+          this.errorMessage &#x3D; &#x27;&#x27;;
+          this.paymentSuccessfulCelebration &#x3D; true; 
+          setTimeout(() &#x3D;&gt; {
+            this.router.navigate([&#x27;/order/details&#x27;, this.orderId]); // Navigate to order details
+          }, 6000);
+          // this.router.navigate([&#x27;/order/details&#x27;, this.orderId]);
+           // Navigate immediately after successful payment
+
+          this.orderService.clearCart().subscribe({
+            next: () &#x3D;&gt; {
+              console.log(&#x27;Cart cleared successfully&#x27;);
+            },
+            error: (clearCartError) &#x3D;&gt; {
+              console.error(&#x27;Error clearing cart:&#x27;, clearCartError);
+              // Optionally display a message to the user about cart clearing failure
+            }
+          });
+        },
+        error: (error) &#x3D;&gt; {
+          console.error(&#x27;Payment with credits failed:&#x27;, error);
+          this.errorMessage &#x3D; error.error?.message || &#x27;Payment with credits failed.&#x27;;
+          this.paymentSuccess &#x3D; false;
+          this.paymentSuccessfulCelebration &#x3D; false; 
+        }
+      });
+    } else {
+      this.errorMessage &#x3D; &#x27;Please select &quot;Credit&quot; as the payment method.&#x27;;
+    }
+  }
+
+  cashOnDelivery(): void {
+    if (this.orderId &amp;&amp; this.selectedPaymentMethod &#x3D;&#x3D;&#x3D; &#x27;cod&#x27;) {
+      this.orderService.cashOnDelivery(this.orderId, this.userId).subscribe({
+        next: (response) &#x3D;&gt; {
+          console.log(&#x27;Cash on Delivery initiated:&#x27;, response);
+          this.paymentSuccess &#x3D; true;
+          this.errorMessage &#x3D; &#x27;&#x27;;
+          this.paymentSuccessfulCelebration &#x3D; true; 
+          // this.router.navigate([&#x27;/order/details&#x27;, this.orderId]);
+          setTimeout(() &#x3D;&gt; {
+            this.router.navigate([&#x27;/order/details&#x27;, this.orderId]); // Navigate to order details
+          }, 6000);
+        },
+        error: (error) &#x3D;&gt; {
+          console.error(&#x27;Cash on Delivery failed to initiate:&#x27;, error);
+          this.errorMessage &#x3D; error.error?.message || &#x27;Failed to initiate Cash on Delivery.&#x27;;
+          this.paymentSuccess &#x3D; false;
+          this.paymentSuccessfulCelebration &#x3D; false;
+        }
+      });
+    } else {
+      this.errorMessage &#x3D; &#x27;Please select &quot;Cash on Delivery&quot; as the payment method.&#x27;;
+      this.paymentSuccessfulCelebration &#x3D; false;
+    }
+  }
+
+  submitPayment(): void {
+    if (this.paymentForm.valid &amp;&amp; this.orderId &amp;&amp; this.selectedPaymentMethod &#x3D;&#x3D;&#x3D; &#x27;card&#x27;) {
+      const paymentDetails &#x3D; this.paymentForm.value;
+      const paymentData &#x3D; { ...paymentDetails, orderId: this.orderId };
+
+      this.orderService.processPayment(this.orderId, paymentData).subscribe({
+        next: (response) &#x3D;&gt; {
+          console.log(&#x27;Card payment successful:&#x27;, response);
+          this.paymentSuccess &#x3D; true;
+          this.errorMessage &#x3D; &#x27;&#x27;;
+          this.paymentSuccessfulCelebration &#x3D; true; 
+          // this.router.navigate([&#x27;/order/details&#x27;, this.orderId]);
+          setTimeout(() &#x3D;&gt; {
+            this.router.navigate([&#x27;/order/details&#x27;, this.orderId]); // Navigate to order details
+          }, 6000);
+        },
+        error: (error) &#x3D;&gt; {
+          console.error(&#x27;Card payment failed:&#x27;, error);
+          this.errorMessage &#x3D; error.error?.message || &#x27;Card payment failed. Please check your payment details.&#x27;;
+          this.paymentSuccess &#x3D; false;
+          this.paymentSuccessfulCelebration &#x3D; false;
+        }
+      });
+    } else if (this.selectedPaymentMethod !&#x3D;&#x3D; &#x27;card&#x27;) {
+      this.errorMessage &#x3D; &#x27;Please select &quot;Card&quot; to use this payment method.&#x27;;
+      this.paymentSuccessfulCelebration &#x3D; false;
+    } else {
+      this.errorMessage &#x3D; &#x27;Please fill out all required card details correctly.&#x27;;
+      this.paymentSuccessfulCelebration &#x3D; false;
+
+    }
+  }
+
+
+  get cardNumberControl() {
+    return this.paymentForm.get(&#x27;cardNumber&#x27;);
+  }
+
+  get expiryDateControl() {
+    return this.paymentForm.get(&#x27;expiryDate&#x27;);
+  }
+
+  get cvvControl() {
+    return this.paymentForm.get(&#x27;cvv&#x27;);
+  }
+
+  get paymentMethodControl() {
+    return this.paymentForm.get(&#x27;paymentMethod&#x27;);
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;payment-container&quot;&gt;
+  &lt;header class&#x3D;&quot;payment-header&quot;&gt;
+    &lt;h1 class&#x3D;&quot;payment-title&quot;&gt;Secure Payment&lt;/h1&gt;
+    &lt;p class&#x3D;&quot;payment-subtitle&quot;&gt;for Order ID: &lt;span class&#x3D;&quot;order-id&quot;&gt;{{ orderId }}&lt;/span&gt;&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;div *ngIf&#x3D;&quot;errorMessage&quot; class&#x3D;&quot;alert alert-danger&quot; role&#x3D;&quot;alert&quot;&gt;
+    &lt;i class&#x3D;&quot;bi bi-exclamation-triangle-fill me-2&quot;&gt;&lt;/i&gt; {{ errorMessage }}
+  &lt;/div&gt;
+
+  &lt;div *ngIf&#x3D;&quot;paymentSuccessfulCelebration&quot; class&#x3D;&quot;payment-confirmation celebration&quot;&gt;
+    &lt;div class&#x3D;&quot;confirmation-header&quot;&gt;
+      &lt;i class&#x3D;&quot;bi bi-check-shield-fill&quot;&gt;&lt;/i&gt;
+      &lt;h3&gt;Payment Successful!&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;p&gt;Your order has been placed successfully.&lt;/p&gt;
+    &lt;p&gt;Redirecting to order details...&lt;/p&gt;
+    &lt;div class&#x3D;&quot;celebration-animation&quot;&gt;🎉&lt;/div&gt;
+    &lt;div class&#x3D;&quot;celebration-animation delay-1&quot;&gt;🎊&lt;/div&gt;
+    &lt;div class&#x3D;&quot;celebration-animation delay-2&quot;&gt;🎈&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;form *ngIf&#x3D;&quot;!paymentSuccessfulCelebration&quot; [formGroup]&#x3D;&quot;paymentForm&quot; class&#x3D;&quot;payment-form&quot;&gt;
+    &lt;section class&#x3D;&quot;payment-method-section&quot;&gt;
+      &lt;h3 class&#x3D;&quot;section-title&quot;&gt;&lt;i class&#x3D;&quot;bi bi-credit-card-2-front-fill me-2&quot;&gt;&lt;/i&gt; Select Payment Method&lt;/h3&gt;
+      &lt;div class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label for&#x3D;&quot;paymentMethod&quot; class&#x3D;&quot;form-label&quot;&gt;&lt;i class&#x3D;&quot;bi bi-caret-down-fill me-1&quot;&gt;&lt;/i&gt; Payment Options:&lt;/label&gt;
+        &lt;select id&#x3D;&quot;paymentMethod&quot; formControlName&#x3D;&quot;paymentMethod&quot; class&#x3D;&quot;form-select&quot;&gt;
+          &lt;option value&#x3D;&quot;card&quot;&gt;Credit/Debit Card&lt;/option&gt;
+          &lt;option value&#x3D;&quot;credit&quot;&gt;Credits&lt;/option&gt;
+          &lt;option value&#x3D;&quot;cod&quot;&gt;Cash on Delivery&lt;/option&gt;
+        &lt;/select&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;div *ngIf&#x3D;&quot;selectedPaymentMethod &#x3D;&#x3D;&#x3D; &#x27;card&#x27;&quot; class&#x3D;&quot;card-details-section&quot;&gt;
+      &lt;section class&#x3D;&quot;form-section&quot;&gt;
+        &lt;h3 class&#x3D;&quot;section-title&quot;&gt;&lt;i class&#x3D;&quot;bi bi-credit-card-fill me-2&quot;&gt;&lt;/i&gt; Card Details&lt;/h3&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label for&#x3D;&quot;cardNumber&quot; class&#x3D;&quot;form-label&quot;&gt;&lt;i class&#x3D;&quot;bi bi-credit-card me-1&quot;&gt;&lt;/i&gt; Card Number:&lt;/label&gt;
+          &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;cardNumber&quot; formControlName&#x3D;&quot;cardNumber&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;XXXX-XXXX-XXXX-XXXX&quot;&gt;
+          &lt;div *ngIf&#x3D;&quot;cardNumberControl?.invalid &amp;&amp; (cardNumberControl?.dirty || cardNumberControl?.touched)&quot; class&#x3D;&quot;error-feedback&quot;&gt;
+            &lt;div *ngIf&#x3D;&quot;cardNumberControl?.errors?.[&#x27;required&#x27;]&quot;&gt;Card number is required.&lt;/div&gt;
+            &lt;div *ngIf&#x3D;&quot;cardNumberControl?.errors?.[&#x27;pattern&#x27;]&quot;&gt;Invalid card number format (16 digits).&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;form-row&quot;&gt;
+          &lt;div class&#x3D;&quot;form-group col-md-6&quot;&gt;
+            &lt;label for&#x3D;&quot;expiryDate&quot; class&#x3D;&quot;form-label&quot;&gt;&lt;i class&#x3D;&quot;bi bi-calendar-fill me-1&quot;&gt;&lt;/i&gt; Expiry Date (MM/YY):&lt;/label&gt;
+            &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;expiryDate&quot; formControlName&#x3D;&quot;expiryDate&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;MM/YY&quot;&gt;
+            &lt;div *ngIf&#x3D;&quot;expiryDateControl?.invalid &amp;&amp; (expiryDateControl?.dirty || expiryDateControl?.touched)&quot; class&#x3D;&quot;error-feedback&quot;&gt;
+              &lt;div *ngIf&#x3D;&quot;expiryDateControl?.errors?.[&#x27;required&#x27;]&quot;&gt;Expiry date is required.&lt;/div&gt;
+              &lt;div *ngIf&#x3D;&quot;expiryDateControl?.errors?.[&#x27;pattern&#x27;]&quot;&gt;Invalid expiry date format (MM/YY).&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;form-group col-md-6&quot;&gt;
+            &lt;label for&#x3D;&quot;cvv&quot; class&#x3D;&quot;form-label&quot;&gt;&lt;i class&#x3D;&quot;bi bi-lock-fill me-1&quot;&gt;&lt;/i&gt; CVV:&lt;/label&gt;
+            &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;cvv&quot; formControlName&#x3D;&quot;cvv&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;XXX or XXXX&quot;&gt;
+            &lt;div *ngIf&#x3D;&quot;cvvControl?.invalid &amp;&amp; (cvvControl?.dirty || cvvControl?.touched)&quot; class&#x3D;&quot;error-feedback&quot;&gt;
+              &lt;div *ngIf&#x3D;&quot;cvvControl?.errors?.[&#x27;required&#x27;]&quot;&gt;CVV is required.&lt;/div&gt;
+              &lt;div *ngIf&#x3D;&quot;cvvControl?.errors?.[&#x27;pattern&#x27;]&quot;&gt;Invalid CVV format (3 or 4 digits).&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-primary btn-lg pay-button&quot; (click)&#x3D;&quot;submitPayment()&quot; [disabled]&#x3D;&quot;paymentForm.invalid || paymentSuccessfulCelebration&quot;&gt;
+          &lt;i class&#x3D;&quot;bi bi-credit-card-fill me-2&quot;&gt;&lt;/i&gt; Pay with Card
+        &lt;/button&gt;
+      &lt;/section&gt;
+    &lt;/div&gt;
+
+    &lt;div *ngIf&#x3D;&quot;selectedPaymentMethod &#x3D;&#x3D;&#x3D; &#x27;credit&#x27;&quot; class&#x3D;&quot;credits-payment-section&quot;&gt;
+      &lt;section class&#x3D;&quot;form-section&quot;&gt;
+        &lt;h3 class&#x3D;&quot;section-title&quot;&gt;&lt;i class&#x3D;&quot;bi bi-wallet-fill me-2&quot;&gt;&lt;/i&gt; Pay with Credits&lt;/h3&gt;
+        &lt;p&gt;You can use your available credits to pay for this order.&lt;/p&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-success btn-lg pay-button&quot; (click)&#x3D;&quot;payWithCredits()&quot; [disabled]&#x3D;&quot;paymentSuccessfulCelebration&quot;&gt;
+          &lt;i class&#x3D;&quot;bi bi-check-circle-fill me-2&quot;&gt;&lt;/i&gt; Pay with Credits
+        &lt;/button&gt;
+      &lt;/section&gt;
+    &lt;/div&gt;
+
+    &lt;div *ngIf&#x3D;&quot;selectedPaymentMethod &#x3D;&#x3D;&#x3D; &#x27;cod&#x27;&quot; class&#x3D;&quot;cod-payment-section&quot;&gt;
+      &lt;section class&#x3D;&quot;form-section&quot;&gt;
+        &lt;h3 class&#x3D;&quot;section-title&quot;&gt;&lt;i class&#x3D;&quot;bi bi-truck-fill me-2&quot;&gt;&lt;/i&gt; Cash on Delivery&lt;/h3&gt;
+        &lt;p&gt;Please ensure you have the total amount ready when your order is delivered.&lt;/p&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-info btn-lg pay-button&quot; (click)&#x3D;&quot;cashOnDelivery()&quot; [disabled]&#x3D;&quot;paymentSuccessfulCelebration&quot;&gt;
+          &lt;i class&#x3D;&quot;bi bi-cash-coin me-2&quot;&gt;&lt;/i&gt; Confirm Cash on Delivery
+        &lt;/button&gt;
+      &lt;/section&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+
+&lt;div *ngIf&#x3D;&quot;paymentSuccess &amp;&amp; !paymentSuccessfulCelebration&quot; class&#x3D;&quot;alert alert-success&quot; role&#x3D;&quot;alert&quot;&gt;
+  &lt;i class&#x3D;&quot;bi bi-check-circle-fill me-2&quot;&gt;&lt;/i&gt; Payment Successful! Redirecting to order details...
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./payment.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">/* Overall Container */
+.payment-container {
+  max-width: 600px; /* Adjusted max width */
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  font-family: &#x27;Segoe UI&#x27;, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header */
+.payment-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.payment-title {
+  color: #2c3e50;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.payment-subtitle {
+  color: #777;
+  font-size: 1rem;
+}
+
+.order-id {
+  font-weight: bold;
+  color: #3498db; /* Accent color */
+}
+
+/* Form Styling */
+.payment-form {
+  padding: 25px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+}
+
+.payment-method-section,
+.card-details-section,
+.credits-payment-section,
+.cod-payment-section {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.payment-method-section:last-child,
+.card-details-section:last-child,
+.credits-payment-section:last-child,
+.cod-payment-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.section-title {
+  color: #3498db; /* Accent color */
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-weight: 500;
+}
+
+.form-select,
+.form-control {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.form-select:focus,
+.form-control:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.form-group.col-md-6 {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.error-feedback {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* Payment Buttons */
+.pay-button {
+  background-color: #2ecc71; /* Success color */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pay-button:hover {
+  background-color: #27ae60;
+}
+
+.pay-button:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.btn-success {
+  background-color: #28a745;
+}
+
+.btn-info {
+  background-color: #17a2b8;
+}
+
+/* Alerts */
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.alert i {
+  vertical-align: middle;
+}
+
+/* Celebration Styles */
+.payment-confirmation.celebration {
+  margin-top: 30px;
+  padding: 30px;
+  border: 2px solid #28a745;
+  border-radius: 8px;
+  background-color: #e6ffe6;
+  color: #155724;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.payment-confirmation.celebration .confirmation-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.payment-confirmation.celebration .confirmation-header i {
+  font-size: 3rem;
+  color: #28a745;
+  margin-right: 10px;
+}
+
+.payment-confirmation.celebration h3 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.payment-confirmation.celebration p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.payment-confirmation.celebration .celebration-animation {
+  position: absolute;
+  font-size: 2rem;
+  animation: confetti 1s ease-in-out infinite;
+  opacity: 0;
+}
+
+.payment-confirmation.celebration .celebration-animation.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.payment-confirmation.celebration .celebration-animation.delay-2 {
+  animation-delay: 0.5s;
+  font-size: 2.5rem;
+}
+
+.payment-confirmation.celebration .celebration-animation:nth-child(1) { top: 10%; left: 10%; }
+.payment-confirmation.celebration .celebration-animation:nth-child(2) { top: 30%; right: 15%; }
+.payment-confirmation.celebration .celebration-animation:nth-child(3) { bottom: 20%; left: 25%; }
+
+@keyframes confetti {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0) rotate(180deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(50px) rotate(360deg);
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="payment-container">  <header class="payment-header">    <h1 class="payment-title">Secure Payment</h1>    <p class="payment-subtitle">for Order ID: <span class="order-id">{{ orderId }}</span></p>  </header>  <div *ngIf="errorMessage" class="alert alert-danger" role="alert">    <i class="bi bi-exclamation-triangle-fill me-2"></i> {{ errorMessage }}  </div>  <div *ngIf="paymentSuccessfulCelebration" class="payment-confirmation celebration">    <div class="confirmation-header">      <i class="bi bi-check-shield-fill"></i>      <h3>Payment Successful!</h3>    </div>    <p>Your order has been placed successfully.</p>    <p>Redirecting to order details...</p>    <div class="celebration-animation">🎉</div>    <div class="celebration-animation delay-1">🎊</div>    <div class="celebration-animation delay-2">🎈</div>  </div>  <form *ngIf="!paymentSuccessfulCelebration" [formGroup]="paymentForm" class="payment-form">    <section class="payment-method-section">      <h3 class="section-title"><i class="bi bi-credit-card-2-front-fill me-2"></i> Select Payment Method</h3>      <div class="form-group">        <label for="paymentMethod" class="form-label"><i class="bi bi-caret-down-fill me-1"></i> Payment Options:</label>        <select id="paymentMethod" formControlName="paymentMethod" class="form-select">          <option value="card">Credit/Debit Card</option>          <option value="credit">Credits</option>          <option value="cod">Cash on Delivery</option>        </select>      </div>    </section>    <div *ngIf="selectedPaymentMethod === \'card\'" class="card-details-section">      <section class="form-section">        <h3 class="section-title"><i class="bi bi-credit-card-fill me-2"></i> Card Details</h3>        <div class="form-group">          <label for="cardNumber" class="form-label"><i class="bi bi-credit-card me-1"></i> Card Number:</label>          <input type="text" id="cardNumber" formControlName="cardNumber" class="form-control" placeholder="XXXX-XXXX-XXXX-XXXX">          <div *ngIf="cardNumberControl?.invalid && (cardNumberControl?.dirty || cardNumberControl?.touched)" class="error-feedback">            <div *ngIf="cardNumberControl?.errors?.[\'required\']">Card number is required.</div>            <div *ngIf="cardNumberControl?.errors?.[\'pattern\']">Invalid card number format (16 digits).</div>          </div>        </div>        <div class="form-row">          <div class="form-group col-md-6">            <label for="expiryDate" class="form-label"><i class="bi bi-calendar-fill me-1"></i> Expiry Date (MM/YY):</label>            <input type="text" id="expiryDate" formControlName="expiryDate" class="form-control" placeholder="MM/YY">            <div *ngIf="expiryDateControl?.invalid && (expiryDateControl?.dirty || expiryDateControl?.touched)" class="error-feedback">              <div *ngIf="expiryDateControl?.errors?.[\'required\']">Expiry date is required.</div>              <div *ngIf="expiryDateControl?.errors?.[\'pattern\']">Invalid expiry date format (MM/YY).</div>            </div>          </div>          <div class="form-group col-md-6">            <label for="cvv" class="form-label"><i class="bi bi-lock-fill me-1"></i> CVV:</label>            <input type="text" id="cvv" formControlName="cvv" class="form-control" placeholder="XXX or XXXX">            <div *ngIf="cvvControl?.invalid && (cvvControl?.dirty || cvvControl?.touched)" class="error-feedback">              <div *ngIf="cvvControl?.errors?.[\'required\']">CVV is required.</div>              <div *ngIf="cvvControl?.errors?.[\'pattern\']">Invalid CVV format (3 or 4 digits).</div>            </div>          </div>        </div>        <button type="button" class="btn btn-primary btn-lg pay-button" (click)="submitPayment()" [disabled]="paymentForm.invalid || paymentSuccessfulCelebration">          <i class="bi bi-credit-card-fill me-2"></i> Pay with Card        </button>      </section>    </div>    <div *ngIf="selectedPaymentMethod === \'credit\'" class="credits-payment-section">      <section class="form-section">        <h3 class="section-title"><i class="bi bi-wallet-fill me-2"></i> Pay with Credits</h3>        <p>You can use your available credits to pay for this order.</p>        <button type="button" class="btn btn-success btn-lg pay-button" (click)="payWithCredits()" [disabled]="paymentSuccessfulCelebration">          <i class="bi bi-check-circle-fill me-2"></i> Pay with Credits        </button>      </section>    </div>    <div *ngIf="selectedPaymentMethod === \'cod\'" class="cod-payment-section">      <section class="form-section">        <h3 class="section-title"><i class="bi bi-truck-fill me-2"></i> Cash on Delivery</h3>        <p>Please ensure you have the total amount ready when your order is delivered.</p>        <button type="button" class="btn btn-info btn-lg pay-button" (click)="cashOnDelivery()" [disabled]="paymentSuccessfulCelebration">          <i class="bi bi-cash-coin me-2"></i> Confirm Cash on Delivery        </button>      </section>    </div>  </form></div><div *ngIf="paymentSuccess && !paymentSuccessfulCelebration" class="alert alert-success" role="alert">  <i class="bi bi-check-circle-fill me-2"></i> Payment Successful! Redirecting to order details...</div></div>'
+    var COMPONENTS = [{'name': 'AddbookComponent', 'selector': 'app-addbook'},{'name': 'AddToCartComponent', 'selector': 'app-add-to-cart'},{'name': 'AddUpdateReviewComponent', 'selector': 'app-add-update-review'},{'name': 'AdminDashboardComponent', 'selector': 'app-admin-dashboard'},{'name': 'AdminHomeComponent', 'selector': 'app-admin-home'},{'name': 'AdminReturnProcessComponent', 'selector': 'app-admin-return-process'},{'name': 'AllorderstatusComponent', 'selector': 'app-allorderstatus'},{'name': 'AllReviewsComponent', 'selector': 'app-all-reviews'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AverageRatingComponent', 'selector': 'app-average-rating'},{'name': 'BookBannersComponent', 'selector': 'app-book-banners'},{'name': 'BookCarouselComponent', 'selector': 'app-book-carousel'},{'name': 'BookDealComponent', 'selector': 'app-book-deal'},{'name': 'BookdetailsComponent', 'selector': 'app-bookdetails'},{'name': 'BookHeroComponent', 'selector': 'app-book-hero'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategorybooksComponent', 'selector': 'app-categorybooks'},{'name': 'CategorybookslistComponent', 'selector': 'app-categorybookslist'},{'name': 'DashboardInventoryComponent', 'selector': 'app-dashboard-inventory'},{'name': 'DealOfTheDayComponent', 'selector': 'app-deal-of-the-day'},{'name': 'DeletebookComponent', 'selector': 'app-deletebook'},{'name': 'DeleteBookInventoryComponent', 'selector': 'app-delete-book-inventory'},{'name': 'DisplayInventoryComponent', 'selector': 'app-display-inventory'},{'name': 'EditorspickComponent', 'selector': 'app-editorspick'},{'name': 'FilterComponent', 'selector': 'app-filter'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LeftSidebarComponent', 'selector': 'app-left-sidebar'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'NavbarAdminComponent', 'selector': 'app-navbar-admin'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'OrderDetailsComponent', 'selector': 'app-order-details'},{'name': 'OrderListComponent', 'selector': 'app-order-list'},{'name': 'OrderManagementComponent', 'selector': 'app-order-management'},{'name': 'OrderTrackingComponent', 'selector': 'app-order-tracking'},{'name': 'PaymentComponent', 'selector': 'app-payment'},{'name': 'PlaceOrderComponent', 'selector': 'app-place-order'},{'name': 'RecentOrdersComponent', 'selector': 'app-recent-orders'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewComponent', 'selector': 'app-review'},{'name': 'ReviewsByBookIdComponent', 'selector': 'app-reviews-by-book-id'},{'name': 'ReviewsByUserIdComponent', 'selector': 'app-reviews-by-user-id'},{'name': 'SearchtitleComponent', 'selector': 'app-searchtitle'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'StarsComponent', 'selector': 'app-stars'},{'name': 'UpdatebookComponent', 'selector': 'app-updatebook'},{'name': 'UpdateQuantityComponent', 'selector': 'app-update-quantity'},{'name': 'UpdateTrackingComponent', 'selector': 'app-update-tracking'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'ViewbookidComponent', 'selector': 'app-viewbookid'},{'name': 'ViewByBookIDComponent', 'selector': 'app-view-by-book-id'},{'name': 'ViewEditReviewComponent', 'selector': 'app-view-edit-review'},{'name': 'WelcomeAdminComponent', 'selector': 'app-welcome-admin'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'PaymentComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'PaymentComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
